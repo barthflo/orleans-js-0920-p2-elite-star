@@ -1,0 +1,62 @@
+.SearchBar{
+    z-index:10;
+}
+.SearchBar .btn{
+    border: 2px solid var(--light);
+    color: var(--light);
+    background: var(--primary-color);
+    border-radius: 30px;
+    outline: none;
+    font-family:var(--font-light);
+    text-transform: capitalize;
+    font-size:.8em;
+    box-shadow: 2px 2px 7px var(--primary-color);
+    cursor: text;
+    transition: .2s ease-in;
+}
+
+.SearchBar .btn:hover {
+    background: var(--light);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transition: .2s ease-in;
+}
+
+.SearchBar button .icon{
+    font-size:1.2em;
+}
+.SearchBar button.submit{
+    background :var(--secondary-color);
+}
+
+.SearchBar .search-drop-down{
+    top:55px;
+    width:70vw;
+    left:50%;
+    transform: translateX(-50%);
+    background:var(--primary-color);
+    border-radius: 30px;
+    box-shadow: 2px 2px 7px var(--primary-color);
+    z-index:20;
+}
+.SearchBar .search-drop-down .custom-select{
+    width:100%;
+}
+
+.SearchBar .search-drop-down select{
+    text-transform: capitalize;
+    width: fill-available;
+    appearance:none;
+    border:none;
+    outline:none;  
+}
+
+.closing-container{
+    left:0;
+    top:0;
+    height:100vh;
+    z-index:0;
+}
+.hidden{
+    display:none;
+}
