@@ -1,8 +1,8 @@
-
+import './Search.css';
 
 function Search() {
     return (
-        <div className="search text-white pt-4 pr-5">
+        <div className="search text-white">
            <p>Search</p> 
         </div>
     )
