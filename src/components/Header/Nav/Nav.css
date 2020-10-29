@@ -1,0 +1,4 @@
+.nav li a{
+    color: var(--light);
+    font-family: var(--font-light);
+}
