@@ -1,0 +1,18 @@
+.back-top{
+    outline:none;
+    color: var(--light);
+    transition: .5s ease-in;
+}
+
+.back-top .button-top{
+    /* color: var(--color-light); */
+    font-size:2em;
+    font-weight:100;
+    outline:none;
+}
+.back-top .button-top:hover{
+    background-color:var(--light);
+    border-radius:30px;
+    transition: .5s ease-in;
+    outline:none;
+}

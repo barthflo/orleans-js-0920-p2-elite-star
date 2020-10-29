@@ -2,45 +2,53 @@
     z-index:10;
 }
 .SearchBar .btn{
-    border: 2px solid var(--light);
+    border: 1px solid var(--light);
     color: var(--light);
-    background: var(--primary-color);
+    background: transparent;
     border-radius: 30px;
     outline: none;
     font-family:var(--font-light);
     text-transform: capitalize;
-    font-size:.8em;
     box-shadow: 2px 2px 7px var(--primary-color);
     cursor: text;
-    transition: .2s ease-in;
+    transition: .5s ease-in;
 }
 
 .SearchBar .btn:hover {
     background: var(--light);
     border-color: var(--primary-color);
     color: var(--primary-color);
-    transition: .2s ease-in;
+    transition: .5s ease-in;
 }
 
-.SearchBar button .icon{
-    font-size:1.2em;
+.SearchBar button .search-icon svg{
+    font-size:1.5em;
 }
-.SearchBar button.submit{
-    background :var(--secondary-color);
+.SearchBar .btn-submit{
+    color:var(--secondary-color);
+    background:var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    width:auto;
+}
+.SearchBar .btn-submit:hover{
+    color:var(--primary-color);  
 }
 
 .SearchBar .search-drop-down{
-    top:55px;
-    width:70vw;
+    bottom:85px;
+    width:100vw;
+    height:fit-content;
     left:50%;
     transform: translateX(-50%);
-    background:var(--primary-color);
-    border-radius: 30px;
+    background-image:url('http://getwallpapers.com/wallpaper/full/e/b/1/1073321-galaxy-widescreen-wallpaper-1920x1200-for-mac.jpg');
+    background-size:cover;
     box-shadow: 2px 2px 7px var(--primary-color);
     z-index:20;
 }
 .SearchBar .search-drop-down .custom-select{
-    width:100%;
+    background-color:#ffffff4f;
+    border-color:transparent;
+    margin: 2px 0;
 }
 
 .SearchBar .search-drop-down select{
@@ -48,7 +56,10 @@
     width: fill-available;
     appearance:none;
     border:none;
-    outline:none;  
+    outline:none; 
+    background-color: transparent; 
+    color:var(--light);
+    font-family:var(--font-light);
 }
 
 .closing-container{
@@ -59,4 +70,28 @@
 }
 .hidden{
     display:none;
+}
+
+@media screen and (min-width:768px){
+    .SearchBar .btn{
+        font-size:1em;
+        width:150px;
+    }
+    .SearchBar .btn-submit{
+        font-size:1em;
+        width:auto;
+        align-self:flex-end;
+    }
+    .SearchBar .search-drop-down{
+        width:auto;
+        top:75px;
+        border-radius: 30px;
+    }
+    .SearchBar .search-drop-down form{
+        flex-wrap: nowrap !important;
+    }
+    .SearchBar .search-drop-down .custom-select{
+        width:170px;
+        margin: 0 2px;
+    }
 }

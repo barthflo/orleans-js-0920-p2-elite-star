@@ -2,8 +2,9 @@
     position:fixed;
     bottom:0;
     z-index:10;
+    background-image: url("http://getwallpapers.com/wallpaper/full/e/b/1/1073321-galaxy-widescreen-wallpaper-1920x1200-for-mac.jpg");
+    background-size:cover;
 }
-
 @media screen and (min-width:768px){
     .header{
         top:0;
