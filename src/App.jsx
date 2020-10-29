@@ -2,6 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaGalacticSenate } from 'react-icons/fa';
 import { GiLightSabers } from 'react-icons/gi';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
         <FaGalacticSenate className="icon color-cold" />
         <GiLightSabers className="icon color-warm" />
       </div>
+      <Footer />
     </main>
-  )
-};
+  );
+}
 
 export default App;
