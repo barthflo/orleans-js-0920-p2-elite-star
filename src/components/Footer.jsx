@@ -1,6 +1,5 @@
 import React from 'react';
 import './Footer.css';
-import './Footermobile.css';
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
@@ -17,10 +16,10 @@ function Footer() {
                             <div>
                                 <p className="pAld"><a href="mailto:example.com"> elitestar@force.al</a> <br />
                                     <a href="tel:00000000" >0679497610</a>  <br />
-                           <a href="https://goo.gl/maps/YMwRMT58xhVPdA8d8">Level 7, Anvil House <br />
+                                    <a href="https://goo.gl/maps/YMwRMT58xhVPdA8d8">Level 7, Anvil House <br />
                             138 Wakefield Street <br />
-                            Floreltiaan, AL</a> 
-                            </p>
+                            Floreltiaan, AL</a>
+                                </p>
                             </div>
                         </div>
 
@@ -29,18 +28,17 @@ function Footer() {
                             <div>
                                 <p className="pCor"><a href="mailto:example.com">      elitestar@dark.rep</a> <br />
                                     <a href="tel:00000000" >0679497610</a> <br /> <a href="https://goo.gl/maps/acaUiLjsJCprCGZ66">
-                                Keizersgracht 174-11016 DW
+                                        Keizersgracht 174-11016 DW
                                 Sor-Akai Coruscant</a>
                                 </p>
                             </div>
                         </div>
                     </div>
 
-
-
                     <div className="About">
                         <h2 className="h2about">ABOUT US</h2>
-                        <p className="pAb"><a href="example.com">Elite Star Team</a> <br />
+                        <p className="pAb">
+                            <a href="example.com">Elite Star Team</a> <br />
                             <a href="example.com">Models</a> <br />
                             <a href="example.com">Press</a> <br />
                             <a href="example.com">Career</a> <br />
