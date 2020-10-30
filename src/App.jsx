@@ -4,6 +4,7 @@ import Home from "./components/Pages/Home/Home";
 import Models from "./components/Pages/Models/Models";
 import About from "./components/Pages/About/About";
 import Logo from "./components/Header/Logo/Logo";
+import Footer from "./components/Footer/Footer";
 // import Favorites from "./components/Header/Favorites/Favorites";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -15,6 +16,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+
       <Switch>
         <Route path="/logo" component={Logo} />
         <Route exact path="/" component={Home} />
@@ -23,7 +25,7 @@ function App() {
 
         {/* <Route path="/favorites" component={Favorites} /> */}
       </Switch>
-      
+      <Footer />
     </div>
   );
 }
