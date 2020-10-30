@@ -2,7 +2,7 @@ import './Header.css'
 import Nav from './Nav/Nav';
 import Logo from './Logo/Logo';
 import Search from './Search/Search';
-import BackToTop from '../BackToTop/BackToTop'
+
 
 
 // import Favorites from './Favorites/Favorites';
@@ -16,7 +16,6 @@ function Header() {
             <Logo />
             <Nav />
             <Search />
-            <BackToTop />
             {/* <Favorites /> */}
         </div>
     )
