@@ -3,12 +3,10 @@ import "./Articles.css";
 
 
 function Articles() {
-
     const Simo = {
         image: "http://www.starwars-holonet.com/news/2019/2019-12-23-starwars-9-revue-de-presse-1.jpg",
         name: "Simo",
     }
-
     return (
         <div>
             <div className="d-flex justify-content-center p-5 bg-secondary text-white">
