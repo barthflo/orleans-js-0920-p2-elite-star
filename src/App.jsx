@@ -4,6 +4,7 @@ import Home from "./components/Pages/Home/Home";
 import Models from "./components/Pages/Models/Models";
 import About from "./components/Pages/About/About";
 import Logo from "./components/Header/Logo/Logo";
+import Articles from './components/Articles/Articles';
 // import Favorites from "./components/Header/Favorites/Favorites";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
