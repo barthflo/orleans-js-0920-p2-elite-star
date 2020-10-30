@@ -1,5 +1,5 @@
-import React from 'react'
-import ModelsCode from '../../ModelsCode'
+import React from 'react';
+import ModelsCode from '../../ModelsCode';
 
 function Models() {
     return (

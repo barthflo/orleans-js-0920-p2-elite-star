@@ -22,7 +22,7 @@ function App() {
       </Switch>
 
       <Header />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
