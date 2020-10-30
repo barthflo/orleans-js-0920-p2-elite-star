@@ -1,0 +1,16 @@
+.nav li a{
+    color: var(--light);
+    font-family: var(--font-light);
+}
+
+
+
+
+@media screen and (max-width: 768px){
+.nav .ul {
+    flex-direction: column;
+   padding-left: 130px;
+}
+
+
+}
