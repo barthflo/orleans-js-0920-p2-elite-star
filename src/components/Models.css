@@ -8,11 +8,9 @@
     display: flex;
     justify-content: center;
     padding: 2%;
-   /* transition: 0.5s ease-in;*/
 }
 
 .modelSection:hover{
-   /* transition: 0.5s ease-in;*/
     background-color: rgb(202, 200, 200);
     cursor: pointer;
 
