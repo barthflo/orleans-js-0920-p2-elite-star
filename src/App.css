@@ -19,7 +19,7 @@ body {
   --secondary-color: rgba(234, 201, 42, 1);
   --color-cold: rgba(80, 193, 230, 1);
   --color-warm: rgba(212, 33, 82, 1);
-  --light: rgba(226, 226, 240, 1);
-  --light-medium: rgba(119, 119, 148, 1);
+  --light: rgb(209, 209, 209);
+  --light-medium: rgb(132, 132, 148);
 }
 
