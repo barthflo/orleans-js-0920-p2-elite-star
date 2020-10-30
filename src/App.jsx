@@ -7,6 +7,8 @@ import Logo from "./components/Header/Logo/Logo";
 import Articles from './components/Articles/Articles';
 // import Favorites from "./components/Header/Favorites/Favorites";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from "./components/Footer/Footer";
+import { Switch, Route } from 'react-router-dom';
 
 
 
@@ -16,16 +18,14 @@ function App() {
       <Header />
       <Articles />
       <Switch>
-          <Route path="/logo" component={Logo} /> 
-          <Route exact path="/" component={Home} />
-          <Route path="/models" component={Models} />
-          <Route path="/about" component={About} />
-          
-          {/* <Route path="/favorites" component={Favorites} /> */}
-        </Switch> 
+        <Route path="/logo" component={Logo} />
+        <Route exact path="/" component={Home} />
+        <Route path="/models" component={Models} />
+        <Route path="/about" component={About} />
+        {/* <Route path="/favorites" component={Favorites} /> */}
+      </Switch>
+      <Footer />
     </div>
   );
 }
-
-
 export default App;
