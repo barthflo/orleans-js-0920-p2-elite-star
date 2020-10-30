@@ -7,11 +7,11 @@ import './Header.css';
 
 const Header = () =>{
   return (
-    <div className="header p-3 w-100 bg-dark d-flex justify-content-around align-items-center">
+    <div className="header p-3 w-100 bg-dark d-flex justify-content-between align-items-center">
       <Logo />
       <Nav />
       <SearchBar />
-      <Favourites />
+      {/* <Favourites /> */}
       <BackToTop />
       
     </div>

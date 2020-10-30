@@ -10,7 +10,7 @@ class SearchBar extends React.Component {
         gender : "Choose a gender...",
         species : "Choose an origin..." ,
         eyes : "Pick eyes' color...",
-        side : "Pick a side"
+        side : "Pick a side",
     }
     componentDidMount(){
         fetch("https://rawcdn.githack.com/akabab/starwars-api/0.2.1/api/all.json")

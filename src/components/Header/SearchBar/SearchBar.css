@@ -40,7 +40,7 @@
     height:fit-content;
     left:50%;
     transform: translateX(-50%);
-    background-image:url('http://getwallpapers.com/wallpaper/full/e/b/1/1073321-galaxy-widescreen-wallpaper-1920x1200-for-mac.jpg');
+    background-image:url('../../../assets/galaxy.jpg');
     background-size:cover;
     box-shadow: 2px 2px 7px var(--primary-color);
     z-index:20;
@@ -53,7 +53,7 @@
 
 .SearchBar .search-drop-down select{
     text-transform: capitalize;
-    width: fill-available;
+    width: stretch;
     appearance:none;
     border:none;
     outline:none; 
@@ -91,7 +91,7 @@
         flex-wrap: nowrap !important;
     }
     .SearchBar .search-drop-down .custom-select{
-        width:170px;
+        width:200px;
         margin: 0 2px;
     }
 }
