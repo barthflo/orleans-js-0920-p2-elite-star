@@ -11,14 +11,14 @@
     text-transform: capitalize;
     box-shadow: 2px 2px 7px var(--primary-color);
     cursor: text;
-    transition: .5s ease-in;
+    transition: .3s ease-in;
 }
 
 .SearchBar .btn:hover {
     background: var(--light);
     border-color: var(--primary-color);
     color: var(--primary-color);
-    transition: .5s ease-in;
+    transition: .3s ease-in;
 }
 
 .SearchBar button .search-icon svg{
@@ -26,7 +26,7 @@
 }
 .SearchBar .btn-submit{
     color:var(--secondary-color);
-    background:var(--primary-color);
+    background:transparent;
     border: 1px solid var(--secondary-color);
     width:auto;
 }
@@ -74,7 +74,7 @@
 
 @media screen and (min-width:768px){
     .SearchBar .btn{
-        font-size:1em;
+        font-size:.9em;
         width:150px;
     }
     .SearchBar .btn-submit{

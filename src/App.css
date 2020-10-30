@@ -14,7 +14,7 @@ body {
   --font-heavy: 'Montserrat Alternates', sans-serif;
   --font-medium: 'Heebo', sans-serif;
   --font-light: 'Comfortaa', cursive;
-  --font--serif: 'Cormorant';
+  --font-serif: 'Cormorant', serif;
   --primary-color: rgba(17, 17, 84, 1);
   --secondary-color: rgba(234, 201, 42, 1);
   --color-cold: rgba(80, 193, 230, 1);
