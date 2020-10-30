@@ -1,17 +1,30 @@
 import './App.css';
+import Header from './components/Header/Header';
+import Home from "./components/Pages/Home/Home";
+import Models from "./components/Pages/Models/Models";
+import About from "./components/Pages/About/About";
+import Logo from "./components/Header/Logo/Logo";
+// import Favorites from "./components/Header/Favorites/Favorites";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FaGalacticSenate } from 'react-icons/fa';
-import { GiLightSabers } from 'react-icons/gi';
-import Articles from './components/Articles/Articles'; 
+
 
 
 function App() {
-  return (
-    <main className="container d-flex flex-column justify-content-center align-items-center">
-    
+  return (      
+    <div className="App">
+      <Header />
       <Articles />
-    </main>
-  )
-};
+      <Switch>
+          <Route path="/logo" component={Logo} /> 
+          <Route exact path="/" component={Home} />
+          <Route path="/models" component={Models} />
+          <Route path="/about" component={About} />
+          
+          {/* <Route path="/favorites" component={Favorites} /> */}
+        </Switch> 
+    </div>
+  );
+}
+
 
 export default App;
