@@ -1,16 +1,17 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FaGalacticSenate } from 'react-icons/fa';
-import { GiLightSabers } from 'react-icons/gi';
+import Models from './components/Models';
+import {Switch, Route} from 'react-router-dom';
+import ProfilPage from './components/ProfilPage';
 
 function App() {
   return (
-    <main className="container d-flex flex-column justify-content-center align-items-center">
-      <h1>Hello EliteStar !</h1>
-      <p>Let&apos;s start coding!</p>
+    <main >
       <div>
-        <FaGalacticSenate className="icon color-cold" />
-        <GiLightSabers className="icon color-warm" />
+        <Models/>
+        <Switch>
+          <Route path="/ProfilPage" component={ProfilPage}/>
+        </Switch>
       </div>
     </main>
   )
