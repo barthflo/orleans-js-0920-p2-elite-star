@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
 
+
 body {
   margin: 0;
   padding: 0;
@@ -17,25 +18,4 @@ body {
   --color-warm: rgba(212, 33, 82, 1);
   --light: rgba(226, 226, 240, 1);
   --light-medium: rgba(119, 119, 148, 1);
-}
-.container {
-  height: 100vh;
-}
-
-h1 {
-  font-family: var(--font-heavy);
-}
-
-p {
-  font-family: var(--font-light);
-}
-
-.icon {
-  font-size: 2em;
-}
-.color-warm {
-  color: var(--color-warm);
-}
-.color-cold {
-  color: var(--color-cold);
 }

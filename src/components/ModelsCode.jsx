@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './Models.css';
 import ModelCard from './ModelCard';
 
-class Models extends React.Component {
+class ModelsCode extends React.Component {
     state = {
         Characters: []
     }
@@ -20,11 +20,11 @@ class Models extends React.Component {
     render() {
         return (
             <div className="model" >
-                {this.state.Characters.map(character =><ModelCard {...character} />)}
+                {this.state.Characters.map(character => <ModelCard {...character} />)}
             </div>
 
         )
-    }
-}
+    };
+};
 
-export default Models;
+export default ModelsCode;
