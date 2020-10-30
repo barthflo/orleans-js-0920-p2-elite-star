@@ -1,4 +1,5 @@
 import logo from '../../../Assets/Logo.png';
+import './Logo.css';
 import {Link } from "react-router-dom";
 
 function Logo() {
@@ -10,4 +11,3 @@ function Logo() {
 }
 
 export default Logo;
-
