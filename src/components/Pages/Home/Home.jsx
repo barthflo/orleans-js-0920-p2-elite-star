@@ -1,9 +1,13 @@
-const Home = () =>{
+import Articles from '../../Articles/Articles';
+import './Home.css';
+
+function Home() {
     return (
-        <main className="Home" style={{background:"var(--light)", height:"300vh"}}>
-            <h1>Home Page</h1>
-        </main>
+        <div className="home">
+            <h1>Page Home</h1>
+            <Articles />
+        </div>
     )
-};
+}
 
 export default Home;

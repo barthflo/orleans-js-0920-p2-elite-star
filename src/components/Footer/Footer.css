@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+:root{
+    --font-lite: 'Cormorant';
+}
+
+
+.main-footer , .mixBot{
+    display: flex;
+    width: 100vw;
+    height:272px;
+    flex-direction: row;
+    justify-content: space-around ;
+    background-color: #111154;
+    
+
+
+}
+
+.Eliteaccess{
+    display: flex;
+}
+
+.Alderaan{
+    display: flex;
+    flex-direction: column;
+    width: 172px;
+    margin-right: 3em;
+    margin-top: 1.5em;
+    
+}
+.pAld{
+    line-height: 1.3em;
+}
+
+
+.Coruscant{
+    display: flex;
+    flex-direction: column;
+    width: 172px;
+    margin-top: 1.5em;
+   
+}
+.pCor{
+    line-height: 1.3em;
+}
+.About{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-self: flex-start;
+    width: 172px;
+    margin-top: 1.5em;
+}
+.pAb{
+    line-height: 1.3em;
+}
+.Contact{
+    display: flex;
+    justify-content: flex-start;
+    padding-right: 20em;
+    padding-left: 8em;
+  
+    
+}
+
+h2, p, label, a, span{
+    color: aliceblue;
+
+}
+
+
+p, label, a, span {
+    font-family: var(--font-lite);
+    font-size: normal;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+h2{
+    font-family: var(--font-lite);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.fbicone, .twittericone, .instaicone {
+    color: azure;
+    font-size: 3em;
+}
+
+.icones{
+    display: flex;
+    margin-bottom: 1em;
+    margin-right: 1em;
+    width: 180px;
+    height: 64px;
+    justify-content: space-between;
+    gap: 15%;
+    
+}
+
+
+
+.footer-bottom{
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    align-self: flex-end;
+    margin-bottom: unset;
+    padding-bottom: unset;
+    margin-right: 3em;
+    
+    
+}
+
+
+.mixBot{
+    display: flex;
+    flex-direction: row-reverse;
+    height: 50%;
+    justify-content: unset;
+    padding-right: 15%;
+ 
+}
+
+@media screen and (max-width: 450px) {
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .main-footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        height: 644px;
+        
+    }
+
+    .Contact{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1em;
+
+    }
+
+    .Alderaan{
+        display: flex;
+        margin-left: 3em;
+        align-items: center;
+
+    }
+
+    .h2alde{
+        padding-right: 0.8em;
+    }
+
+    .pAld{
+        padding-right: 0.38em;
+        width: 192px;
+    }
+
+
+    .pCor{
+        width: 192px;
+    }
+
+    .About{
+        align-self: center;
+        width: 192px;
+        margin-top: 3em;
+        
+    }
+    .h2about{
+        padding-right: 1.2em;
+    }
+    .pAb{
+        padding-right: 3.5em;
+        width: 192px;
+           }
+
+    .icones{
+        display: flex;
+        flex-direction: row;
+        gap: 20%;
+        align-self: unset;
+        width: 192px;
+        margin-left: 5em;
+        margin-top: 2em;
+        
+    }
+    .footer-bottom{
+        display: flex;
+        align-self: unset;
+        margin-left: 7em;
+        margin-bottom: 2em;
+    }
+    .mixBot{
+        display: flex;
+        flex-direction: column;
+        
+    }
+}

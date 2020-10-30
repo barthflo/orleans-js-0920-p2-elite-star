@@ -1,7 +1,13 @@
-import { Link } from 'react-router-dom';
+import logo from '../../../assets/Logo.png';
+import {Link } from "react-router-dom";
 
-const Logo = () => {
-    return <div className="Logo text-light"><Link to="/">Logo component</Link></div>
-  };
-  
+function Logo() {
+    return (
+        <div className="Logo pb-5 mt-3 col-1">
+            <Link to="/"><img src={logo} alt="logo" /></Link>
+        </div>
+    )
+}
+
 export default Logo;
+
