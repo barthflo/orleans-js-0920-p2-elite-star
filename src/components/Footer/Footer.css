@@ -27,13 +27,16 @@ h2{
     color: azure;
 }
 
+.mainDivFooter{
+    background-image: url('../../Assets/galaxy.jpg');
+}
+
 .main-footer{
     display: flex;
     width: 100vw;
     height:272px;
     flex-direction: row;
     justify-content: space-around ;
-    background-image: url('../../Assets/galaxy.jpg');
 }
 
 .Contact{
@@ -90,7 +93,10 @@ h2{
     flex-direction: row;
     width: 100vw;
     justify-content: center;
-    background-image: url('../../Assets/galaxy.jpg');  
+}
+
+.copyright{
+    color: azure;
 }
 
 @media screen and (max-width: 768px) {
