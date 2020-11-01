@@ -28,5 +28,6 @@ body {
 @media screen and (min-width: 768px){
   .home, .models, .about, .Results{
     margin-top: 160.64px;
+    padding:0;
   }
 }

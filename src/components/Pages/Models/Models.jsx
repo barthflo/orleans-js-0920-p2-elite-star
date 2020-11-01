@@ -3,7 +3,7 @@ import ModelsCode from '../../ModelsCode';
 
 function Models() {
     return (
-        <div className="models">
+        <div className="models container">
             <h2>Page Models</h2>
             <ModelsCode />
         </div>

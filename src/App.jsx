@@ -13,6 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <div className="App">
+      <Header />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/models" component={Models} />
@@ -20,8 +21,6 @@ function App() {
         <Route path="/results" component={Results}/>
         {/* <Route path="/favorites" component={Favorites} /> */}
       </Switch>
-
-      <Header />
       <Footer />
     </div>
   );
