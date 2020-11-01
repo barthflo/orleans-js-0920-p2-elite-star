@@ -3,6 +3,7 @@ import './Footer.css';
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 
 function Footer() {
