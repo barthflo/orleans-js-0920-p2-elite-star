@@ -2,7 +2,6 @@
     z-index:10;
 }
 .SearchBar .btn{
-    border: 1px solid var(--light);
     color: var(--light);
     background: transparent;
     border-radius: 30px;
@@ -21,7 +20,7 @@
     transition: .3s ease-in;
 }
 
-.SearchBar button .search-icon svg{
+.SearchBar .search-icon{
     font-size:1.5em;
 }
 .SearchBar .btn-submit{
@@ -35,13 +34,12 @@
 }
 
 .SearchBar .search-drop-down{
-    bottom:85px;
+    bottom:160px;
     width:100vw;
     height:fit-content;
     left:50%;
     transform: translateX(-50%);
     background-image:url('../../../assets/galaxy.jpg');
-    background-size:cover;
     box-shadow: 2px 2px 7px var(--primary-color);
     z-index:20;
 }
@@ -74,17 +72,19 @@
 
 @media screen and (min-width:768px){
     .SearchBar .btn{
-        font-size:.9em;
+        font-size:1em;
         width:150px;
+        border: 1px solid var(--light);
     }
     .SearchBar .btn-submit{
-        font-size:1em;
+        font-size:.9em;
         width:auto;
         align-self:flex-end;
+        border-color:var(--secondary-color);
     }
     .SearchBar .search-drop-down{
         width:auto;
-        top:75px;
+        top:175px;
         border-radius: 30px;
     }
     .SearchBar .search-drop-down form{

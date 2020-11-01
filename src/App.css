@@ -15,7 +15,7 @@ body {
   --font-medium: 'Heebo', sans-serif;
   --font-light: 'Comfortaa', cursive;
   --font-serif: 'Cormorant', serif;
-  --primary-color: rgba(17, 17, 84, 1);
+  --primary-color: rgb(10, 10, 46);
   --secondary-color: rgba(234, 201, 42, 1);
   --color-cold: rgba(80, 193, 230, 1);
   --color-warm: rgba(212, 33, 82, 1);
@@ -26,7 +26,7 @@ body {
 
 
 @media screen and (min-width: 768px){
-  .home, .models, .about, .Results{
+  .home, .models, .about, .Results, .Favourites-page{
     margin-top: 160.64px;
     padding:0;
   }

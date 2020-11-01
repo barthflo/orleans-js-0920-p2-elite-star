@@ -34,22 +34,22 @@ class SearchBar extends React.Component {
           }
         
         return (
-            <div className="SearchBar-container">
+            <div className="SearchBar-container mx-1">
                 <div className="SearchBar d-flex flex-column align-items-center">
-                    <div className="btn justify-content-between align-items-center d-flex no-wrap mx-1 p-2 py-md-1 px-md-3" type="button" onClick={handleOpen}>
+                    <div className="btn justify-content-between align-items-center d-flex no-wrap mx-1 p-2 mt-md-1 py-md-1 px-md-3" type="button" onClick={handleOpen}>
                         <div className="d-none d-md-inline-block">
                         Search ...
                         </div>
-                        <RiSearch2Line/>
+                        <RiSearch2Line className="search-icon"/>
                     </div>
                     <div 
                         className={this.state.open 
                         ?
-                        "search-drop-down position-absolute d-flex flex-column align-items-center p-3"
+                        "search-drop-down position-absolute d-flex flex-column align-items-center p-4"
                         : 
                         "hidden"}>
 
-                        <form id="searchForm" onSubmit={handleSubmit} className="d-flex flex-wrap justify-content-center w-100 py-3">
+                        <form id="searchForm" onSubmit={handleSubmit} className="d-flex flex-wrap justify-content-center w-100 py-3 mb-2">
                             <label htmlFor="Species"/>
                             <div className="custom-select">
                                 <select id="Species" name="species" defaultValue={this.state.species} required onChange={handleChange}>
@@ -86,7 +86,7 @@ class SearchBar extends React.Component {
                                 </select>
                             </div>
                         </form>
-                        <button className="btn btn-submit" type="submit" form="searchForm">Find your model!</button>
+                        <button className="btn btn-submit px-4" type="submit" form="searchForm">Find your model!</button>
                     </div>
                 </div>
                 <div className={this.state.open? "closing-container bg-none position-fixed w-100" : "hidden"} onClick={handleClose}></div>

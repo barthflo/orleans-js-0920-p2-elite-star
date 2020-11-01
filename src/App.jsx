@@ -6,7 +6,7 @@ import About from "./components/Pages/About/About";
 import Results from './components/Pages/Results/Results';
 import Footer from "./components/Footer/Footer";
 import { Switch, Route } from 'react-router-dom';
-// import Favorites from "./components/Header/Favorites/Favorites";
+import FavouritesPage from "./components/Pages/Favourites/FavouritesPage";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -19,7 +19,7 @@ function App() {
         <Route path="/models" component={Models} />
         <Route path="/about" component={About} />
         <Route path="/results" component={Results}/>
-        {/* <Route path="/favorites" component={Favorites} /> */}
+        <Route path="/my-list" component={FavouritesPage} />
       </Switch>
       <Footer />
     </div>
