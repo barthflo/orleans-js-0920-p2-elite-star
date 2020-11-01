@@ -1,7 +1,7 @@
 import React  from 'react';
 import './SearchBar.css';
 import { RiSearch2Line } from 'react-icons/ri';
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 
 class SearchBar extends React.Component {
     state = {
@@ -86,7 +86,7 @@ class SearchBar extends React.Component {
                                 </select>
                             </div>
                         </form>
-                        <button className="btn btn-submit px-4" type="submit" form="searchForm">Find your model!</button>
+                        <button className="btn btn-submit px-4" type="submit" form="searchForm"><Redirect to='/results' />Find your model!</button>
                     </div>
                 </div>
                 <div className={this.state.open? "closing-container bg-none position-fixed w-100" : "hidden"} onClick={handleClose}></div>
