@@ -1,5 +1,5 @@
 import Articles from '../../Articles/Articles';
-import Intro from './Intro';
+import Intro from './Intro/Intro';
 import './Home.css';
 
 
