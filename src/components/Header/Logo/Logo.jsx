@@ -1,12 +1,12 @@
 import logo from '../../../Assets/Logo.png';
-import logoMobile from '../../../Assets/LogoMobile.png';
-import './Logo.css';
+import logoMinimal from '../../../Assets/LogoMobile.png';
 import {Link } from "react-router-dom";
+import './Logo.css';
 
 function Logo() {
     return (
-        <div className="logo pb-5 mt-3 col-2">
-            <Link to="/"><img src={ window.innerWidth < 768 ? {logo} : {logoMobile}} alt='logo'/></Link>
+        <div className="Logo pb-md-5 mt-3">
+            <Link to="/"><img src={ (window.innerWidth <768) ? logoMinimal :  logo} alt="logo" /></Link>
         </div>
     )
 }

@@ -1,0 +1,97 @@
+.SearchBar{
+    z-index:10;
+}
+.SearchBar .btn{
+    color: var(--light);
+    background: transparent;
+    border-radius: 30px;
+    outline: none;
+    font-family:var(--font-light);
+    text-transform: capitalize;
+    box-shadow: 2px 2px 7px var(--primary-color);
+    cursor: text;
+    transition: .3s ease-in;
+}
+
+.SearchBar .btn:hover {
+    background: var(--light);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transition: .3s ease-in;
+}
+
+.SearchBar .search-icon{
+    font-size:1.5em;
+}
+.SearchBar .btn-submit{
+    color:var(--secondary-color);
+    background:transparent;
+    border: 1px solid var(--secondary-color);
+    width:auto;
+}
+.SearchBar .btn-submit:hover{
+    color:var(--primary-color);  
+}
+
+.SearchBar .search-drop-down{
+    bottom:160px;
+    width:100vw;
+    height:fit-content;
+    left:50%;
+    transform: translateX(-50%);
+    background-image:url('../../../Assets/galaxy.jpg');
+    box-shadow: 2px 2px 7px var(--primary-color);
+    z-index:20;
+}
+.SearchBar .search-drop-down .custom-select{
+    background-color:#ffffff4f;
+    border-color:transparent;
+    margin: 2px 0;
+}
+
+.SearchBar .search-drop-down select{
+    text-transform: capitalize;
+    width: stretch;
+    appearance:none;
+    border:none;
+    outline:none; 
+    background-color: transparent; 
+    color:var(--light);
+    font-family:var(--font-light);
+}
+
+.closing-container{
+    left:0;
+    top:0;
+    height:100vh;
+    z-index:0;
+}
+.hidden{
+    display:none;
+}
+
+@media screen and (min-width:768px){
+    .SearchBar .btn{
+        font-size:1em;
+        width:150px;
+        border: 1px solid var(--light);
+    }
+    .SearchBar .btn-submit{
+        font-size:.9em;
+        width:auto;
+        align-self:flex-end;
+        border-color:var(--secondary-color);
+    }
+    .SearchBar .search-drop-down{
+        width:auto;
+        top:175px;
+        border-radius: 30px;
+    }
+    .SearchBar .search-drop-down form{
+        flex-wrap: nowrap !important;
+    }
+    .SearchBar .search-drop-down .custom-select{
+        width:200px;
+        margin: 0 2px;
+    }
+}

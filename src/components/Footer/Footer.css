@@ -1,184 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-
-:root{
-    --font-lite: 'Cormorant';
+footer{
+    margin-bottom : 148px;
+    background-image: url('../../Assets/galaxy.jpg');
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+footer h2, footer p, footer a{
+    color:var(--light);
+    font-family: var(--font-serif);
+}
+footer h2{
+    font-size:1.5em;
+}
+footer a:hover{
+    background-color:var(--light);
+    color:var(--primary-color);
+    text-decoration: none;
+    transition:.3s ease-in;
+}
+footer .social-medias a:hover, footer .Alderaan a:hover, footer .Coruscant a:hover{
+    color:var(--secondary-color);
+    text-decoration: none;
+    background:transparent;
+    transition:.3s ease-in;
 }
 
-h2, p, a{
-    color: var(--secondary-color);
+footer .social-medias{
+    color: var(--light);
+    font-size:1.5em;
+    transition:.3s ease-in;
 }
 
-p, a{
-    font-family: var(--font-lite);
-    font-size: normal;
-    font-weight: 500;
-    line-height: 22px;
-}
-
-h2{
-    font-family: var(--font-lite);
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 29px;
-}
-
-.fbicone, .twittericone, .instaicone{
-    color: azure;
-}
-
-.mainDivFooter{
-    background-image: url('../../Assets/espacefooter.jpg');
-}
-
-.main-footer{
-    display: flex;
-    width: 100vw;
-    height:272px;
-    flex-direction: row;
-    justify-content: space-around ;
-}
-
-.Contact{
-    display: flex;
-    justify-content: flex-start;
-    padding-right: 20%;
-    margin-left: 20%;
-}
-
-.Alderaan{
-    display: flex;
-    flex-direction: column;
-    width: 172px;
-    margin-right: 3em;
-    margin-top: 1.5em;
-}
-
-.Coruscant{
-    display: flex;
-    flex-direction: column;
-    width: 172px;
-    margin-top: 1.5em; 
-}
-
-.pAld, .pCor{
-    line-height: 1.3em;
-    font-size: 18px;
-}
-
-.About{
-    display: flex;
-    flex-direction: column;
-    align-self: flex-start;
-    width: 144px;
-    margin-top: 3.1%;
-    margin-right: 20%;
-    font-size: 24px; 
-}
-
-.pAb{
-    line-height: 1.2em;
-}
-
-.icones{
-    display: flex;
-    width: 136px;
-    height: 64px;
-    justify-content: space-between;
-    font-size: 32px;   
-}
-
-.footer-bottom{
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    justify-content: center;
-}
-
-.copyright{
-    color: azure;
-}
-
-@media screen and (max-width: 768px) {
-
-    div{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
+@media screen and (min-width : 768px){
+    footer{
+        margin-bottom:0;
     }
-
-    .main-footer{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 644px;       
+    .Alderaan, .Coruscant, .About{
+        width:200px;
     }
-
-    .Contact{
-        margin-left: 30%;
-        width: 336px;
-        height: 343px;
-    }
-
-    .Alderaan{
-        display: flex;
-        flex-direction: column;
-        margin-left: 3em;
-        align-items: center;
-    }
-
-    .h2alde{
-        padding-right: 40%;
-    }
-
-    .pAld{
-        padding-right: 0.38em;
-        width: 192px;
-    }
-
-    .Coruscant{
-        height: 144px;
-    }
-
-    .h2cor{
-        padding-right: 30%;
-    }
-
-    .pCor{
-        width: 192px;
-    }
-
-    .About{
-        align-self: center;
-        width: 192px;
-        height: 128px;
-        margin-top: unset;
-        margin-left: 30%;
-    }
-
-    .h2about{
-        padding-right: 1.2em;
-    }
-
-    .pAb{
-        width: 192px;
-        margin-bottom: unset;
-    }
-
-    .icones{
-        display: flex;
-        flex-direction: row;
-        width: 112px;
-        height: 44px;
-        margin-right: 45%;
-        font-size: 24px;         
-    }
-
-    .footer-bottom{
-        display: flex;
-        align-self: unset; 
-        margin-bottom: 2em;
-    }
-
 }
