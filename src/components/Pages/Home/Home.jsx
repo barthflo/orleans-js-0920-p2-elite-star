@@ -1,4 +1,5 @@
 import Articles from '../../Articles/Articles';
+import Intro from './Intro';
 import './Home.css';
 
 
@@ -11,6 +12,7 @@ function Home() {
                 <h1 className="text-light">Welcome to Elite Star</h1>
             </div>
             <div className="col-12 container">
+                <Intro />
                 <Articles />
             </div>
         </div>
