@@ -1,7 +1,7 @@
 .header {
     background-image: url('../../Assets/galaxy.jpg');
     background-size: cover;
-    position: fixed;
+    position: relative;
     z-index: 10;
     top: 0;
     ;
@@ -10,10 +10,8 @@
 
 
 @media screen and (max-width: 768px){
-.header {
+  .header {
     bottom: 0;
     top: unset; 
-}   
-    
-
+ }   
 }
