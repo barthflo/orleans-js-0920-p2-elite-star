@@ -3,13 +3,9 @@ import Header from './components/Header/Header';
 import Home from "./components/Pages/Home/Home";
 import Models from "./components/Pages/Models/Models";
 import About from "./components/Pages/About/About";
-
-//import Articles from './components/Articles/Articles';
-// import Favorites from "./components/Header/Favorites/Favorites";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import BackToTop from './components/BackToTop/BackToTop';
-import Results from './components/Pages/Results/Results';
-
+import BackToTop from "./components/Backtotop/BackToTop"
+import Results from "./components/Pages/Results/Results";
 import Footer from "./components/Footer/Footer";
 import { Switch, Route } from 'react-router-dom';
 import FavouritesPage from "./components/Pages/Favourites/FavouritesPage";
