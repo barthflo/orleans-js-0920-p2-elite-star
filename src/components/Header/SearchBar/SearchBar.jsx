@@ -14,8 +14,12 @@ class SearchBar extends React.Component {
     }
     componentDidMount(){
         fetch("https://rawcdn.githack.com/akabab/starwars-api/0.2.1/api/all.json")
-            .then(res => res.json())
-            .then(data => this.setState({characters : data}));
+        .then(res => res.json())
+        .then(data => this.setState({characters : data}))
+        .then(() => {
+            const characters = this.state.characters;
+            localStorage.setItem('characters', JSON.stringify(characters));
+        })
     }
     
     render(){
@@ -29,11 +33,9 @@ class SearchBar extends React.Component {
         const handleOpen = () => this.setState({open : true});
         const handleClose = () =>  this.setState({open : false});
         const handleChange = (e) => this.setState({[e.target.name]:e.target.value});
-        const handleSubmit = (e) => {
-            console.log(this.state.side);
-            this.props.history.push('/results');
-          }
+        const handleSubmit = () => this.props.history.push('/results');
         return (
+            
             <div className="SearchBar-container mx-1">
                 <div className="SearchBar d-flex flex-column align-items-center">
                     <div className="btn justify-content-between align-items-center d-flex 
