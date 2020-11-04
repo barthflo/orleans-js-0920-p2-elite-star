@@ -1,33 +1,45 @@
-import React  from 'react';
+import { Component }  from 'react';
 import './SearchBar.css';
 import { RiSearch2Line } from 'react-icons/ri';
 import { withRouter } from 'react-router-dom';
 
-class SearchBar extends React.Component {
-    
+class SearchBar extends Component {
+    searchData;
     state = {
         open : false,
         gender : "Choose a gender...",
         species : "Choose an origin..." ,
-        eyes : "Pick eyes' color...",
+        height : "Choose a height...",
         side : "Pick a side",
+    }
+    componentDidMount(){
+        this.searchData = JSON.parse(localStorage.getItem('search'));
+        if(localStorage.getItem('search')){
+            this.setState({
+                gender: this.searchData.gender,
+                species:this.searchData.species,
+                height: this.searchData.height,
+                side:this.searchData.side
+            })
+        }else{
+            this.setState({
+                gender:"Choose a gender",
+                species : "Choose an origin..." ,
+                height : "Choose a height...",
+                side : "Pick a side",
+            })
+        }
+    }
+    componentDidUpdate(nextState){
+        localStorage.setItem('search', JSON.stringify(nextState));
     }
     
     render(){
-        const characters = JSON.parse(localStorage.getItem('characters'));
-        const getUnique = (arr, index) => {
-            const unique = arr
-                .map(e => e[index])
-                .map((e, i, final) => final.indexOf(e) === i && i)
-                .filter(e => arr[e]).map(e => arr[e]);      
-            return unique;
-        }
         const handleOpen = () => this.setState({open : true});
         const handleClose = () =>  this.setState({open : false});
         const handleChange = (e) => this.setState({[e.target.name]:e.target.value});
         const handleSubmit = () => this.props.history.push('/results');
         return (
-            
             <div className="SearchBar-container mx-1">
                 <div className="SearchBar d-flex flex-column align-items-center">
                     <div className="btn justify-content-between align-items-center d-flex 
@@ -60,15 +72,10 @@ class SearchBar extends React.Component {
                                     <option disabled >
                                         {this.state.species}
                                     </option>
-                                    {getUnique(characters, "species").map(
-                                        (character, index) => 
-                                            <option value={character.species} 
-                                                    key={index}
-                                            >
-                                                {character.species.replace(/^\w/, (c) => c.toUpperCase())}
-                                            </option>
-                                        )
-                                    }
+                                    <option value="human">Human</option>
+                                    <option value="droid">Droid</option>
+                                    <option value="wookiee">Wookiee</option>
+                                    <option value="others">Others...</option>
                                 </select>
                             </div>
                             <label htmlFor="Gender" />
@@ -80,36 +87,24 @@ class SearchBar extends React.Component {
                                     <option disabled>
                                         {this.state.gender}
                                     </option>
-                                    {getUnique(characters, "gender").map(
-                                        (character, index) => 
-                                            <option 
-                                                value={character.gender} 
-                                                key={index}
-                                            >
-                                                {character.gender.replace(/^\w/, (c) => c.toUpperCase())}
-                                            </option>
-                                        )
-                                    }
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
                                 </select>
                             </div>
-                            <label htmlFor="EyeColor" />
+                            <label htmlFor="Height" />
                             <div className="custom-select">
-                                <select id="EyeColor" name="eyes" 
-                                    defaultValue={this.state.eyes} 
+                                <select id="Height" name="height" 
+                                    defaultValue={this.state.height} 
                                     onChange={handleChange}
                                 >
                                     <option disabled >
-                                        {this.state.eyes}
+                                        {this.state.height}
                                     </option>
-                                    {getUnique(characters, "eyeColor").map(
-                                        (character, index) => 
-                                            <option value={character.eyeColor} 
-                                                    key={index}
-                                            >
-                                                {character.eyeColor}
-                                            </option>
-                                        )
-                                    }
+                                    <option value="1">Less than a meter</option>
+                                    <option value="1.5">1-1.50 meters</option>
+                                    <option value="2">1.50-2 meters</option>
+                                    <option value="3">2-3 Meters</option>
+                                    <option value="4">More than 3 meters</option>
                                 </select>
                             </div>
                             <label htmlFor="Side" />

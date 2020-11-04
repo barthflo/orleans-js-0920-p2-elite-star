@@ -1,11 +1,10 @@
-import { useState } from 'react';
+
 import ModelCard from './ModelCard/ModelCard';
 import './Models.css';
 
 
 const Models =() =>{
-    const [characters] = useState(JSON.parse(localStorage.getItem('characters')));
-    console.log(characters);
+    const characters = JSON.parse(localStorage.getItem('characters'));
     return (
         <main>
             <h1 className="models p-5">Our Models</h1>

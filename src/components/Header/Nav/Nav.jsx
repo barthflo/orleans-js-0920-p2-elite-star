@@ -4,7 +4,6 @@ import './Nav.css';
 
 
 
-
 function Nav() {
     return (
       <div className="Nav pt-4 w-100 col-sm-2 col-md-4 col-lg-6">

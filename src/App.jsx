@@ -12,15 +12,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class App extends Component {
-  
+  componentDidMount(){
+    this.fetchApiAll();
+}
   fetchApiAll(){
     fetch("https://rawcdn.githack.com/akabab/starwars-api/0.2.1/api/all.json")
     .then(res => res.json())
-    .then((data) => localStorage.setItem('characters', JSON.stringify(data)))
+    .then(data => data.filter(d => d.id !== 77))
+    .then(data => localStorage.setItem('characters', JSON.stringify(data)))
   }
-  componentDidMount(){
-    this.fetchApiAll();
-  }
+  
   render(){
     return (
       <div className="App">
