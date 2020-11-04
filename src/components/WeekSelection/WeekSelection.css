@@ -1,0 +1,32 @@
+.cardSelection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    margin: 24px;
+}
+
+.cardSelection img{
+    height: 400px;
+    width: 300px;
+}
+
+.cardSelection p{
+    width: 300px;
+    text-align: justify;
+}
+
+
+
+
+
+.weekSelection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selected{
+    display: flex;
+    justify-content: center;
+}

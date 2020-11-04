@@ -1,4 +1,4 @@
-import logo from '../../../assets/Logo.png';
+/*import logo from '../../../assets/Logo.png';
 import logoMinimal from '../../../assets/LogoMobile.png';
 import {Link } from "react-router-dom";
 import './Logo.css';
@@ -13,3 +13,4 @@ function Logo() {
 
 export default Logo;
 
+*/

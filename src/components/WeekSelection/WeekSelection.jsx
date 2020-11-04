@@ -1,5 +1,6 @@
 import React from 'react';
 import SelectionCard from './SelectionCard';
+import './WeekSelection.css';
 
 class WeekSelection extends React.Component{
     state={
@@ -18,9 +19,9 @@ class WeekSelection extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className="weekSelection">
                 <h2>Week's Selection special eyes & hair</h2>
-                <div>
+                <div className="selected">
                 {this.state.Characters.slice(5,6).map(character =><SelectionCard {...character} />)}
                 {this.state.Characters.slice(50,51).map(character =><SelectionCard {...character} />)}
                 {this.state.Characters.slice(63,64).map(character =><SelectionCard {...character} />)}
