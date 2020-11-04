@@ -17,6 +17,8 @@
     background-color: #fff;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
 }
 .text-card{
     color: black;
@@ -46,4 +48,9 @@ h2{
     margin: 0%;
 }
 
+
+.container {
+    padding-top: 16px;
+   
+}
 
