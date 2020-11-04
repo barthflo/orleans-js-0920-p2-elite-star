@@ -22,10 +22,11 @@ class WeekSelection extends React.Component{
             <div className="weekSelection">
                 <h2>Week's Selection special eyes & hair</h2>
                 <div className="selected">
-                {this.state.Characters.slice(5,6).map(character =><SelectionCard {...character} />)}
-                {this.state.Characters.slice(50,51).map(character =><SelectionCard {...character} />)}
+                {this.state.Characters.slice(10,11).map(character =><SelectionCard {...character} />)}
+                {this.state.Characters.slice(78,79).map(character =><SelectionCard {...character} />)}
                 {this.state.Characters.slice(63,64).map(character =><SelectionCard {...character} />)}
                 </div>
+                
             </div>
         )
     }
