@@ -1,4 +1,4 @@
-import './Models.css';
+import '../Models.css';
 
 const ModelCard = ({ name, image }) => {
     return (

@@ -4,25 +4,17 @@ import { RiSearch2Line } from 'react-icons/ri';
 import { withRouter } from 'react-router-dom';
 
 class SearchBar extends React.Component {
+    
     state = {
         open : false,
-        characters : [],
         gender : "Choose a gender...",
         species : "Choose an origin..." ,
         eyes : "Pick eyes' color...",
         side : "Pick a side",
     }
-    componentDidMount(){
-        fetch("https://rawcdn.githack.com/akabab/starwars-api/0.2.1/api/all.json")
-        .then(res => res.json())
-        .then(data => this.setState({characters : data}))
-        .then(() => {
-            const characters = this.state.characters;
-            localStorage.setItem('characters', JSON.stringify(characters));
-        })
-    }
     
     render(){
+        const characters = JSON.parse(localStorage.getItem('characters'));
         const getUnique = (arr, index) => {
             const unique = arr
                 .map(e => e[index])
@@ -68,7 +60,7 @@ class SearchBar extends React.Component {
                                     <option disabled >
                                         {this.state.species}
                                     </option>
-                                    {getUnique(this.state.characters, "species").map(
+                                    {getUnique(characters, "species").map(
                                         (character, index) => 
                                             <option value={character.species} 
                                                     key={index}
@@ -88,7 +80,7 @@ class SearchBar extends React.Component {
                                     <option disabled>
                                         {this.state.gender}
                                     </option>
-                                    {getUnique(this.state.characters, "gender").map(
+                                    {getUnique(characters, "gender").map(
                                         (character, index) => 
                                             <option 
                                                 value={character.gender} 
@@ -109,7 +101,7 @@ class SearchBar extends React.Component {
                                     <option disabled >
                                         {this.state.eyes}
                                     </option>
-                                    {getUnique(this.state.characters, "eyeColor").map(
+                                    {getUnique(characters, "eyeColor").map(
                                         (character, index) => 
                                             <option value={character.eyeColor} 
                                                     key={index}
