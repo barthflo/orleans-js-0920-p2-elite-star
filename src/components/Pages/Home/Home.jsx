@@ -1,5 +1,6 @@
 import Articles from '../../Articles/Articles';
 import './Home.css';
+import WeekSelection from '../../WeekSelection/WeekSelection';
 
 function Home() {
     return (
@@ -9,6 +10,9 @@ function Home() {
             </div>
             <div className="col-12 container">
                 <Articles />
+            </div>
+            <div>
+                <WeekSelection/>
             </div>
         </div>
     )
