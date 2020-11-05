@@ -3,7 +3,9 @@ import Header from './components/Header/Header';
 import Home from "./components/Pages/Home/Home";
 import Models from "./components/Pages/Models/Models";
 import About from "./components/Pages/About/About";
-import Results from './components/Pages/Results/Results';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import BackToTop from "./components/Backtotop/BackToTop"
+import Results from "./components/Pages/Results/Results";
 import Footer from "./components/Footer/Footer";
 import { Switch, Route } from 'react-router-dom';
 import FavouritesPage from "./components/Pages/Favourites/FavouritesPage";
@@ -21,6 +23,7 @@ function App() {
         <Route path="/results" component={Results}/>
         <Route path="/my-list" component={FavouritesPage} />
       </Switch>
+      <BackToTop />
       <Footer />
     </div>
   );

@@ -39,7 +39,7 @@
     height:fit-content;
     left:50%;
     transform: translateX(-50%);
-    background-image:url('../../../assets/galaxy.jpg');
+    background-image:url('../../../Assets/galaxy.jpg');
     box-shadow: 2px 2px 7px var(--primary-color);
     z-index:20;
 }
