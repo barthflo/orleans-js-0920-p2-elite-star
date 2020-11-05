@@ -1,17 +1,21 @@
+import React from 'react';
 import Articles from '../../Articles/Articles';
 import ControlledCarousel from './ControlledCarousel/ControlledCarousel';
 import './Home.css';
+import WeekSelection from '../../WeekSelection/WeekSelection';
 
 
-
-
-function Home() {
+const Home = () => {
     return (
         <main className="home">
-             <ControlledCarousel  className="m-0 Intro jumbotron  w-100 container-fluid d-flex justify-content-center align-items-center" style={{width:"100vw", height:"100vh"}} />
-             <div className="col-12 container">
+             <ControlledCarousel />
+            <div className="col-12 container">
+                <WeekSelection/>
                 <Articles />
-             </div>
+                <section className="Partners" id="partners">
+                    <h2>Partners</h2>
+                </section>
+            </div>
         </main>
     )
 }

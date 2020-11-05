@@ -1,13 +1,21 @@
-import React from 'react';
-import ModelsCode from '../../ModelsCode';
+import ModelCard from './ModelCard/ModelCard';
+import './Models.css';
 
 
-function Models() {
+const Models =() =>{
+    const characters = JSON.parse(localStorage.getItem('characters'));
+    
     return (
-        <div className="models container">
-            <h2>Page Models</h2>
-            <ModelsCode />
-        </div>
+        <main className="models p-5">
+            <h1>Our Models</h1>
+            
+            <div className="model mt-0 col-10 offset-1">
+                {characters.sort((a, b)=> 0.5 - Math.random())
+                           .map((character, index) => <ModelCard {...character} key={index} />)
+                           .reverse()
+                           }
+            </div>
+        </main>
     )
 }
 
