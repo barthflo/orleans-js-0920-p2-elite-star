@@ -22,6 +22,7 @@ function App() {
         <Route path="/about" component={About} />
         <Route path="/results" component={Results}/>
         <Route path="/my-list" component={FavouritesPage} />
+        <Route path="/profil/:id"/>
       </Switch>
       <BackToTop />
       <Footer />
