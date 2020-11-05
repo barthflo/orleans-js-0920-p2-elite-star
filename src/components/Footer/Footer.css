@@ -7,6 +7,7 @@ footer{
 footer h2, footer p, footer a{
     color:var(--light);
     font-family: var(--font-serif);
+    background:none;
 }
 footer h2{
     font-size:1.5em;

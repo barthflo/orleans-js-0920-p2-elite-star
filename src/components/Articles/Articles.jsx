@@ -66,18 +66,16 @@ function Articles() {
 
     return (
 
-        <div className="bg-light text-dark">
-            <div class="container">
+        <div className="col-12 col-md-10 offset-md-1 bg-light text-dark">
                 <div class="row">
-                    <div class="col-sm">
-                        <h3 className="ArticleTitle text-center">Start Wars News</h3>
+                    <div class="col-sm mb-4">
+                        <h2 className="ArticleTitle">Start Wars News</h2>
                     </div>
                 </div>
-            </div>
-            <div className="container card-group ">
+            <div className="card-group">
                 <div className="CardComponent1 card p-3">
                     <div className="cardHeader">
-                        <h2 className="text-dark">{Jedi.pageTitle}</h2>
+                        <h3 className="text-dark">{Jedi.pageTitle}</h3>
                         <p className="text-dark">{Jedi.date}</p>
                         <p className="cinema">{Jedi.tittleUnderImage}</p>
 
@@ -89,9 +87,9 @@ function Articles() {
                         <p className="card-text"><small className="text-muted">{Jedi.lastUpdate}</small></p>
                     </div>
                 </div>
-                <div class="CardComponent2 card p-3">
+                <div class="CardComponent2 card p-3 ">
                     <div className="cardHeader">
-                        <h2 className="text-dark">{Empire.pageTitle}</h2>
+                        <h3 className="text-dark">{Empire.pageTitle}</h3>
                         <p className="text-dark">{Empire.date}</p>
                         <p className="cinema">{Empire.tittleUnderImage}</p>
 
@@ -106,7 +104,7 @@ function Articles() {
 
                 <div className="CardComponent3 card p-3">
                     <div className="cardHeader">
-                        <h2 className="text-dark">{Parc.pageTitle}</h2>
+                        <h3 className="text-dark">{Parc.pageTitle}</h3>
                         <p className="text-dark">{Parc.date}</p>
                         <p className="cinema">{Parc.tittleUnderImage}</p>
 

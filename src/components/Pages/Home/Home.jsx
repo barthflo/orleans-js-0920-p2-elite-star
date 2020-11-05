@@ -2,6 +2,7 @@ import React from 'react';
 import Articles from '../../Articles/Articles';
 import './Home.css';
 import WeekSelection from '../../WeekSelection/WeekSelection';
+import Partners from './Partners/Partners';
 
 
 const Home = () => {
@@ -12,12 +13,8 @@ const Home = () => {
                 <h1 className="text-light">Welcome to Elite Star</h1>
             </div>
             <WeekSelection/>
-            <div className="col-12 container">
-                <Articles />
-            <section className="Partners" id="partners">
-                <h2>Partners</h2>
-            </section>
-            </div>
+            <Articles />
+            <Partners />
         </main>
     )
 }
