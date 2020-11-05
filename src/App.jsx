@@ -10,7 +10,6 @@ import { Switch, Route } from 'react-router-dom';
 import FavouritesPage from "./components/Pages/Favourites/FavouritesPage";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 class App extends Component {
   componentDidMount(){
     this.fetchApiAll();
@@ -24,7 +23,7 @@ class App extends Component {
   
   render(){
     return (
-      <div className="App">
+      <div className="App" data-aos="flip-up">
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
@@ -32,6 +31,7 @@ class App extends Component {
           <Route path="/about" component={About} />
           <Route path="/results" component={Results} />
           <Route path="/my-list" component={FavouritesPage} />
+          <Route path="/profile/:id"/>
         </Switch>
         <Footer />
       </div>
