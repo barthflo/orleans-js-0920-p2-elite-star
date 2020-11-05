@@ -1,0 +1,25 @@
+
+.Favourites .button-favourites{
+    color: var(--light);
+    font-size:1.5em;
+    font-weight:100;
+    outline:none;
+    transition: .3s ease-in;
+    
+}
+
+.Favourites .button-favourites:hover{
+    color: black;
+    outline:none;
+    transition: .3s ease-in;   
+}
+
+.Favourites .btn{
+    transition: .3s ease-in;
+    border-radius : 50%;
+}
+
+.Favourites .btn:hover{
+    background:var(--light);
+    transition: .3s ease-in
+}

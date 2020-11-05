@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './Models.css';
 import ModelCard from './ModelCard';
 
@@ -20,7 +20,7 @@ class ModelsCode extends React.Component {
     render() {
         return (
             <div className="model" >
-                {this.state.Characters.map(character => <ModelCard {...character} />)}
+                {this.state.Characters.map(character =><ModelCard {...character} />)}
             </div>
 
         )
