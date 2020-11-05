@@ -10,7 +10,7 @@ const Models =() =>{
             <h1>Our Models</h1>
             
             <div className="model mt-0 col-10 offset-1">
-                {characters.sort((a, b)=> 0.5 - Math.random()).slice(0,3)
+                {characters.sort((a, b)=> 0.5 - Math.random())
                            .map((character, index) => <ModelCard {...character} key={index} />)
                            .reverse()
                            }
