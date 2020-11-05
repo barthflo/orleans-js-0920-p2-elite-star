@@ -2,7 +2,7 @@ import Logo from './Logo/Logo';
 import Nav from './Nav/Nav';
 import SearchBar from './SearchBar/SearchBar';
 import Favourites from './Favourites/Favourites';
-import BackToTop from "../Backtotop/BackToTop";
+import BackToTop from '../BackToTop/BackToTop';
 import './Header.css';
 
 const Header = () =>{

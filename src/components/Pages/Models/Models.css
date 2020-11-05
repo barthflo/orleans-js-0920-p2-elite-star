@@ -1,0 +1,52 @@
+.models h1{
+    font-family:var(--font-heavy);
+}
+.model{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.modelSection{
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+    transition: 0.3s ease-in;
+}
+
+.modelSection:hover{
+    transition: 0.3s ease-in;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.modelSection figure{
+    margin: 0;
+    padding: 0;
+    width: 290px;
+    height: 450px;
+}
+
+.modelSection:nth-child(even){
+    margin-top: 9%;
+}
+
+.modelSection:nth-child(odd){
+    margin-top: 2%;
+}
+
+.image{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.modelName{
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    margin: 0;
+    font-family: var(--font-light);
+    background: var(--secondary-color);
+    text-align:center;
+}
+
