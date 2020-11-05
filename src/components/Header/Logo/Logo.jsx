@@ -1,5 +1,5 @@
-import logo from '../../../Assets/Logo.png';
-import logoMinimal from '../../../Assets/LogoMobile.png';
+import logo from '../../../assets/Logo.png';
+import logoMinimal from '../../../assets/LogoMobile.png';
 import {Link } from "react-router-dom";
 import './Logo.css';
 
