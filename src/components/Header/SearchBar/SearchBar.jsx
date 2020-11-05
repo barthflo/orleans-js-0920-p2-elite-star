@@ -1,42 +1,52 @@
-import React  from 'react';
+import { Component }  from 'react';
 import './SearchBar.css';
 import { RiSearch2Line } from 'react-icons/ri';
-import {Redirect} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-class SearchBar extends React.Component {
+class SearchBar extends Component {
+    searchData;
     state = {
         open : false,
-        characters : [],
         gender : "Choose a gender...",
         species : "Choose an origin..." ,
-        eyes : "Pick eyes' color...",
+        height : "Choose a height...",
         side : "Pick a side",
     }
     componentDidMount(){
-        fetch("https://rawcdn.githack.com/akabab/starwars-api/0.2.1/api/all.json")
-             .then(res => res.json())
-             .then(data => this.setState({characters : data}));
+        this.searchData = JSON.parse(localStorage.getItem('search'));
+        if(localStorage.getItem('search')){
+            this.setState({
+                gender: this.searchData.gender,
+                species:this.searchData.species,
+                height: this.searchData.height,
+                side:this.searchData.side
+            })
+        }else{
+            this.setState({
+                gender:"Choose a gender",
+                species : "Choose an origin..." ,
+                height : "Choose a height...",
+                side : "Pick a side",
+            })
+        }
+    }
+    componentDidUpdate(nextState){
+        localStorage.setItem('search', JSON.stringify(nextState));
     }
     
     render(){
-        const getUnique = (arr, index) => {
-            const unique = arr
-                .map(e => e[index])
-                .map((e, i, final) => final.indexOf(e) === i && i)
-                .filter(e => arr[e]).map(e => arr[e]);      
-            return unique;
-        }
         const handleOpen = () => this.setState({open : true});
         const handleClose = () =>  this.setState({open : false});
         const handleChange = (e) => this.setState({[e.target.name]:e.target.value});
-        const handleSubmit = () => {
-            return <Redirect to='/results'/>;
-          }
-        
+        const handleSubmit = () => this.props.history.push('/results');
         return (
             <div className="SearchBar-container mx-1">
                 <div className="SearchBar d-flex flex-column align-items-center">
-                    <div className="btn justify-content-between align-items-center d-flex no-wrap mx-1 p-2 mt-md-1 py-md-1 px-md-3" type="button" onClick={handleOpen}>
+                    <div className="btn justify-content-between align-items-center d-flex 
+                                    no-wrap mx-1 p-2 mt-md-1 py-md-1 px-md-3" 
+                         type="button" 
+                         onClick={handleOpen}
+                    >
                         <div className="d-none d-md-inline-block">
                         Search ...
                         </div>
@@ -49,44 +59,74 @@ class SearchBar extends React.Component {
                         : 
                         "hidden"}>
 
-                        <form id="searchForm" onSubmit={handleSubmit} className="d-flex flex-wrap justify-content-center w-100 py-3 mb-2">
+                        <form id="searchForm" 
+                              onSubmit={handleSubmit} 
+                              className="d-flex flex-wrap justify-content-center w-100 py-3 mb-2"
+                        >
                             <label htmlFor="Species"/>
                             <div className="custom-select">
-                                <select id="Species" name="species" defaultValue={this.state.species} required onChange={handleChange}>
-                                    <option disabled hidden>{this.state.species}</option>
-                                    {getUnique(this.state.characters, "species")
-                                    .map((character, index) => 
-                                    <option value={character.species} key={index}>
-                                        {character.species.replace(/^\w/, (c) => c.toUpperCase())}
+                                <select id="Species" name="species" 
+                                    defaultValue={this.state.species} 
+                                    onChange={handleChange}
+                                >
+                                    <option disabled >
+                                        {this.state.species}
                                     </option>
-                                    )}
+                                    <option value="human">Human</option>
+                                    <option value="droid">Droid</option>
+                                    <option value="wookiee">Wookiee</option>
+                                    <option value="others">Others...</option>
                                 </select>
                             </div>
                             <label htmlFor="Gender" />
                             <div className="custom-select">
-                                <select id="Gender" name="gender" defaultValue={this.state.gender} onChange={handleChange} required>
-                                    <option disabled hidden>{this.state.gender}</option>
-                                    {getUnique(this.state.characters, "gender").map((character, index) => <option value={character.gender} key={index}>{character.gender.replace(/^\w/, (c) => c.toUpperCase())}</option>)}
+                                <select id="Gender" name="gender" 
+                                    defaultValue={this.state.gender} 
+                                    onChange={handleChange} 
+                                >
+                                    <option disabled>
+                                        {this.state.gender}
+                                    </option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
                                 </select>
                             </div>
-                            <label htmlFor="EyeColor" />
+                            <label htmlFor="Height" />
                             <div className="custom-select">
-                                <select id="EyeColor" name="eyes" defaultValue={this.state.eyes} required onChange={handleChange}>
-                                    <option disabled hidden>{this.state.eyes}</option>
-                                    {getUnique(this.state.characters, "eyeColor").map((character, index) => <option value={character.eyeColor} key={index}>{character.eyeColor}</option>)}
+                                <select id="Height" name="height" 
+                                    defaultValue={this.state.height} 
+                                    onChange={handleChange}
+                                >
+                                    <option disabled >
+                                        {this.state.height}
+                                    </option>
+                                    <option value="1">Less than a meter</option>
+                                    <option value="1.5">1-1.50 meters</option>
+                                    <option value="2">1.50-2 meters</option>
+                                    <option value="3">2-3 Meters</option>
+                                    <option value="4">More than 3 meters</option>
                                 </select>
                             </div>
                             <label htmlFor="Side" />
                             <div className="custom-select">
-                                <select id="Side" name="side" defaultValue={'DEFAULT'} onChange={handleChange} required>
-                                    <option value="DEFAULT" disabled hidden>{this.state.side}</option>
+                                <select id="Side" name="side" 
+                                    defaultValue={this.state.side} 
+                                    onChange={handleChange} 
+                                >
+                                    <option value={this.state.side} 
+                                        disabled 
+                                    >
+                                        {this.state.side}
+                                    </option>
                                     <option value="Republic" key={0}>Republic</option>
                                     <option value="Empire" key={1}>Empire</option>
                                     <option value="All" key={2}>All</option>
                                 </select>
                             </div>
                         </form>
-                        <button className="btn btn-submit px-4" type="submit" form="searchForm">Find your model!</button>
+                        <button className="btn btn-submit px-4" type="submit" form="searchForm">
+                                Find your model!
+                        </button>
                     </div>
                 </div>
                 <div className={this.state.open? "closing-container bg-none position-fixed w-100" : "hidden"} onClick={handleClose}></div>
@@ -96,4 +136,4 @@ class SearchBar extends React.Component {
 }
 
 
-export default SearchBar;
+export default withRouter(SearchBar);

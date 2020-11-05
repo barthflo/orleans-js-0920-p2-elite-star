@@ -1,0 +1,71 @@
+/*CSS - Seleciont Card.jsx : */
+
+.cardSelection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    margin: 24px 40px;
+}
+
+.cardSelection img{
+    height: 400px;
+    width: 300px;
+    border-radius: 20px;
+    transition: 0.2s ease-in;
+}
+
+.cardSelection img:hover{
+    cursor: pointer;
+    height: 430px;
+    width: 330px;
+    transition: 0.2s ease-in;
+}
+
+.cardSelection p{
+    width: 300px;
+    text-align: center;
+    margin: 16px 0px;
+}
+
+.cardSelection h3{
+    padding: 8px;
+    margin: 16px 0px;
+}
+
+.cardSelection p:hover{
+    cursor: default;
+}
+.cardSelection h3:hover{
+    cursor: default;
+}
+#quote{
+    font-style: italic;
+}
+
+
+/*CSS - Week seleciont.jsx : */
+
+@media screen and (max-width: 700px){
+    .weekSelection h2{
+        font-size: 28px;
+    }
+}
+
+.weekSelection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 32px 0px;
+}
+
+.weekSelection h2{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.selected{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

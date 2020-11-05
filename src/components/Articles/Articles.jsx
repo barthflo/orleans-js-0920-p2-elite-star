@@ -3,22 +3,120 @@ import "./Articles.css";
 
 
 function Articles() {
-    const Simo = {
-        image: "http://www.starwars-holonet.com/news/2019/2019-12-23-starwars-9-revue-de-presse-1.jpg",
-        name: "Simo",
+    const Jedi = {
+        image: "http://braindamaged.fr/wp-content/uploads/2017/09/star-wars-8-nouvelles-images-4-247x300.jpg",
+        name: "Jedi",
+        pageTitle: "Jedi come back",
+        cardTitle: "Find out what the French press thinks of Star Wars The Last Jedi, in theaters today.",
+        tittleUnderImage: "Jedi's Army",
+        date: "December 13, 2021",
+        lastUpdate: "Last updated 3 mins ago",
+        character: <>The highly anticipated eighth installment of the Star Wars saga was released in theaters today. If the first reactions of the American media were positive, what did the French press think.
+
+        Overall, this is very positive, although some media are quite nuanced on certain points. What also stands out a lot of these reviews is the quality of the work of director Rian Johnson who seems to have breathed new life into the saga and offers a nice ground for Episode 9 of J.J. Abrams.
+        For the opinion of the brain
+
+        If Abrams restored the balance in the Force (the saga) with Episode 7, it is up to Johnson - who drew elegantly in his classic SF / action
+        to deliver Looper - to take him to a territory where the old mingles the
+        new one, to provide the manual for the future of the movie franchise
+        (and obviously the new post-Episode 9 trilogy it sold to Lucasfilm) in
+        earnest. The film is also a true war film, from its opening sequence,
+        a direct heir to heroic WWII propaganda films like the very first
+        Star Wars in 1977. More Wars, Less Star. A war film that often leaves
+        you speechless when faced with its crazy sense of setting and scale.
+        </>
     }
+
+    const Empire = {
+        image: "http://braindamaged.fr/wp-content/uploads/2017/04/star-wars-8-les-derniers-jedi-images-2-300x179@2x.jpg",
+        name: "Empire",
+        pageTitle: "The Empire Strikes Back",
+        cardTitle: "The Empire strikes Back",
+        tittleUnderImage: "Empire's power",
+        date: "January 23, 2022",
+        lastUpdate: "Last updated 3 mins ago",
+        character: <>[Not as good as The Empire Strikes Back],
+        but the movie is of a quality never before seen for a Star Wars.
+        A solid sequel, which takes daring narrative paths,
+        perhaps too much sometimes, so many characters embark on parallel
+        adventures at the same time. (…) It tackles more intelligent and
+        philosophical themes than those of The Awakening of the Force,
+        but The Last Jedi loses in fun and spontaneity. Above all,
+        scenes worthy of the prequels - with digital everywhere -
+        tarnish these metaphysical escapes. But, in the end,
+        this blockbuster finds its balance and will satisfy
+ fans of the two previous trilogies.</>
+    }
+
+    const Parc = {
+        image: "https://thumb.canalplus.pro/http/unsafe/1900x/smart/creativemedia-image.canalplus.pro/content/0001/16/32e68a29301be785e2cdc906f43b86993dbbb5cb.png",
+        name: "Parc",
+        pageTitle: "For Our children",
+        cardTitle: "Start wars Parc",
+        tittleUnderImage: "The new Parc",
+        date: "May 24, 2022",
+        lastUpdate: "Last updated 3 mins ago",
+        character: <>Novembre 3, 2020
+
+        The first Star Wars: Galaxy's Edge park has just opened in California at Disneyland Resort. And as expected, it's a joke on the eyes and the wallets of the fans.
+        They dreamed of it for years, Disney did. After years of work at a total cost of one billion dollars, the first space dedicated to Star Wars in a Disneyland park opened the doors of its 5.67 hectares last Friday to the lucky owners of a reservation.
+
+        Because until June 23, the park will only be accessible to people who have managed to reserve a ticket (149 dollars) when it goes on sale, which sells out in less than two hours.</>
+    }
+
     return (
-        <div>
-            <div className="d-flex justify-content-center p-5 bg-secondary text-white">
-                <h2>Article de presse</h2>
-            </div>
-            <div className="card shadow p-3 mb-5 bg-white rounded" >
-                <div>
-                    <img className="card shadow card-img-top p-3" src={Simo.image} alt={Simo.name} />
+
+        <div className="bg-light text-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <h3 className="ArticleTitle text-center">Start Wars News</h3>
+                    </div>
                 </div>
-                <div className="card-body body-left p-3 col align-self-center">
-                    <h3 className="col-md-4">Simo</h3>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.le film a l'intelligence de ne jamais lâcher un fil conducteur amorcé dès l'épisode VII : l'opposition singulière, en forme d'amour-haine, entre Rey et Kylo Ren. On vibre à chacun de leurs combats, à chaque tentative de rapprochement, magnifiés par les interprétations éblouissantes de Daisy Ridley et Adam Driver qui maîtrisent mieux que jamais leurs personnages au bout de trois films.</p>
+            </div>
+            <div className="container card-group ">
+                <div className="CardComponent1 card p-3">
+                    <div className="cardHeader">
+                        <h2 className="text-dark">{Jedi.pageTitle}</h2>
+                        <p className="text-dark">{Jedi.date}</p>
+                        <p className="cinema">{Jedi.tittleUnderImage}</p>
+
+                    </div>
+                    <img src={Jedi.image} className="card-img-top p-1" alt={Jedi.name} />
+                    <div className="card-body">
+                        <h5 className="card-title">{Jedi.cardTitle}</h5>
+                        <p className="card-text text-dark">{Jedi.character}</p>
+                        <p className="card-text"><small className="text-muted">{Jedi.lastUpdate}</small></p>
+                    </div>
+                </div>
+                <div class="CardComponent2 card p-3">
+                    <div className="cardHeader">
+                        <h2 className="text-dark">{Empire.pageTitle}</h2>
+                        <p className="text-dark">{Empire.date}</p>
+                        <p className="cinema">{Empire.tittleUnderImage}</p>
+
+                    </div>
+                    <img src={Empire.image} className="card-img-top" alt={Empire.name} />
+                    <div className="card-body">
+                        <h5 className="Empire card-title">{Empire.cardTitle}</h5>
+                        <p className="card-text text-dark">{Empire.character}</p>
+                        <p className="card-text"><small className="text-muted">{Empire.lastUpdate}</small></p>
+                    </div>
+                </div>
+
+                <div className="CardComponent3 card p-3">
+                    <div className="cardHeader">
+                        <h2 className="text-dark">{Parc.pageTitle}</h2>
+                        <p className="text-dark">{Parc.date}</p>
+                        <p className="cinema">{Parc.tittleUnderImage}</p>
+
+                    </div>
+                    <img src={Parc.image} className="card-img-top" alt={Parc.name} />
+                    <div className="card-body">
+                        <h5 className="card-title">{Parc.cardTitle}</h5>
+                        <p className="card-text text-dark">{Parc.character}</p>
+                        <p className="card-text"><small class="text-muted">{Parc.lastUpdate}</small></p>
+                    </div>
                 </div>
             </div>
         </div>
