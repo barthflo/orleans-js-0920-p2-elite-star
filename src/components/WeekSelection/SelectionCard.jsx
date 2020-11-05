@@ -9,7 +9,7 @@ const SelectionCard = ({ name, image, species, eyeColor, hairColor, bornLocation
             <h3>{name}</h3>
             <Link to={url}><figure><img className="img" src={image} alt={name} /></figure></Link>
             <p id="quote"><RandomText/></p>
-            <p>{name} a {species} {bornLocation ? (<p>from {bornLocation}</p>) : ""} knew how to combine {eyeColor} eyes and {hairColor ? hairColor : "no"} hair.</p>
+            <p>{name} a {species} knew how to combine {eyeColor} eyes and {hairColor ? hairColor : "no"} hair.</p>
             
         </div>
     )
