@@ -24,7 +24,7 @@ class App extends Component {
   
   render(){
     return (
-      <div className="App" data-aos="flip-up">
+      <div className="App">
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
