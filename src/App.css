@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 
 
 body {
@@ -12,11 +14,31 @@ body {
   --font-heavy: 'Montserrat Alternates', sans-serif;
   --font-medium: 'Heebo', sans-serif;
   --font-light: 'Comfortaa', cursive;
-  --primary-color: rgba(17, 17, 84, 1);
+  --font-serif: 'Cormorant', serif;
+  --primary-color: rgb(10, 10, 46);
   --secondary-color: rgba(234, 201, 42, 1);
   --color-cold: rgba(80, 193, 230, 1);
   --color-warm: rgba(212, 33, 82, 1);
-  --light: rgba(226, 226, 240, 1);
-  --light-medium: rgba(119, 119, 148, 1);
+  --light: rgb(209, 209, 209);
+  --light-medium: rgb(132, 132, 148);
 }
 
+h1, h2{
+  font-family:var(--font-heavy);
+}
+h2{
+  background: var(--secondary-color);
+}
+h3, h4, h5, h6{
+  font-family: var(--font-medium);
+}
+p{
+  font-family:var(--font-light);
+}
+
+@media screen and (min-width: 768px){
+  .home, .models, .about, .Results, .Favourites-page{
+    margin-top: 176.64px;
+    padding:0;
+  }
+}

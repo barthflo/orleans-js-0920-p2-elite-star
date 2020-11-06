@@ -1,16 +1,18 @@
-.nav li a{
+
+.Nav ul{
+    padding:0;
+}
+
+.Nav a{
     color: var(--light);
     font-family: var(--font-light);
+    font-size:.9em;
+    font-weight:100;
+    padding:2px;
+}
+.Nav a:hover{
+    background-color:var(--light);
+    color:var(--primary-color);
+    text-decoration: none;
 }
 
-
-
-
-@media screen and (max-width: 768px){
-.nav .ul {
-    flex-direction: column;
-   padding-left: 130px;
-}
-
-
-}

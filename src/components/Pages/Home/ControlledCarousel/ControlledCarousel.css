@@ -1,0 +1,58 @@
+.Intro {
+    background-image: url('../../../../assets/agence_futur.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 80vh;
+}
+.intro-mask {
+    width: 100%;
+    height: 80vh;
+    position: absolute;
+    background-color: black;
+    opacity: 0.3;
+}
+.text-intro{
+    z-index:2
+}
+.Intro h1{
+    color:var(--light);
+    font-size:3em;
+}
+.text-intro p{
+    font-size:1.1em;
+    background:var(--secondary-color);
+    color:var(--primary-color);
+}
+/* .Intro .text-light {
+    color: var(--primary-color);
+    font-family: var(--font-heavy);
+    z-index: 5;
+}
+.Intro h3
+{
+    color: var(--light);
+    z-index: 5;
+    text-align: center;
+    font-family:var(--font-serif)
+}
+
+
+
+
+@media screen and (max-width:768px){
+    .Intro{
+        height: 70vh;;
+    }
+    .into-mask {
+        width: 100%;
+        height: 70vh;
+}
+    .text-light{
+        font-size: 30px;
+        text-align: center;
+    }
+    h3{
+        font-size: 20px;
+        text-align: center;
+    }
+} */
