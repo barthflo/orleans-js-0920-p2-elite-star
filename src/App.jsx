@@ -9,6 +9,7 @@ import Results from "./components/Pages/Results/Results";
 import Footer from "./components/Footer/Footer"; 
 import { Switch, Route } from 'react-router-dom';
 import FavouritesPage from "./components/Pages/Favourites/FavouritesPage";
+import Profile from './components/Pages/Profile/Profile';
 
 
 class App extends Component {
@@ -32,7 +33,7 @@ class App extends Component {
           <Route path="/about" component={About} />
           <Route path="/results" component={Results} />
           <Route path="/my-list" component={FavouritesPage} />
-          <Route path="/profile/:id"/>
+          <Route path="/profile/:id" component={Profile}/>
         </Switch>
         <Footer />
       </div>

@@ -1,6 +1,5 @@
 import './Results.css';
 import { useLocation } from 'react-router-dom';
-import { useState} from 'react';
 import ModelCard  from '../Models/ModelCard/ModelCard';
 
 
@@ -40,64 +39,68 @@ const Results =() =>{
         "Techno Union",
         "First Order"
     ]
-    const results = {
-        gender : useState(new URLSearchParams(urlResults).get('gender')),
-        species : useState(new URLSearchParams(urlResults).get('species')),
-        height : useState(new URLSearchParams(urlResults).get('height')),
-        side: useState(new URLSearchParams(urlResults).get('side')),
-    }
-    const filterGender = characters.filter(character => character.gender === results.gender[0] );
-    const filterSpecies = characters.filter(character =>
-        (results.species[0] === "others") ?
-        character.species !== "human" && character.species !== "droid" && character.species !== "wookiee"
-        :
-        (character.species === results.species[0]));
-    
-    const filterHeight =(param) =>{
-        switch(param.height[0]){
-            case '1':
-                return characters.filter(character => character.height <1).map((character, index) => <ModelCard {...character} key={index} />);
-            case '1.5':
-                return characters.filter(character => character.height >=1 && character.height <=1.5).map((character, index) => <ModelCard {...character} key={index} />);            
-            case '2':
-                return characters.filter(character => character.height >1.5 && character.height <=2).map((character, index) => <ModelCard {...character} key={index} />);            
-            case '3':
-                return characters.filter(character => character.height >2 && character.height <=3).map((character, index) => <ModelCard {...character} key={index} />);            
-            case '4':
-                return characters.filter(character => character.height >3).map((character, index) => <ModelCard {...character} key={index} />);            
-            default:
-                break;
-        }
-    }
-    const filterSide = (param) => {
-        switch(param.side[0]){
-            case 'Republic':
-                const lightSide = characters.map(character =>(light.some(affiliation => character.affiliations.includes(affiliation))
-                    &&
-                    !dark.some(affiliation => character.affiliations.includes(affiliation)))
-                    && <ModelCard {...character}/>);
-                return lightSide;
-            case 'Empire':
-                const darkSide = characters.map(character =>(dark.some(affiliation => character.affiliations.includes(affiliation)) 
-                    && 
-                    !light.some(affiliation => character.affiliations.includes(affiliation)))
-                    && 
-                    <ModelCard {...character}/>);
-                return darkSide;
-            case 'All':
-                const neutral = characters.map(character =>(!dark.some(affiliation => character.affiliations.includes(affiliation)) 
-                    ||
-                    !light.some(affiliation => character.affiliations.includes(affiliation)))
-                    && 
-                    <ModelCard {...character}/>);
-                return neutral;
+    const results =[
+        new URLSearchParams(urlResults).get('gender'),
+        new URLSearchParams(urlResults).get('species'),
+        new URLSearchParams(urlResults).get('height'),
+        new URLSearchParams(urlResults).get('side'),
+    ]
+    const filterSpecies = (object, array) => {
+        switch(array[1]){
+            case "human":
+                return object.species === "human";
+            case "droid":
+                return object.species ==="droid";
+            case "wookiee":
+                return object.species === "wookiee";
+            case "others":
+                return object.species !=="human" && object.species !== "droid" && object.species !=="wookiee";
             default :
-                break;
+                return object.species;
+            }
         }
+    const filterHeight = (object, array) => {
+        switch (array[2]){
+            case "1":
+                return object.height < 1;
+            case"1.5":
+                return object.height >=1 && object.height <= 1.5;
+            case "2":
+                return object.height > 1.5 && object.height <=2;
+            case "3":
+                return object.height >2 && object.height <=3;
+            case "4":
+                return object.height >3;
+        default:
+            return object.height;
+        }
+    }
+    const filterSide = (object, array) =>{
+        switch (array[3]){
+            case "Republic":
+                return light.some(affiliation => object.affiliations.includes(affiliation));
+            case "Empire":
+                return dark.some(affiliation => object.affiliations.includes(affiliation)) 
+                && !light.some(affiliation =>object.affiliations.includes(affiliation));
+            default :
+                return object;
+        }
+    }
+    const filtering = (array) => {
+        const filtered = characters.filter(character => filterSpecies(character, array))
+                        .filter(character => (array[0]) ? character.gender === array[0] : character.gender)
+                        .filter(character => filterHeight(character, array))
+                        .filter(character => filterSide(character, array))
+        if(filtered.length > 0){
+            return filtered.map( character => <h2>{character.name} - {character.gender} - {character.species} - {character.height} </h2>);
+        }else{
+            return <h2>No results</h2>
+        }
+
     }
     return (
         <main className="Results models">
-            <h1 className="text-center">Results Page</h1>
+            <h1 className="text-center">{urlResults}</h1>
             <p className="text-center">{results.gender}/{results.species}/{results.eyes}/{results.side}</p>
             <div className="model">{!urlResults && characters
                 .sort((a,b)=> a.name > b.name?1 : -1)
@@ -105,20 +108,7 @@ const Results =() =>{
                     <ModelCard {...character} key={index} />
                 )}
             </div>
-            <div className="model">{results.gender && filterGender
-                .sort((a,b)=> a.name > b.name?1 : -1)
-                .map((character, index) =>
-                    <ModelCard {...character} key={index} />
-                )}
-            </div>
-            <div className="model">{results.gender && filterSpecies
-                .sort((a,b)=> 0.5 -Math.random())
-                .map((character, index) =>
-                    <ModelCard {...character} key={index} />
-                )}
-            </div>
-            <div className="model">{filterHeight(results)}</div>
-            <div className="model">{filterSide(results)}</div>
+            {filtering(results)}
         </main>
         )
     }

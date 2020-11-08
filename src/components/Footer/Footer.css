@@ -39,3 +39,8 @@ footer .social-medias{
         width:200px;
     }
 }
+@media screen and (min-width : 1200px){
+    footer{
+        background-size:cover;
+    }
+}
