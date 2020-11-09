@@ -1,50 +1,21 @@
 import './Results.css';
 import { useLocation } from 'react-router-dom';
 import ModelCard  from '../Models/ModelCard/ModelCard';
+import {dark, light, characters} from '../../../App';
 
 
 const Results =() =>{
     const urlResults = useLocation().search;
-    const characters = JSON.parse(localStorage.getItem('characters'));
-    const light = [
-        "Alliance to Restore the Republic", 
-        "Red Squadron", 
-        "Jedi Order", 
-        "Rogue Squadron", 
-        "Resistance",
-        "Jedi High Council",
-        "Jedi assault team",
-        "Mace Windu's squad",
-        "Leia Ogana's team",
-        "Elder Houses",
-        "Lars Family",
-        "Bright Tree Tribe",
-        "Gungan High Council",
-        "Gungan Grand Army",
-        "Royal House of Naboo",
-    ]
-    const dark = [
-        "501st Legion",
-        "Bounty Hunters' Guild",
-        "Dark Empire",
-        "Boba Fett's syndicate",
-        "Death Watch",
-        "Shadow Collective", 
-        "Hutt Clan",
-        "House Palpatine",
-        "Watto's Shop",
-        "Nightbrothers",
-        "Stalgasin hive",
-        "House of Dooku",
-        "Techno Union",
-        "First Order"
-    ]
+
     const results =[
         new URLSearchParams(urlResults).get('gender'),
         new URLSearchParams(urlResults).get('species'),
         new URLSearchParams(urlResults).get('height'),
         new URLSearchParams(urlResults).get('side'),
     ]
+    const capitalized = (word) => {
+        return word[0].toUpperCase() + word.substring(1);
+    }
     const filterSpecies = (object, array) => {
         switch(array[1]){
             case "human":
@@ -91,24 +62,39 @@ const Results =() =>{
                         .filter(character => (array[0]) ? character.gender === array[0] : character.gender)
                         .filter(character => filterHeight(character, array))
                         .filter(character => filterSide(character, array))
+                        .sort((a,b)=> a.name > b.name?1 : -1)
         if(filtered.length > 0){
-            return filtered.map( character => <h2>{character.name} - {character.gender} - {character.species} - {character.height} </h2>);
+            return filtered.map((character, index) => <ModelCard {...character} key={index}/> );
         }else{
-            return <h2>No results</h2>
+            return  (
+                <div className="no-results position-relative d-flex justify-content-center align-items-center" style={{height:"50vh"}}>
+                    
+                    <h2 className="text-center">No results found for a {capitalized(array[0])} {capitalized(array[1])} {array[2] && `,size ${array[2]}m`} {array[3] && `, from the ${array[3]} side`} model...</h2>
+                    <div className="no-results-bg w-100 h-100 position-absolute"></div>
+                </div>
+            )
         }
 
     }
     return (
-        <main className="Results models">
-            <h1 className="text-center">{urlResults}</h1>
-            <p className="text-center">{results.gender}/{results.species}/{results.eyes}/{results.side}</p>
+        <main className="Results col-12 col-md-10 offset-md-1 px-0 py-md-5">
+            {!urlResults ? <h1>Your results for all : </h1> : <h1>Your results :</h1> }
+            <p className = "d-inline-flex justify-content-between w-100 mb-0">
+                <ul className="list-unstyled d-flex justify-content-between w-100">
+                    {results[0] && <li>Gender : {capitalized(results[0])}</li>}
+                    {results[1] && <li>Species : {capitalized(results[1])}</li>}
+                    {results[2] && <li>Height : {capitalized(results[2])}m</li>}
+                    {results[3] && <li>Side : {capitalized(results[3])}</li>}
+                </ul>
+            </p>
             <div className="model">{!urlResults && characters
                 .sort((a,b)=> a.name > b.name?1 : -1)
                 .map((character, index) => 
                     <ModelCard {...character} key={index} />
                 )}
+                {filtering(results)}
             </div>
-            {filtering(results)}
+            
         </main>
         )
     }

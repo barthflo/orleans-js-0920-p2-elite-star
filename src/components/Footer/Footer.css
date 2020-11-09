@@ -38,6 +38,9 @@ footer .social-medias{
     .Alderaan, .Coruscant, .About{
         width:200px;
     }
+    footer h2{
+        font-size:1.8em !important;
+    }
 }
 @media screen and (min-width : 1200px){
     footer{

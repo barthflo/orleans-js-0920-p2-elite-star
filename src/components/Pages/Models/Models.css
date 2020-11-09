@@ -1,5 +1,5 @@
 .models h1{
-    font-family:var(--font-heavy);
+    background: var(--secondary-color);
 }
 .model{
     display: flex;
