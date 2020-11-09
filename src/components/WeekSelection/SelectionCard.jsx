@@ -3,7 +3,7 @@ import RandomText from './RandomText';
 import {Link} from 'react-router-dom';
 
 const SelectionCard = ({ name, image, species, eyeColor, hairColor, bornLocation, id }) => {
-    let url = `/profil/${id}`;
+    let url = `/profile/${id}`;
     return (
         <div className="cardSelection">
             <h3>{name}</h3>
