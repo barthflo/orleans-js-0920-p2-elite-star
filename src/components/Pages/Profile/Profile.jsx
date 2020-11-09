@@ -16,10 +16,12 @@ function Profile(props) {
         
     }
     return (
-        <main className="about d-flex justify-content-center align-items-center">
-            <h2>Page Profile</h2>
+        <main className="about col-12 col-md-10 offset-md-1 px-0 py-md-5">
+            <h1 style={{background:"var(--secondary-color"}}>{model[0].name}</h1>
+            <figure style={{height:"60vh", width:"100%"}}>
+                <img className="w-100 h-100" style={{objectFit:"cover"}} src={model[0].image} alt={model[0].name}/>
+            </figure>
             <ul>
-                <li>Model Name : {model[0].name}</li>
                 <li>Model Age : {age()}</li>
                 <li className="text-capitalize">Model Gender: {model[0].gender}</li>
                 {model[0].height !== undefined && <li className="text-capitalize">Model Height: {model[0].height.toFixed(2)}m</li>}
@@ -38,9 +40,6 @@ function Profile(props) {
                 : <> </>}
                 {model[0].homeworld && <li className="text-capitalize">Model From : {model[0].homeworld}</li>}
             </ul>
-            <figure style={{ width:"400px", height:"400px"}}>
-                <img className="w-100 h-100" style={{ objectFit : "contain"}}src={model[0].image} alt={model[0].name}/>
-            </figure>
         </main>
     )
 }
