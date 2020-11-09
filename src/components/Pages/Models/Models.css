@@ -51,6 +51,10 @@
 }
 
 @media screen and (max-width: 750px){
+    .models h1{
+        text-align: center;
+    }
+
     .modelSection{
         display: flex;
         flex-direction: column;
