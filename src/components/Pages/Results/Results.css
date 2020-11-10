@@ -1,3 +1,33 @@
 .Results{
     width:100vw;
 }
+.Results h1{
+    background:var(--secondary-color);
+}
+.no-results{
+    perspective:300px;
+    min-height:80vh;
+}
+.no-results h2{
+    z-index:2;
+    background:transparent;
+    color:var(--secondary-color);
+    width:50%;
+    transform-style: preserve-3d;
+    transform:rotateX(30deg);
+}
+.no-results-bg{
+    background-image: url('http://getwallpapers.com/wallpaper/full/5/c/5/30045.jpg');
+    background-size: cover;
+    background-position: center;
+    top:0;
+}
+
+@media screen and (min-width:768px){
+    .no-results{
+        min-height:50vh;
+    }
+    .no-results h2{
+        width:60%;
+    }
+}

@@ -9,12 +9,47 @@ import Results from "./components/Pages/Results/Results";
 import Footer from "./components/Footer/Footer"; 
 import { Switch, Route } from 'react-router-dom';
 import FavouritesPage from "./components/Pages/Favourites/FavouritesPage";
+import Profile from './components/Pages/Profile/Profile';
 
+export const dark = [
+  "501st Legion",
+  "Bounty Hunters' Guild",
+  "Dark Empire",
+  "Boba Fett's syndicate",
+  "Death Watch",
+  "Shadow Collective", 
+  "Hutt Clan",
+  "House Palpatine",
+  "Watto's Shop",
+  "Nightbrothers",
+  "Stalgasin hive",
+  "House of Dooku",
+  "Techno Union",
+  "First Order"
+]
+export const light = [
+  "Alliance to Restore the Republic", 
+  "Red Squadron", 
+  "Jedi Order", 
+  "Rogue Squadron", 
+  "Resistance",
+  "Jedi High Council",
+  "Jedi assault team",
+  "Mace Windu's squad",
+  "Leia Ogana's team",
+  "Elder Houses",
+  "Lars Family",
+  "Bright Tree Tribe",
+  "Gungan High Council",
+  "Gungan Grand Army",
+  "Royal House of Naboo",
+]
+export const characters = JSON.parse(localStorage.getItem('characters'));
 
 class App extends Component {
   componentDidMount(){
     this.fetchApiAll();
-}
+  }
   fetchApiAll(){
     fetch("https://rawcdn.githack.com/akabab/starwars-api/0.2.1/api/all.json")
     .then(res => res.json())
@@ -24,7 +59,7 @@ class App extends Component {
   
   render(){
     return (
-      <div className="App" data-aos="flip-up">
+      <div className="App">
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
@@ -32,7 +67,7 @@ class App extends Component {
           <Route path="/about" component={About} />
           <Route path="/results" component={Results} />
           <Route path="/my-list" component={FavouritesPage} />
-          <Route path="/profile/:id"/>
+          <Route path="/profile/:id" component={Profile}/>
         </Switch>
         <Footer />
       </div>

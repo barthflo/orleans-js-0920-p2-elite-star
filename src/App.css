@@ -23,11 +23,18 @@ body {
   --light-medium: rgb(132, 132, 148);
 }
 
-h1{
+h1, h2{
   font-family:var(--font-heavy);
 }
-h2, h3, h4, h5, h6{
-  font-family: var(--font-medium);
+h1{
+  font-size:3em;
+}
+h2{
+  background: var(--secondary-color);
+  font-size:2.5em !important;
+}
+h3, h4, h5, h6{
+  font-family: var(--font-heavy);
 }
 p{
   font-family:var(--font-light);
