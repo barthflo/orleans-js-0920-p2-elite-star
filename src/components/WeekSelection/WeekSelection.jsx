@@ -17,8 +17,6 @@ class WeekSelection extends React.Component{
     }
     
     render(){
-        // const characters = JSON.parse(localStorage.getItem('characters'));
-        console.log(this.state.characters);
         return(
             <div className="weekSelection col-12 col-md-10 offset-md-1">
                 <h2 className="w-100">Week's Selection special eyes & hair</h2>

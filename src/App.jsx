@@ -1,5 +1,7 @@
-import { Component } from 'react';
+import { Component} from 'react';
 import './App.css';
+import SlideRoutes from 'react-slide-routes';
+// import {TransitionGroup, CSSTransition} from 'react-transition-group';
 import Header from './components/Header/Header';
 import Home from "./components/Pages/Home/Home";
 import Models from "./components/Pages/Models/Models";
@@ -61,12 +63,19 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <Route render={({location})=>(
+          <SlideRoutes location={location} duration={1000} timing={"ease-in-out"}>
+            {/* <Switch> */}
+              <Route exact path="/" component={Home}/>
+              <Route path="/models" component={Models} />
+              <Route path="/about" component={About} />
+              <Route path="/results" component={Results} />
+              <Route path="/my-list" component={FavouritesPage} />
+              
+            {/* </Switch> */}
+          </SlideRoutes>
+        )} />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/models" component={Models} />
-          <Route path="/about" component={About} />
-          <Route path="/results" component={Results} />
-          <Route path="/my-list" component={FavouritesPage} />
           <Route path="/profile/:id" component={Profile}/>
         </Switch>
         <Footer />
