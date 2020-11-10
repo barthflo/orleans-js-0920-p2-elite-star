@@ -9,7 +9,7 @@ const ModelCard = ({ name, image , id}) => {
             <Zoom cascade bottom>
             <h3 className="modelName">{name}</h3>
             <figure>
-                <Link to={url} ><img className="image" src={image} alt={name} /></Link>
+                <Link to={url} ><img src={image} alt={name} /></Link>
             </figure>
             </Zoom>
         </div>
