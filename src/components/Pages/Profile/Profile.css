@@ -26,15 +26,21 @@
     font-weight:100;
     font-style:italic;
 }
-.Profile ul p:last-of-type{
-    margin-bottom:0;
-}
 .Profile a{
     font-family:var(--font-light);
 }
-
+.Profile .form-button-container{
+    width:100%;
+}
+.Profile .form-button-container p{
+    margin:0;
+    font-style: normal;
+}
 @media screen and (min-width:768px){
     .Profile figure{
         width:80%;
+    }
+    .Profile .form-button-container{
+        width:unset;
     }
 }
