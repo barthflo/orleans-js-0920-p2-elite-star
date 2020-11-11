@@ -65,14 +65,11 @@ class App extends Component {
         <Header />
         <Route render={({location})=>(
           <SlideRoutes location={location} duration={1000} timing={"ease-in-out"}>
-            {/* <Switch> */}
               <Route exact path="/" component={Home}/>
               <Route path="/models" component={Models} />
               <Route path="/about" component={About} />
               <Route path="/results" component={Results} />
               <Route path="/my-list" component={FavouritesPage} />
-              
-            {/* </Switch> */}
           </SlideRoutes>
         )} />
         <Switch>

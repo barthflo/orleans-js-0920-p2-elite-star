@@ -35,7 +35,7 @@
 .SearchBar .search-drop-down{
     bottom:160px;
     width:100vw;
-    height:fit-content;
+    height:180px;
     left:50%;
     transform: translateX(-50%);
     background-image:url('../../../assets/galaxy.jpg');

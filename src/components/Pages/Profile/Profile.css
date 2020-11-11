@@ -1,0 +1,40 @@
+.Profile h2{
+    background: transparent;
+    font-size:1.5em !important;
+}
+
+.Profile figure{
+    width:100%;
+}
+
+.Profile img{
+    object-fit:cover;
+    object-position:top;
+}
+
+.Profile ul h2{
+    font-family:var(--font-light);
+    color:var(--light-medium);
+    font-size:1em !important;
+    margin-bottom:4px;
+    font-weight:100;
+    text-transform:uppercase;
+}
+.Profile ul p{
+    font-size: 1em !important;
+    font-family:var(--font-light);
+    font-weight:100;
+    font-style:italic;
+}
+.Profile ul p:last-of-type{
+    margin-bottom:0;
+}
+.Profile a{
+    font-family:var(--font-light);
+}
+
+@media screen and (min-width:768px){
+    .Profile figure{
+        width:80%;
+    }
+}
