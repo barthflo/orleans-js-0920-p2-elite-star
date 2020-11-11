@@ -1,4 +1,22 @@
 .about{
+    background-image: url('../../../assets/agence_futur.jpg');
     width:100vw;
     height:100vh;
+}
+.about-mask {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background-color: black;
+    opacity: 0.85;
+}
+.about h2{
+    background-color: unset;
+    color: var(--light) ;
+    z-index: 3;
+}
+.about p {
+    background-color: unset;
+    color: var(--light) ;
+    z-index: 3;  
 }
