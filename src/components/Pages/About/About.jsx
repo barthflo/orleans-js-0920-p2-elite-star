@@ -1,9 +1,11 @@
 import './About.css';
+import Faq from './Faq/Faq';
 
 function About() {
     return (
         <div className="about d-flex justify-content-center align-items-center">
-            <h2>Page About</h2>
+            
+            <Faq />
         </div>
     )
 }
