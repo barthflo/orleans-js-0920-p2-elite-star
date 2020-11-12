@@ -10,7 +10,7 @@ footer h2, footer p, footer a{
     background:none;
 }
 footer h2{
-    font-size:1.5em;
+    font-size:1.8em !important;
 }
 footer a:hover{
     background-color:var(--light);
@@ -37,5 +37,13 @@ footer .social-medias{
     }
     .Alderaan, .Coruscant, .About{
         width:200px;
+    }
+    footer h2{
+        font-size:1.8em !important;
+    }
+}
+@media screen and (min-width : 1200px){
+    footer{
+        background-size:cover;
     }
 }

@@ -1,17 +1,33 @@
 import '../Models.css';
-import Zoom from 'react-reveal/Zoom';
+import {Zoom, Slide} from 'react-reveal';
 import { Link } from 'react-router-dom';
 
 const ModelCard = ({ name, image , id}) => {
     let url = `/profile/${id}`;
     return (
-        <div className="modelSection">
-            <Zoom cascade bottom>
-            <h3 className="modelName">{name}</h3>
-            <figure>
-                <Link to={url} ><img className="image" src={image} alt={name} /></Link>
-            </figure>
-            </Zoom>
+        <div className="modelSection p-md-4">
+            { (window.innerWidth >768) ? 
+                <Zoom> 
+                    <div className="modelName">
+                        <Link to={url} ><h3>{name}</h3></Link>
+                    </div>
+                </Zoom>
+                : 
+                <Slide bottom>
+                    <div className="modelName">
+                        <Link to={url} ><h3>{name}</h3></Link>
+                    </div>
+                </Slide>
+            }
+            <Slide bottom>
+                <Link to={url} >
+                    <figure>
+                        <div className="image-mask"></div>
+                        <img className="image" src={image} alt={name} />
+                    </figure>
+                </Link>
+            </Slide>
+            
         </div>
     )
 }

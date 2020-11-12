@@ -1,0 +1,25 @@
+.profile-form button, .profile-form label{
+    border-radius: 5px;
+    font-family:var(--font-light);
+    font-size:1.1em;
+    font-weight:100;
+    text-transform:uppercase;
+    transition:.3s ease-in-out;
+}
+.profile-form label{
+    color: var(--light-medium);
+}
+.profile-form button:hover{
+    background:var(--secondary-color);
+    color:black;
+    font-weight:400;
+    transition:.3s ease-in-out;
+}
+.profile-form input::placeholder ,.profile-form select, .profile-form input{
+    font-family:var(--font-light);
+    font-size:1em;
+    font-style:italic;
+    font-weight:100;
+    color:black;
+}
+
