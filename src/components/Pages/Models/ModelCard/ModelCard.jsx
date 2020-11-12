@@ -1,5 +1,5 @@
 import '../Models.css';
-import {Zoom, Slide, Fade} from 'react-reveal';
+import {Zoom, Slide} from 'react-reveal';
 import { Link } from 'react-router-dom';
 
 const ModelCard = ({ name, image , id}) => {
@@ -13,11 +13,11 @@ const ModelCard = ({ name, image , id}) => {
                     </div>
                 </Zoom>
                 : 
-                <Fade cascade>
+                <Slide bottom>
                     <div className="modelName">
                         <Link to={url} ><h3>{name}</h3></Link>
                     </div>
-                </Fade>
+                </Slide>
             }
             <Slide bottom>
                 <Link to={url} >

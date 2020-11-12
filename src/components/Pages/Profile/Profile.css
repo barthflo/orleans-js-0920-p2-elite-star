@@ -5,8 +5,8 @@
 
 .Profile figure{
     width:100%;
+    height:50vh;
 }
-
 .Profile img{
     object-fit:cover;
     object-position:top;
@@ -39,6 +39,11 @@
 @media screen and (min-width:768px){
     .Profile figure{
         width:80%;
+        height:calc(100vh - 265px);
+    }
+    .Profile .description{
+        height:calc(100vh - 250px);
+        max-height:calc(100vh - 250px);
     }
     .Profile .form-button-container{
         width:unset;

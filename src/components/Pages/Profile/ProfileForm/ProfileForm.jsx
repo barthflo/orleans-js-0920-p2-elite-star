@@ -5,7 +5,6 @@ import {useForm} from 'react-hook-form';
 function ProfileForm({openForm, model}) {
     const {register, handleSubmit, errors , formState} =useForm();
     const {isSubmitSuccessful} = formState;
-    console.log(isSubmitSuccessful)
     const onSubmit = (data, e) => {
         localStorage.setItem('profileForm', JSON.stringify(isSubmitSuccessful));
         e.target.reset();

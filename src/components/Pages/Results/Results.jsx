@@ -78,7 +78,7 @@ const Results =() =>{
     }
     return (
         <main className="Results col-12 col-md-10 offset-md-1 px-0 py-md-5">
-            {!urlResults ? <h1>Your results for all : </h1> : <h1>Your results :</h1> }
+            {!urlResults ? <h1 className="px-2 px-md-0">Your results for all : </h1> : <h1>Your results :</h1> }
             <p className = "d-inline-flex justify-content-between w-100 mb-0">
                 <ul className="list-unstyled d-flex justify-content-between w-100">
                     {results[0] && <li>Gender : {capitalized(results[0])}</li>}

@@ -90,18 +90,16 @@
     .modelSection{
         flex-direction: column;
         align-items: center;
-        /* margin-bottom:32px !important; */
     }
     .modelSection:nth-child(even), .modelSection:nth-child(odd){
         margin:0 0 32px !important;
     }
     .modelSection figure{
         width: 100vw;
-        height: 200px;
+        height: 400px;
     }
     .modelSection img{
-        /* object-fit: cover; */
-        object-position: 100% 25%;
+        object-position: top;
         width:100%;
     }
     .modelSection .modelName{
@@ -120,15 +118,11 @@
     }
     .modelSection h3, .modelName:hover h3{
         writing-mode: initial;
-        margin: 16px;
+        margin: 16px 0;
         transform: rotate(0deg);
         font-size: 1.3em;
         background:transparent;
-        position:absolute;
-        top:50%;
-        left:50%;
-        transform: translate(-50%, -50%);
-        color:var(--light);
+        position: unset;
     }
 }
 

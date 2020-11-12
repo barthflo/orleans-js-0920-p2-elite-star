@@ -11,9 +11,8 @@ const ProfileDescription = ({params, model, prev, next, onClick, openForm}) => {
     }
     return (
         <section className="description d-flex flex-column align-items-center flex-md-row align-items-md-stretch justify-content-md-start flex-md-row-reverse">
-                <figure className="ml-md-4" style={{height:window.innerHeight-350, minHeight:window.innerHeight-350}}>
-                    <img className="w-100"
-                         style={{height:window.innerHeight-350, minHeight:window.innerHeight-350}} 
+                <figure className=" ml-md-4" >
+                    <img className="w-100 h-100"
                          src={model[0].image} 
                          alt={model[0].name}
                     />
