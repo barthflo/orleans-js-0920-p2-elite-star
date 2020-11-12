@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 
@@ -13,7 +13,7 @@ body {
 :root {
   --font-heavy: 'Montserrat Alternates', sans-serif;
   --font-medium: 'Heebo', sans-serif;
-  --font-light: 'Comfortaa', cursive;
+  --font-light: 'Comfortaa', sans-serif;
   --font-serif: 'Cormorant', serif;
   --primary-color: rgb(10, 10, 46);
   --secondary-color: rgba(234, 201, 42, 1);
@@ -41,8 +41,9 @@ p{
 }
 
 @media screen and (min-width: 768px){
-  .home, .models, .about, .Results, .Favourites-page{
-    margin-top: 176.64px;
+  .home, .models, .about, .Results, .Favourites-page, .Profile{
+    margin-top: 128.64px;
     padding:0;
   }
 }
+

@@ -27,16 +27,15 @@ function Footer() {
                         <a href="tel:00000000" >0679497610</a>
                         <a className="text-center text-md-left" href="https://goo.gl/maps/acaUiLjsJCprCGZ66" target="__blank">
                             Keizersgracht 174-11016 DW
-                            Sor-Akai Coruscan
+                            Sor-Akai Coruscant
                         </a>
                     </div>
                 </div>
-                <div className="About d-flex flex-column align-items-center align-items-md-start mb-4">
-                    <h2>ABOUT US</h2>
-                    <Link to="/about">Elite Star Team</Link>
-                    <Link to="/models">Models</Link>
-                    <Link to="/">Press</Link>
-                    <Link className="mb-2" to="/">Partners</Link>
+                <div className="About d-flex flex-column align-items-center align-items-md-start mb-4 ">
+                    <Link to="/"><h2>Home</h2></Link>
+                    <Link to="/about"><h2>About</h2></Link>
+                    <Link to="/models"><h2>Models</h2></Link>
+                    <Link className="mb-2" to="/about"><h2>Faq</h2></Link>
                     <div className="social-medias mb-4 d-flex justify-content-center">
                         <a href="https://www.facebook.com/Star-Wars-models-289226827755289" target="__blank"><FaFacebookSquare className="mx-2 ml-sm-0" /></a>
                         <a href="https://www.instagram.com/starwars/" target="__blank"><FaInstagram className="mx-2" /></a>
