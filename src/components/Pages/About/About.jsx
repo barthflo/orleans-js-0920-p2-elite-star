@@ -4,18 +4,17 @@ import Faq from './Faq/Faq';
 function About() {
     return (
         <div className="about d-flex flex-column">
-            {/* <div className='about-mask'></div> */}
-                <h2 className='about-title'>ABOUT US</h2>
+                <h1 className='about-title'>ABOUT US</h1>
             <div className='about-text'>
                 <div className='about-adress'>
-                    <h4>ELITE STAR AGENCY</h4>
-                    <h5>Coruscant / Alderaan</h5>
+                    <p className='elite'>ELITE STAR AGENCY</p>
+                    <p className='coruscant'>Coruscant / Alderaan</p>
                     <p>Keizersgracht 174-11016 DW</p> 
                     <p>Sor-Akai Coruscan</p>
                     <p>Coruscant - Galactic Empire</p>
                     <p>T: 0679497610</p>
                     <p>F: 0679497611</p>
-                    <p>E: elitestar@dark.rep</p>
+                    <p>E: elitestar@dark.rep</p> 
                 </div>
                 <div className='description'>
                     <p className='desc-title'>EliteStar was created to meet two objectives :</p>
