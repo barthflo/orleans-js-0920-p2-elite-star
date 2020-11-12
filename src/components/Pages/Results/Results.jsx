@@ -1,124 +1,100 @@
 import './Results.css';
 import { useLocation } from 'react-router-dom';
-import { useState} from 'react';
 import ModelCard  from '../Models/ModelCard/ModelCard';
+import {dark, light, characters} from '../../../App';
 
 
 const Results =() =>{
     const urlResults = useLocation().search;
-    const characters = JSON.parse(localStorage.getItem('characters'));
-    const light = [
-        "Alliance to Restore the Republic", 
-        "Red Squadron", 
-        "Jedi Order", 
-        "Rogue Squadron", 
-        "Resistance",
-        "Jedi High Council",
-        "Jedi assault team",
-        "Mace Windu's squad",
-        "Leia Ogana's team",
-        "Elder Houses",
-        "Lars Family",
-        "Bright Tree Tribe",
-        "Gungan High Council",
-        "Gungan Grand Army",
-        "Royal House of Naboo",
+
+    const results =[
+        new URLSearchParams(urlResults).get('gender'),
+        new URLSearchParams(urlResults).get('species'),
+        new URLSearchParams(urlResults).get('height'),
+        new URLSearchParams(urlResults).get('side'),
     ]
-    const dark = [
-        "501st Legion",
-        "Bounty Hunters' Guild",
-        "Dark Empire",
-        "Boba Fett's syndicate",
-        "Death Watch",
-        "Shadow Collective", 
-        "Hutt Clan",
-        "House Palpatine",
-        "Watto's Shop",
-        "Nightbrothers",
-        "Stalgasin hive",
-        "House of Dooku",
-        "Techno Union",
-        "First Order"
-    ]
-    const results = {
-        gender : useState(new URLSearchParams(urlResults).get('gender')),
-        species : useState(new URLSearchParams(urlResults).get('species')),
-        height : useState(new URLSearchParams(urlResults).get('height')),
-        side: useState(new URLSearchParams(urlResults).get('side')),
+    const capitalized = (word) => {
+        return word[0].toUpperCase() + word.substring(1);
     }
-    const filterGender = characters.filter(character => character.gender === results.gender[0] );
-    const filterSpecies = characters.filter(character =>
-        (results.species[0] === "others") ?
-        character.species !== "human" && character.species !== "droid" && character.species !== "wookiee"
-        :
-        (character.species === results.species[0]));
-    
-    const filterHeight =(param) =>{
-        switch(param.height[0]){
-            case '1':
-                return characters.filter(character => character.height <1).map((character, index) => <ModelCard {...character} key={index} />);
-            case '1.5':
-                return characters.filter(character => character.height >=1 && character.height <=1.5).map((character, index) => <ModelCard {...character} key={index} />);            
-            case '2':
-                return characters.filter(character => character.height >1.5 && character.height <=2).map((character, index) => <ModelCard {...character} key={index} />);            
-            case '3':
-                return characters.filter(character => character.height >2 && character.height <=3).map((character, index) => <ModelCard {...character} key={index} />);            
-            case '4':
-                return characters.filter(character => character.height >3).map((character, index) => <ModelCard {...character} key={index} />);            
-            default:
-                break;
-        }
-    }
-    const filterSide = (param) => {
-        switch(param.side[0]){
-            case 'Republic':
-                const lightSide = characters.map(character =>(light.some(affiliation => character.affiliations.includes(affiliation))
-                    &&
-                    !dark.some(affiliation => character.affiliations.includes(affiliation)))
-                    && <ModelCard {...character}/>);
-                return lightSide;
-            case 'Empire':
-                const darkSide = characters.map(character =>(dark.some(affiliation => character.affiliations.includes(affiliation)) 
-                    && 
-                    !light.some(affiliation => character.affiliations.includes(affiliation)))
-                    && 
-                    <ModelCard {...character}/>);
-                return darkSide;
-            case 'All':
-                const neutral = characters.map(character =>(!dark.some(affiliation => character.affiliations.includes(affiliation)) 
-                    ||
-                    !light.some(affiliation => character.affiliations.includes(affiliation)))
-                    && 
-                    <ModelCard {...character}/>);
-                return neutral;
+    const filterSpecies = (object, array) => {
+        switch(array[1]){
+            case "human":
+                return object.species === "human";
+            case "droid":
+                return object.species ==="droid";
+            case "wookiee":
+                return object.species === "wookiee";
+            case "others":
+                return object.species !=="human" && object.species !== "droid" && object.species !=="wookiee";
             default :
-                break;
+                return object.species;
+            }
         }
+    const filterHeight = (object, array) => {
+        switch (array[2]){
+            case "1":
+                return object.height < 1;
+            case"1.5":
+                return object.height >=1 && object.height <= 1.5;
+            case "2":
+                return object.height > 1.5 && object.height <=2;
+            case "3":
+                return object.height >2 && object.height <=3;
+            case "4":
+                return object.height >3;
+        default:
+            return object.height;
+        }
+    }
+    const filterSide = (object, array) =>{
+        switch (array[3]){
+            case "Republic":
+                return light.some(affiliation => object.affiliations.includes(affiliation));
+            case "Empire":
+                return dark.some(affiliation => object.affiliations.includes(affiliation)) 
+                && !light.some(affiliation =>object.affiliations.includes(affiliation));
+            default :
+                return object;
+        }
+    }
+    const filtering = (array) => {
+        const filtered = characters.filter(character => filterSpecies(character, array))
+                        .filter(character => (array[0]) ? character.gender === array[0] : character.gender)
+                        .filter(character => filterHeight(character, array))
+                        .filter(character => filterSide(character, array))
+                        .sort((a,b)=> a.name > b.name?1 : -1)
+        if(filtered.length > 0){
+            return filtered.map((character, index) => <ModelCard {...character} key={index}/> );
+        }else{
+            return  (
+                <div className="no-results position-relative d-flex justify-content-center align-items-center" style={{height:"50vh"}}>
+                    
+                    <h2 className="text-center">No results found for a {capitalized(array[0])} {capitalized(array[1])} {array[2] && `,size ${array[2]}m`} {array[3] && `, from the ${array[3]} side`} model...</h2>
+                    <div className="no-results-bg w-100 h-100 position-absolute"></div>
+                </div>
+            )
+        }
+
     }
     return (
-        <main className="Results models">
-            <h1 className="text-center">Results Page</h1>
-            <p className="text-center">{results.gender}/{results.species}/{results.eyes}/{results.side}</p>
+        <main className="Results col-12 col-md-10 offset-md-1 px-0 py-md-5">
+            {!urlResults ? <h1>Your results for all : </h1> : <h1>Your results :</h1> }
+            <p className = "d-inline-flex justify-content-between w-100 mb-0">
+                <ul className="list-unstyled d-flex justify-content-between w-100">
+                    {results[0] && <li>Gender : {capitalized(results[0])}</li>}
+                    {results[1] && <li>Species : {capitalized(results[1])}</li>}
+                    {results[2] && <li>Height : {capitalized(results[2])}m</li>}
+                    {results[3] && <li>Side : {capitalized(results[3])}</li>}
+                </ul>
+            </p>
             <div className="model">{!urlResults && characters
                 .sort((a,b)=> a.name > b.name?1 : -1)
                 .map((character, index) => 
                     <ModelCard {...character} key={index} />
                 )}
+                {filtering(results)}
             </div>
-            <div className="model">{results.gender && filterGender
-                .sort((a,b)=> a.name > b.name?1 : -1)
-                .map((character, index) =>
-                    <ModelCard {...character} key={index} />
-                )}
-            </div>
-            <div className="model">{results.gender && filterSpecies
-                .sort((a,b)=> 0.5 -Math.random())
-                .map((character, index) =>
-                    <ModelCard {...character} key={index} />
-                )}
-            </div>
-            <div className="model">{filterHeight(results)}</div>
-            <div className="model">{filterSide(results)}</div>
+            
         </main>
         )
     }

@@ -1,5 +1,5 @@
 .models h1{
-    font-family:var(--font-heavy);
+    background: var(--secondary-color);
 }
 .model{
     display: flex;
@@ -35,7 +35,7 @@
     margin-top: 2%;
 }
 
-.image{
+.modelSection img{
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -50,3 +50,31 @@
     text-align:center;
 }
 
+@media screen and (max-width: 778px){
+    .models h1{
+        text-align: center;
+    }
+
+    .modelSection{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 60px 0px;
+    }
+
+    .modelSection figure{
+        width: 290px;
+        height: 150px;
+    }
+
+    .modelSection img{
+        object-fit: cover;
+        object-position: 100% 25%;
+    }
+
+    .modelName{
+        writing-mode: initial;
+        margin: 16px;
+    }
+    
+}
