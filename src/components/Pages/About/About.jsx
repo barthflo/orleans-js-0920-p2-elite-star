@@ -1,9 +1,10 @@
 import './About.css';
-
+import AboutForm from '../About/Aboutform/AboutForm';
 function About() {
     return (
         <div className="about d-flex justify-content-center align-items-center">
-            <h2>Page About</h2>
+            
+            <AboutForm />
         </div>
     )
 }
