@@ -1,3 +1,16 @@
-.reviews div{
-    margin: 32px;
+.reviews{
+    margin: 40px;
+    padding: 24px 0px;
+}
+
+#score {
+    height: 48px;
+}
+
+.saber{
+    margin-bottom: 24px;
+}
+
+.userReview{
+    max-width: 50%;
 }

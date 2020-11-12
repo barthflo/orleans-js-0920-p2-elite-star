@@ -44,6 +44,7 @@ function Profile(props) {
                     <img className="w-100 h-100" style={{ objectFit: "contain" }} src={model[0].image} alt={model[0].name} />
                 </figure>
             </div>
+                <h3>Reviews</h3>
                 <Reviews />
         </main>
 
