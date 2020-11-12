@@ -1,4 +1,5 @@
 import './About.css';
+import Faq from './Faq/Faq';
 
 function About() {
     return (
@@ -23,6 +24,7 @@ function About() {
                     <p>EliteStar agency is a member of the Intergalactic Federation of Modeling Agencies.</p>
                 </div>
             </div>
+            <Faq />
         </div>
     )
 }
