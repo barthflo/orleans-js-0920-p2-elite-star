@@ -97,8 +97,7 @@ function ProfileForm({openForm, model}) {
             </Slide>
             : <> </>
             }</>
-            <div className="d-flex justify-content-center align-items-center" style={{width:"100%", height:"400px"}}>
-                <h3>User Reviews</h3>
+            <div className="d-flex justify-content-center align-items-center" style={{width:"100%"}}>
             </div>
         </div>
     )

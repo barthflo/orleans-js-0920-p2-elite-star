@@ -3,7 +3,7 @@ import './Footer.css';
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 
 
 function Footer() {
@@ -31,11 +31,11 @@ function Footer() {
                         </a>
                     </div>
                 </div>
-                <div className="About d-flex flex-column align-items-center align-items-md-start mb-4 ">
-                    <Link to="/"><h2>Home</h2></Link>
-                    <Link to="/about"><h2>About</h2></Link>
-                    <Link to="/models"><h2>Models</h2></Link>
-                    <Link className="mb-2" to="/about"><h2>Faq</h2></Link>
+                <div className="About d-flex flex-column align-items-center align-items-md-start mb-4">
+                    <Link to="/about">Talents</Link>
+                    <Link to="/about">Agents</Link>
+                    <Link to="/about">Legal Mentions</Link>
+                    <Link to= "/about#faq">FAQ</Link>
                     <div className="social-medias mb-4 d-flex justify-content-center">
                         <a href="https://www.facebook.com/Star-Wars-models-289226827755289" target="__blank"><FaFacebookSquare className="mx-2 ml-sm-0" /></a>
                         <a href="https://www.instagram.com/starwars/" target="__blank"><FaInstagram className="mx-2" /></a>
