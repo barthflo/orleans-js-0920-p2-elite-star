@@ -6,16 +6,16 @@
     opacity: 0.85;
 }
 .about-title{
-    z-index: 3;
-    margin: 30px;
-    text-align: center;
+    /* z-index: 3; */
+    /* margin: 30px; */
+    text-align: left;
     background-color:var(--secondary-color);
 }
 .about-text {
     display: flex;
     background-color: unset;
     color: black ;
-    z-index: 3;
+    /* z-index: 3; */
     margin: 30px;
 }
 .about-text h1 {
@@ -46,6 +46,9 @@
 }
 
 @media screen and (max-width: 768px){
+    .about-title{
+        text-align: center;
+    }
     .about-text{
         flex-direction: column;
         align-items: center;
