@@ -5,7 +5,7 @@ import './Logo.css';
 
 function Logo() {
     return (
-        <div className="Logo pb-md-5 mt-3">
+        <div className="Logo pb-md-4 mt-1">
             <Link to="/"><img src={ (window.innerWidth <768) ? logoMinimal :  logo} alt="logo" /></Link>
         </div>
     )

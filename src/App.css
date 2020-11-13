@@ -42,7 +42,7 @@ p{
 
 @media screen and (min-width: 768px){
   .home, .models, .about, .Results, .Favourites-page, .Profile{
-    margin-top: 128.64px;
+    margin-top: 92.64px;
     padding:0;
   }
 }

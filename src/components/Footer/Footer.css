@@ -1,5 +1,5 @@
 footer{
-    margin-bottom : 148px;
+    margin-bottom : 142px;
     background-image: url('../../assets/galaxy.jpg');
     background-repeat: no-repeat;
     background-size: auto;
@@ -24,7 +24,9 @@ footer .social-medias a:hover, footer .Alderaan a:hover, footer .Coruscant a:hov
     background:transparent;
     transition:.3s ease-in;
 }
-
+footer .About a{
+    font-size:1.2em ;
+}
 footer .social-medias{
     color: var(--light);
     font-size:1.5em;
