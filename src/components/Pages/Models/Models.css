@@ -1,5 +1,5 @@
 .models h1{
-    font-family:var(--font-heavy);
+    background: var(--secondary-color);
 }
 .model{
     display: flex;
@@ -10,14 +10,16 @@
 .modelSection{
     display: flex;
     justify-content: center;
-    padding: 2%;
+    position:relative;
     transition: 0.3s ease-in;
 }
-
+.modelSection a{
+    color: unset;
+}
 .modelSection:hover{
     transition: 0.3s ease-in;
-    cursor: pointer;
-    transform: scale(1.1);
+    cursor: default;
+    transform: scale(1.2);
 }
 
 .modelSection figure{
@@ -35,18 +37,100 @@
     margin-top: 2%;
 }
 
-.image{
+.modelSection img{
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: top;
 }
-
-.modelName{
+.modelSection .image-mask{
+    height:inherit;
+    width:inherit;
+    background:rgba(0, 0, 0, 0.466);
+    position:absolute;
+    display:none;
+    cursor: default;
+}
+.modelSection:hover .image-mask{
+    display:block;
+}
+.modelName h3{
     writing-mode: vertical-lr;
-    text-orientation: mixed;
     margin: 0;
     font-family: var(--font-light);
     background: var(--secondary-color);
     text-align:center;
+    transform: rotate(180deg);
+    font-weight:100;
+    padding:4px;
 }
 
+.modelSection:hover .modelName{
+    z-index:2;
+}
+
+
+
+.modelSection:hover .modelName h3{
+    writing-mode: unset;
+    background:transparent;
+    color:var(--light);
+    font-size:1em;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 576px){
+    .models h1{
+        text-align: center;
+    }
+
+    .modelSection{
+        flex-direction: column;
+        align-items: center;
+    }
+    .modelSection:nth-child(even), .modelSection:nth-child(odd){
+        margin:0 0 32px !important;
+    }
+    .modelSection figure{
+        width: 100vw;
+        height: 400px;
+    }
+    .modelSection img{
+        object-position: top;
+        width:100%;
+    }
+    .modelSection .modelName{
+        z-index:2;
+    }
+    .modelSection:hover{
+        transform:scale(1);
+        cursor:pointer;
+    }
+    .modelSection:hover .image-mask{
+        display: none;
+    }
+    .modelSection .image-mask{
+        display:block;
+        background:rgba(0, 0, 0, 0.103);
+    }
+    .modelSection h3, .modelName:hover h3{
+        writing-mode: initial;
+        margin: 16px 0;
+        transform: rotate(0deg);
+        font-size: 1.3em;
+        background:transparent;
+        position: unset;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .model{
+        flex-direction:column;
+    }
+    .modelSection:nth-child(even), .modelSection:nth-child(odd){
+        margin:32px 0;
+    }
+}

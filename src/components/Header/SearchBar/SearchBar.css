@@ -27,15 +27,16 @@
     background:transparent;
     border: 1px solid var(--secondary-color);
     width:auto;
+    border-radius:5px;
 }
 .SearchBar .btn-submit:hover{
     color:var(--primary-color);  
 }
 
 .SearchBar .search-drop-down{
-    bottom:160px;
+    bottom:190px;
     width:100vw;
-    height:fit-content;
+    height:300px;
     left:50%;
     transform: translateX(-50%);
     background-image:url('../../../assets/galaxy.jpg');
@@ -71,20 +72,25 @@
 
 @media screen and (min-width:768px){
     .SearchBar .btn{
-        font-size:1em;
+        font-size:1.1em;
         width:150px;
         border: 1px solid var(--light);
+        border-radius:5px;
+    }
+    .SearchBar .search-icon{
+        font-size:1.2em;
     }
     .SearchBar .btn-submit{
-        font-size:.9em;
+        font-size:1.1em;
         width:auto;
         align-self:flex-end;
         border-color:var(--secondary-color);
     }
     .SearchBar .search-drop-down{
         width:auto;
-        top:175px;
-        border-radius: 30px;
+        top:135px;
+        height:180px;
+        border-radius:5px;
     }
     .SearchBar .search-drop-down form{
         flex-wrap: nowrap !important;
