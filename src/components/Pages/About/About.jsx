@@ -4,7 +4,7 @@ import Faq from './Faq/Faq';
 function About() {
     return (
         <div className="about d-flex flex-column">
-                <h1 className='about-title'>ABOUT US</h1>
+            <h1 className='about-title'>ABOUT US</h1>
             <div className='about-text'>
                 <div className='about-adress'>
                     <p className='elite'>ELITE STAR AGENCY</p>
