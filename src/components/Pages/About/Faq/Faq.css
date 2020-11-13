@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     width:50%;
-    /* max-width: 768px; */
 }
 
 .faqs .faq {
@@ -46,7 +45,6 @@
 .faqs .faq.open .faq-answer {
     max-height: 100%;
     opacity: 1;
-    /* font-family: var(--font-light); */
 }
 
 @media screen and (max-width : 768px){
