@@ -34,7 +34,8 @@ function Faq() {
   };
 
   return (
-    <section className="faqs">
+    <section id="faq" className="faqs">
+      <h2>F.A.Q</h2>
       {faqs.map((faq, index,) =>
         <div className={"faq " + (faq.open ? 'open' : '')}
           key={index}
