@@ -37,7 +37,7 @@ function Faq() {
     <section id="faq" className="faqs mb-5">
       <h2>F.A.Q</h2>
       {faqs.map((faq, index,) =>
-        <div className={"px-5 pl-md-0 faq" + (faq.open ? 'open' : '')}
+        <div className={"px-5 pl-md-0 faq" + (faq.open ? ' open' : '')}
           key={index}
           onClick={() => toggleFaq(index)}>
           <div className="faq-question">
