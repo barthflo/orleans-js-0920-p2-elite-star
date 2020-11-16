@@ -30,10 +30,10 @@ const Models =() =>{
             <ToggleSideContext.Provider value={{activeTab:activeTab, toggleActive : toggleActive}}>
                 <ToggleSide />
                 <div className="model mt-5">
-                    {filtering().sort((a, b)=> 0.5 - Math.random())
-                            .map((character, index) => <ModelCard {...character} key={index} />)
-                            .reverse()
-                            }
+                    {filtering()
+                        .sort((a, b)=> 0.5 - Math.random())
+                        .map((character, index) => <ModelCard {...character} key={index} />)
+                    }
                 </div>
             </ToggleSideContext.Provider>
         </main>

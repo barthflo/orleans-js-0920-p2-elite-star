@@ -4,7 +4,7 @@ import './ToggleSide.css';
 
 export const ToggleSideContext = createContext(null);
 
-function ToggleSide(props) {
+function ToggleSide() {
     const {toggleActive, activeTab}= useContext(ToggleSideContext);
     return (
         <ul className="toggle-side pagination">
