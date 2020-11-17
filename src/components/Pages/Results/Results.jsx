@@ -1,12 +1,11 @@
 import './Results.css';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useContext } from 'react-router-dom';
 import ModelCard  from '../Models/ModelCard/ModelCard';
-import {dark, light, characters} from '../../../App';
+import {dark, light, characters, FavouriteContext} from '../../../App';
 
 
 const Results =() =>{
     const urlResults = useLocation().search;
-
     const results =[
         new URLSearchParams(urlResults).get('gender'),
         new URLSearchParams(urlResults).get('species'),
@@ -64,7 +63,7 @@ const Results =() =>{
                         .filter(character => filterSide(character, array))
                         .sort((a,b)=> a.name > b.name?1 : -1)
         if(filtered.length > 0){
-            return filtered.map((character, index) => <ModelCard {...character} key={index}/> );
+            return filtered.map((character, index) => <ModelCard {...character} key={index} index={index}/> );
         }else{
             return  (
                 <div className="no-results position-relative d-flex justify-content-center align-items-center w-100" style={{height:"50vh"}}>
@@ -90,7 +89,7 @@ const Results =() =>{
             <div className="model">{!urlResults && characters
                 .sort((a,b)=> a.name > b.name?1 : -1)
                 .map((character, index) => 
-                    <ModelCard {...character} key={index} />
+                    <ModelCard {...character} key={index} index={index} />
                 )}
                 {filtering(results)}
             </div>

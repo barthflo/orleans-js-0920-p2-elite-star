@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Component} from 'react';
+import { useState, useEffect, createContext } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import SlideRoutes from 'react-slide-routes';
 import Header from './components/Header/Header';
@@ -51,39 +51,45 @@ export const light = [
   "Gungan Grand Army",
   "Royal House of Naboo",
 ]
-export const characters = JSON.parse(localStorage.getItem('characters'));
+export const characters = JSON.parse(localStorage.getItem('characters')).map(character => ({ ...character, isFavourite : false}));
+export const FavouriteContext = createContext(null);
 
-class App extends Component {
-  componentDidMount(){
-    this.fetchApiAll();
-  }
-  fetchApiAll(){
+const App = () => {
+  const [favourites, setFavourites] = useState(characters);
+  useEffect(() => {
     fetch("https://rawcdn.githack.com/akabab/starwars-api/0.2.1/api/all.json")
     .then(res => res.json())
-    .then(data => data.filter(d => d.id !== 77))
-    .then(data => localStorage.setItem('characters', JSON.stringify(data)))
+    .then(res => res.filter(data => data.id !== 77))
+    .then(res => localStorage.setItem('characters', JSON.stringify(res)))
+  }, [])
+  const toggleFavourite = (index) => {
+    let arrayCopy = [favourites];
+    (arrayCopy[0][index].isFavourite)
+        ? (arrayCopy[0][index].isFavourite = false)
+        : (arrayCopy[0][index].isFavourite = true );
+    setFavourites([...favourites, arrayCopy]);
   }
-  
-  render(){
-    return (
-      <div className="App">
-        <Header />
+  return (
+    <div className="App">
+      <Header />
+      <FavouriteContext.Provider value={{ favourites: favourites, toggleFavourite: toggleFavourite}}>
         <Route render={({location})=>(
           <SlideRoutes location={location} duration={1000} timing={"ease-in-out"}>
               <Route exact path="/" component={Home}/>
-              <Route path="/models" component={Models} />
+                <Route path="/models" component={Models} />
+              
               <Route path="/about" component={About} />
               <Route path="/results" component={Results} />
               <Route path="/my-list" component={FavouritesPage} />
           </SlideRoutes>
         )} />
+        </FavouriteContext.Provider>
         <Switch>
           <Route path="/profile/:id" component={Profile}/>
         </Switch>
-        <Footer />
-      </div>
-    );
-  }
+      <Footer />
+    </div>
+  );
 }
 
 export default App;

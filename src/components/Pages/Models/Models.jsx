@@ -31,8 +31,8 @@ const Models =() =>{
                 <ToggleSide />
                 <div className="model mt-5">
                     {filtering()
-                        .sort((a, b)=> 0.5 - Math.random())
-                        .map((character, index) => <ModelCard {...character} key={index} />)
+                        // .sort((a, b)=> 0.5 - Math.random())
+                        .map((character, index) => <ModelCard {...character} index={index} key={index} />)
                     }
                 </div>
             </ToggleSideContext.Provider>
