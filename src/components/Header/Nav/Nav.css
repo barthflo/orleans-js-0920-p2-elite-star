@@ -7,10 +7,6 @@
     background-image:url('../../../assets/galaxy.jpg');
 }
 
-.Nav ul.collapse{
-    bottom:-90px;
-    transition:.5s ease-in-out;
-}
 .Nav a{
     color: var(--light);
     font-family: var(--font-light);

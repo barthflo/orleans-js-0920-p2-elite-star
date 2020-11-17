@@ -1,5 +1,6 @@
 import React from 'react';
 import "./Articles.css";
+import {Slide} from 'react-reveal';
 
 
 function Articles() {
@@ -41,7 +42,9 @@ function Articles() {
         <div className="col-12 col-md-10 offset-md-1 bg-light text-dark">
                 <div class="row">
                     <div class="col-sm mb-4">
-                        <h2 className="ArticleTitle">Start Wars News</h2>
+                        <Slide bottom>
+                            <h2 className="ArticleTitle">Start Wars News</h2>
+                        </Slide>
                     </div>
                 </div>
             <div className="card-group">

@@ -2,11 +2,11 @@
     background-image: url('../../../../assets/agence_futur.jpg');
     background-size: cover;
     width: 100%;
-    height: 80vh;
+    height: 90vh;
 }
 .intro-mask {
     width: 100%;
-    height: 80vh;
+    height: 90vh;
     position: absolute;
     background-color: black;
     opacity: 0.3;

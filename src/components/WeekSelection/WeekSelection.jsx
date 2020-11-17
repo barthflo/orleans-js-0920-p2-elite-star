@@ -26,7 +26,6 @@ class WeekSelection extends React.Component{
                 <div className="selected">
                 {this.state.characters.sort((a, b)=> 0.5 - Math.random()).slice(0,1).map(character =><SelectionCard {...character} key={character.name} />)}
                 {this.state.characters.sort((a, b)=> 0.5 - Math.random()).slice(1,2).map(character =><SelectionCard {...character} key={character.name}/>)}
-                {/* {this.state.Characters.sort((a, b)=> 0.5 - Math.random()).slice(2,3).map(character =><SelectionCard {...character} />)} */}
                 </div>
                 
             </div>
