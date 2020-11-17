@@ -65,12 +65,6 @@ const ProfileDescription = ({params, model, prev, next, onClick, openForm}) => {
                             <p>{model[0].homeworld}</p>
                         </li>
                     }
-                    {model[0].cybernetics &&
-                        <li className="text-capitalize">
-                            <h2>Specificities</h2>
-                            <p>{model[0].cybernetics}</p>
-                        </li>
-                    } 
                     {model[0].platingColor && 
                         <li className="text-capitalize">
                             <h2>Plating Color</h2>
@@ -83,6 +77,19 @@ const ProfileDescription = ({params, model, prev, next, onClick, openForm}) => {
                             <p>{model[0].sensorColor}</p>
                         </li>
                     }
+                    {model[0].affiliations && 
+                        <li className="text-capitalize">
+                            <h2>Affiliations</h2>
+                            <p>{model[0].affiliations.map(affiliation => affiliation + ' ')}</p>
+                        </li>
+                    }
+                    {model[0].cybernetics &&
+                        <li className="text-capitalize">
+                            <h2>Specificities</h2>
+                            <p>{model[0].cybernetics}</p>
+                        </li>
+                    } 
+                    
                     <li className="form-button-container">
                         <button onClick={()=>onClick(!openForm)}className="btn btn-dark btn-md-outline-dark mt-3 w-100" type="button">
                             <p className="text-uppercase text-normal">Contact {model[0].name}</p>

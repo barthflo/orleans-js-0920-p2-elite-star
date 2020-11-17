@@ -26,7 +26,13 @@ export const dark = [
   "Stalgasin hive",
   "House of Dooku",
   "Techno Union",
-  "First Order"
+  "First Order",
+  "Separatist Droid Army",
+  "Imperial High Command",
+  "Sullust Sector Spacefarers Academy",
+  "Judicial Forces",
+  "Imperial Officer Corps",
+  "Battle Station Command"
 ]
 export const light = [
   "Alliance to Restore the Republic", 
