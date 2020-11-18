@@ -1,82 +1,99 @@
-import React, {useState, useEffect} from 'react';
+
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import './AboutForm.css';
 
 export default function AboutForm() {
-    const [fistName, setFirsName] = useState("");
+    const [firstName, setFirstName] = useState("");
     const [secondName, setSecondName] = useState("");
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [adress, setAdress] = useState("");
-    const [adress1, setAdress1] = useState("");
     const [city, setCity] = useState("");
-    const [state, setState] = useState("");
-    const [zip, setZip] = useState(0);
+    const [message, setMessage] = useState("");
 
-    
-
-
-
-
+    const { register, handleSubmit, errors, formState } = useForm();
+    const { isSubmitSuccessful } = formState;
+    const onSubmit = (data, e) => {
+        localStorage.setItem('aboutForm', JSON.stringify(isSubmitSuccessful));
+        e.target.reset();
+    }
 
     return (
-        <form>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputSecondName">Fist Name</label>
-                    <input name="fistName" type="text" class="form-control" id="inputName" />
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputSecondName">Second Name</label>
-                    <input name="secondName" type="text" class="form-control" id="inputPassword4" />
-                </div>
-            </div>
+        <div>
+            <h2 className="contactUs container">Contact us</h2>
+            <form onSubmit={handleSubmit(onSubmit)} >
 
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
-                    <input name="email" type="email" class="form-control" id="inputEmail4" />
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputPassword4">Password</label>
-                    <input name="password" type="password" class="form-control" id="inputPassword4" />
-                </div>
-            </div>
-
-                <div class="form-group">
-                    <label for="inputAddress">Address</label>
-                    <input name="adress" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" />
-                </div>
-                <div class="form-group">
-                    <label for="inputAddress2">Address 2</label>
-                    <input name="adress1" type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
+                <div className="form-row">
+                    <div className="form-group col-md-6">
+                        <label htmlFor="inputFistName">First Name</label>
+                        <input name="fistName" type="text" class="form-control" id="FistName"
+                            ref={register({ required: true, minLength: 2 })}
+                            onChange={(e) => setFirstName(e.target.value)}
+                            placeholder="First name" />
+                        {errors.fistName && <span><small className="text-danger">First name must be at least 2 characters long</small></span>}
+                    </div>
+                    <div className="form-group col-md-6">
+                        <label htmlFor="inputSecondName">Second Name</label>
+                        <input name="secondName" type="text" class="form-control" id="secondName"
+                            ref={register({ required: true, minLength: 2 })}
+                            placeholder="second Name"
+                            onChange={(e) => setSecondName(e.target.value)} />
+                        {errors.secondName && <span><small className="text-danger">Senond name must be at least 2 characters long</small></span>}
+                    </div>
                 </div>
 
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input name="city" type="text" class="form-control" id="inputCity" />
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputState">State</label>
-                    <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
-                        <option>...</option>
-                    </select>
-                </div>
+                <div className="form-row">
+                    <div className="form-group col-md-6">
+                        <label htmlFor="email">Email</label>
+                        <input name="email" type="email" class="form-control" id="email"
+                            message="Invalid email"
+                            ref={register({
+                                required: true,
+                                pattern: {
+                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                }
+                            })} onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Your mail" />
+                        {errors.email && <span><small className="text-danger">Invalid email</small></span>}
+                    </div>
+                    <div className="form-group col-md-6">
+                        <label htmlFor="city">Galactic Zone</label>
+                        <select
+                            name="city"
+                            class="form-control"
+                            id="city"
+                            placeholder="your Galactic Zone"
 
-                <div class="form-group col-md-2">
-                    <label for="inputZip">Zip</label>
-                    <input name="zip" type="text" class="form-control" id="inputZip" />
+                            ref={register({
+                                required: true,
+                                validate: value => value !== "Choose your zone"
+                            })}
+                            onChange={(e) => setCity(e.target.value)}
+                            defaultValue="Choose your zone">
+                            <option disabled>Choose your zone</option>
+                            <option value="Dark side">Dark side</option>
+                            <option value="Loyal side">Loyal side</option>
+                            <option value="Wild side">Wild side</option>
+                            <option value="Eath">Eath</option>
+                            <option value="Gotham">Gotham</option>
+                        </select>
+                        {errors.city && <span><small className="text-danger">Choose your zone</small></span>}
+                    </div>
+                    
+                        <div className="mb-3">
+                        <label htmlFor="message">Message</label>
+                            <textarea className="form-control " id="message" name="message" type="text" 
+                            ref={register({ required: true, minLength: 3, maxLength: 500 })}
+                            placeholder="message"
+                            onChange={(e) => setMessage(e.target.value)}></textarea>
+                            {errors.message && <span><small className="text-danger">Enter you message</small></span>}
+                        </div>
+                        
+                       
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck" />
-                    <label class="form-check-label" for="gridCheck">Check me out</label>
-                </div>
+                <button type="submit" className="submit btn btn-warning ">Sign in</button>
+                {isSubmitSuccessful && <span className="text-success"><small className="p-3">Your message has been sent successfully !</small></span>}
+            </form>
         </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
-        </form>
     )
 }
 
