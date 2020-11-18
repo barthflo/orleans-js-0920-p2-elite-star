@@ -24,18 +24,18 @@ export default function AboutForm() {
 
                 <div className="form-row">
                     <div className="form-group col-md-6">
-                        <label htmlFor="inputFistName">First Name</label>
-                        <input name="fistName" type="text" class="form-control" id="FistName"
+                        <label htmlFor="inputFirstName">First Name</label>
+                        <input name="firstName" type="text" class="form-control" id="FirstName"
                             ref={register({ required: true, minLength: 2 })}
                             onChange={(e) => setFirstName(e.target.value)}
-                            placeholder="First name" />
-                        {errors.fistName && <span><small className="text-danger">First name must be at least 2 characters long</small></span>}
+                            placeholder="Dupond" />
+                        {errors.firstName && <span><small className="text-danger">First name must be at least 2 characters long</small></span>}
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="inputSecondName">Second Name</label>
                         <input name="secondName" type="text" class="form-control" id="secondName"
                             ref={register({ required: true, minLength: 2 })}
-                            placeholder="second Name"
+                            placeholder="Robert"
                             onChange={(e) => setSecondName(e.target.value)} />
                         {errors.secondName && <span><small className="text-danger">Senond name must be at least 2 characters long</small></span>}
                     </div>
@@ -52,7 +52,7 @@ export default function AboutForm() {
                                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                 }
                             })} onChange={(e) => setEmail(e.target.value)}
-                            placeholder="Your mail" />
+                            placeholder="dupondRobert@wild.com" />
                         {errors.email && <span><small className="text-danger">Invalid email</small></span>}
                     </div>
                     <div className="form-group col-md-6">
