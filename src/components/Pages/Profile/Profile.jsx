@@ -1,14 +1,17 @@
 import React from 'react'
 import Reviews from './Reviews';
+import saberLight from '../../../assets/saberResistance.png';
+import saberDark from '../../../assets/saberDarkSide.png';
+import {dark} from '../../../App';
 
 function Profile(props) {
     const params = props.match.params;
     const characters = JSON.parse(localStorage.getItem('characters'));
     const model = [];
     characters.forEach(character => character.id.toString() === params.id && model.push(character));
-    console.log(model[0]);
+   
     const age = () => {
-        console.log(model[0].died);
+        
         if (model[0].died && model[0].born) {
             return (model[0].died - model[0].born) + " years old";
         } else {
@@ -16,6 +19,10 @@ function Profile(props) {
         }
 
     }
+
+    const saberSide = model[0].affiliations.some(affiliation => dark.includes(affiliation));
+   
+
     return (
         <main >
             <div className="about d-flex justify-content-center align-items-center">
@@ -45,6 +52,7 @@ function Profile(props) {
                 </figure>
             </div>
                 <h3>Reviews</h3>
+                <img src={saberSide ? saberDark : saberLight} alt="saber"/>
                 <Reviews />
         </main>
 
