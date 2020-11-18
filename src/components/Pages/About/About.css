@@ -1,5 +1,65 @@
-.about{
-    width:100vw;
-    height:100%;
+.about-mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: black;
+    opacity: 0.85;
+}
+.about-title{
+    text-align: left;
+    background-color:var(--secondary-color);
+}
+.about-text {
+    display: flex;
+    background-color: unset;
+    color: black ;
+    margin: 30px;
+}
+.about-text h1 {
+    text-align: center;
+}
+.about-text p{
+    color: black;
+    font-weight: bold;
+}
+
+.about-adress{
+    width: 50vh;
+    border-right: gray 3px solid;
+    display: flex;
     flex-direction: column;
+    align-items: flex-end;
+    padding-right: 20px;
+}
+.about .description{
+    width: 80%;
+    margin-left: 30px;
+}
+.desc-title{
+    font-size: 1.3em;
+}
+.about .elite{
+    font-size: 1.5em;
+}
+
+@media screen and (max-width: 768px){
+    .about-title{
+        text-align: center;
+    }
+    .about-text{
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-adress{
+        border-bottom:gray 2px solid;
+        width: auto;
+        border-right: none;
+    }
+    .description{
+    margin-top: 30px;
+    margin-left: 0;
+    }
+    .about-adress{
+        align-items: center;
+    }
 }

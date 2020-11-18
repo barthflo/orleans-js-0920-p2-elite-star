@@ -93,7 +93,7 @@ const ProfileDescription = ({params, model, prev, next, onClick, openForm}) => {
                 {window.innerWidth >= 768 &&
                     <div className="d-flex flex-row-reverse">
                         <Link className="px-2 text-secondary" to={next(parseInt(params.id))}>Next</Link>
-                        <Link className="px-2 text-secondary"to={prev(parseInt(params.id))}>Prev</Link>
+                        <Link className="pr-2 text-secondary"to={prev(parseInt(params.id))}>Prev</Link>
                     </div>
                 }
             </section>
