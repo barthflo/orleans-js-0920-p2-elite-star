@@ -36,6 +36,9 @@
     font-style: normal;
 }
 @media screen and (min-width:768px){
+    .Profile ul {
+        overflow-y: auto;
+    }
     .Profile figure{
         width:80%;
         height:calc(100vh - 265px);

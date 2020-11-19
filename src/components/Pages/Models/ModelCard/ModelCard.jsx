@@ -2,11 +2,16 @@ import '../Models.css';
 import {Zoom, Slide} from 'react-reveal';
 import { Link } from 'react-router-dom';
 import {RiHeartAddFill} from 'react-icons/ri';
-import {useContext} from 'react';
-import {FavouriteContext, characters} from '../../../../App';
+import {useContext, useState} from 'react';
+import {CharactersContext, characters} from '../../../../App';
+
 
 const ModelCard = ({ name, image , id, index, isFavourite}) => {
-    const {favourites, toggleFavourite} = useContext(FavouriteContext);
+    const {toggleFavourite} = useContext(CharactersContext);
+    // const toggleFavourite = () => {
+    //     isFavourite = !isFavourite;
+    //     console.log(isFavourite);
+    // }
     let url = `/profile/${id}`;
     return (
         <div className="modelSection p-md-4">
@@ -26,7 +31,7 @@ const ModelCard = ({ name, image , id, index, isFavourite}) => {
             <Slide bottom>
                 
                     <figure>
-                        <RiHeartAddFill onClick={() => toggleFavourite(index)} className={"favourite-icon m-3 m-md-2 position-absolute" + (characters[index].isFavourite ? " is-favourite" : '')} size={"1.7em"} />
+                        <RiHeartAddFill onClick={(e) => toggleFavourite(id)} className={"favourite-icon m-3 m-md-2 position-absolute" + (isFavourite ? " is-favourite" : '')} size={"1.7em"} />
                         
                         <div className="image-mask"></div>
                         <Link to={url} >

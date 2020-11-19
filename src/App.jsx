@@ -51,28 +51,35 @@ export const light = [
   "Gungan Grand Army",
   "Royal House of Naboo",
 ]
-export const characters = JSON.parse(localStorage.getItem('characters')).map(character => ({ ...character, isFavourite : false}));
-export const FavouriteContext = createContext(null);
 
+export const CharactersContext = createContext(null);
+export const characters = JSON.parse(localStorage.getItem('characters'));
 const App = () => {
-  const [favourites, setFavourites] = useState(characters);
+  const [characters, setCharacters] = useState(JSON.parse(localStorage.getItem('characters')));
   useEffect(() => {
     fetch("https://rawcdn.githack.com/akabab/starwars-api/0.2.1/api/all.json")
     .then(res => res.json())
     .then(res => res.filter(data => data.id !== 77))
-    .then(res => localStorage.setItem('characters', JSON.stringify(res)))
+    .then(res => res.map((item) => ({...item, isFavourite : false})))
+    .then(res => setCharacters(res))
   }, [])
-  const toggleFavourite = (index) => {
-    let arrayCopy = [favourites];
-    (arrayCopy[0][index].isFavourite)
-        ? (arrayCopy[0][index].isFavourite = false)
-        : (arrayCopy[0][index].isFavourite = true );
-    setFavourites([...favourites, arrayCopy]);
+
+  localStorage.setItem('characters', JSON.stringify(characters));
+ 
+  const [favourites, setFavourites] = useState(characters.map(character => character.isFavourite))
+  const toggleFavourite = (id) => {
+    characters.map(character =>
+      (character.id === id) &&
+        (character.isFavourite = !character.isFavourite)
+    )
+    setFavourites(!favourites);
+    setCharacters(characters);
+    localStorage.setItem('characters', JSON.stringify(characters));
   }
   return (
     <div className="App">
       <Header />
-      <FavouriteContext.Provider value={{ favourites: favourites, toggleFavourite: toggleFavourite}}>
+      <CharactersContext.Provider value={{ characters , toggleFavourite }}>
         <Route render={({location})=>(
           <SlideRoutes location={location} duration={1000} timing={"ease-in-out"}>
               <Route exact path="/" component={Home}/>
@@ -83,13 +90,12 @@ const App = () => {
               <Route path="/my-list" component={FavouritesPage} />
           </SlideRoutes>
         )} />
-        </FavouriteContext.Provider>
         <Switch>
           <Route path="/profile/:id" component={Profile}/>
         </Switch>
+      </CharactersContext.Provider>
       <Footer />
     </div>
   );
 }
-
 export default App;

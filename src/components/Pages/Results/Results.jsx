@@ -1,10 +1,15 @@
 import './Results.css';
-import { useLocation, useContext } from 'react-router-dom';
+import { useLocation} from 'react-router-dom';
+import {useContext} from 'react';
 import ModelCard  from '../Models/ModelCard/ModelCard';
-import {dark, light, characters, FavouriteContext} from '../../../App';
+import {dark, light, CharactersContext} from '../../../App';
 
 
 const Results =() =>{
+    // const {characters} = useContext(CharactersContext);
+    // console.log(characters);
+    // console.log(characters);
+    const characters = JSON.parse(localStorage.getItem("characters"));
     const urlResults = useLocation().search;
     const results =[
         new URLSearchParams(urlResults).get('gender'),
@@ -61,7 +66,7 @@ const Results =() =>{
                         .filter(character => (array[0]) ? character.gender === array[0] : character.gender)
                         .filter(character => filterHeight(character, array))
                         .filter(character => filterSide(character, array))
-                        .sort((a,b)=> a.name > b.name?1 : -1)
+                        // .sort((a,b)=> a.name > b.name?1 : -1)
         if(filtered.length > 0){
             return filtered.map((character, index) => <ModelCard {...character} key={index} index={index}/> );
         }else{
@@ -86,8 +91,11 @@ const Results =() =>{
                     {results[3] && <li>Side : {capitalized(results[3])}</li>}
                 </ul>
             </p>
-            <div className="model">{!urlResults && characters
-                .sort((a,b)=> a.name > b.name?1 : -1)
+            <div className="model">
+                {characters.lenght === 0 ? 
+                "loading..." : 
+                !urlResults && 
+                characters.sort((a,b)=> a.name > b.name?1 : -1)
                 .map((character, index) => 
                     <ModelCard {...character} key={index} index={index} />
                 )}

@@ -1,13 +1,17 @@
 import './Profile.css';
 import ProfileDescription from './ProfileDescription/ProfileDescription';
 import ProfileForm from './ProfileForm/ProfileForm';
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
+import {CharactersContext} from '../../../App';
 
 function Profile(props) {
     const params = props.match.params;
+    console.log(params);
     const characters = JSON.parse(localStorage.getItem('characters'));
+    console.log(characters);
     const model = characters.filter(character => (character.id.toString() === params.id));
+    console.log(model);
     const [openForm, setOpenForm]=useState(false);
     const next = (id) => {
         if(id=== 88){
