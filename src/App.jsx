@@ -55,7 +55,7 @@ export const light = [
 ]
 
 export const CharactersContext = createContext(null);
-export const characters = JSON.parse(localStorage.getItem('characters'));
+// export const characters = JSON.parse(localStorage.getItem('characters'));
 const App = () => {
   const [characters, setCharacters] = useState(localStorage.getItem('characters') ? JSON.parse(localStorage.getItem('characters')) : []);
   useEffect(() => {
@@ -81,8 +81,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header />
       <CharactersContext.Provider value={{ characters , toggleFavourite }}>
+        <Header />
         <Route render={({location})=>(
           <SlideRoutes location={location} duration={1000} timing={"ease-in-out"}>
               <Route exact path="/" component={Home}/>
