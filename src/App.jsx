@@ -55,19 +55,28 @@ export const light = [
 ]
 
 export const CharactersContext = createContext(null);
-// export const characters = JSON.parse(localStorage.getItem('characters'));
+
 const App = () => {
-  const [characters, setCharacters] = useState(localStorage.getItem('characters') ? JSON.parse(localStorage.getItem('characters')) : []);
+  const [characters, setCharacters] = useState(() => {
+    if(localStorage.getItem('characters')){
+      return JSON.parse(localStorage.getItem('characters'))
+    }else{
+      return [];
+    }
+  });
   useEffect(() => {
+    if (characters.length === 0){
     fetch("https://rawcdn.githack.com/akabab/starwars-api/0.2.1/api/all.json")
     .then(res => res.json())
     .then(res => res.filter(data => data.id !== 77))
     .then(res => res.map((item) => ({...item, isFavourite : false})))
     .then(res => setCharacters(res))
-  }, [])
+    }
+  }, []);
 
-  localStorage.setItem('characters', JSON.stringify(characters));
-  
+  if (localStorage.getItem('characters') === null || localStorage.getItem('characters').length < 3){
+    localStorage.setItem('characters', JSON.stringify(characters));
+  }
   const [favourites, setFavourites] = useState(characters.map(character => character.isFavourite))
   const toggleFavourite = (id) => {
     characters.map(character =>
@@ -78,7 +87,6 @@ const App = () => {
     setCharacters(characters);
     localStorage.setItem('characters', JSON.stringify(characters));
   }
-
   return (
     <div className="App">
       <CharactersContext.Provider value={{ characters , toggleFavourite }}>

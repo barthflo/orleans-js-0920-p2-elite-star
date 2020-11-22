@@ -6,10 +6,7 @@ import {dark, light, CharactersContext} from '../../../App';
 
 
 const Results =() =>{
-    // const {characters} = useContext(CharactersContext);
-    // console.log(characters);
-    // console.log(characters);
-    const characters = JSON.parse(localStorage.getItem("characters"));
+    const {characters} = useContext(CharactersContext);
     const urlResults = useLocation().search;
     const results =[
         new URLSearchParams(urlResults).get('gender'),
