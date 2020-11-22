@@ -77,7 +77,7 @@ const ProfileDescription = ({params, model, prev, next, onClick, openForm}) => {
                             <p>{model[0].sensorColor}</p>
                         </li>
                     }
-                    {model[0].affiliations && 
+                    {model[0].affiliations.length > 0 && 
                         <li className="text-capitalize">
                             <h2>Affiliations</h2>
                             <p>{model[0].affiliations.map(affiliation => affiliation + ' ')}</p>

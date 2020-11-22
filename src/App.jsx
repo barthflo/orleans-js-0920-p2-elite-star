@@ -50,12 +50,14 @@ export const light = [
   "Gungan High Council",
   "Gungan Grand Army",
   "Royal House of Naboo",
+  "Lars family",
+  "Galactic Republic"
 ]
 
 export const CharactersContext = createContext(null);
 export const characters = JSON.parse(localStorage.getItem('characters'));
 const App = () => {
-  const [characters, setCharacters] = useState(JSON.parse(localStorage.getItem('characters')));
+  const [characters, setCharacters] = useState(localStorage.getItem('characters') ? JSON.parse(localStorage.getItem('characters')) : []);
   useEffect(() => {
     fetch("https://rawcdn.githack.com/akabab/starwars-api/0.2.1/api/all.json")
     .then(res => res.json())
@@ -65,7 +67,7 @@ const App = () => {
   }, [])
 
   localStorage.setItem('characters', JSON.stringify(characters));
- 
+  
   const [favourites, setFavourites] = useState(characters.map(character => character.isFavourite))
   const toggleFavourite = (id) => {
     characters.map(character =>
@@ -76,6 +78,7 @@ const App = () => {
     setCharacters(characters);
     localStorage.setItem('characters', JSON.stringify(characters));
   }
+
   return (
     <div className="App">
       <Header />

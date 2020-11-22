@@ -3,15 +3,14 @@ import ProfileDescription from './ProfileDescription/ProfileDescription';
 import ProfileForm from './ProfileForm/ProfileForm';
 import {useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
-import {CharactersContext} from '../../../App';
+import {CharactersContext, light, dark} from '../../../App';
+import {FaJediOrder, FaEmpire} from 'react-icons/fa';
+import {RiHeartFill, RiHeartAddFill} from 'react-icons/ri';
 
 function Profile(props) {
     const params = props.match.params;
-    console.log(params);
-    const characters = JSON.parse(localStorage.getItem('characters'));
-    console.log(characters);
+    const {characters, toggleFavourite} = useContext(CharactersContext);
     const model = characters.filter(character => (character.id.toString() === params.id));
-    console.log(model);
     const [openForm, setOpenForm]=useState(false);
     const next = (id) => {
         if(id=== 88){
@@ -33,7 +32,19 @@ function Profile(props) {
     }
     return (
         <main className="Profile col-12 col-md-10 offset-md-1 px-0 py-md-5 dark">
-            <h1 style={{background:"var(--secondary-color"}}>{model[0].name}</h1>
+            <div style={{background:"var(--secondary-color"}} className="d-flex justify-content-between align-items-center mb-2">
+                <div className="d-flex align-items-baseline">
+                    <h1 style={{color:"var(--dark)"}}className="mb-0 pr-3">{model[0].name}</h1>
+                    {(light.some(affiliation => model[0].affiliations.includes(affiliation)) && !dark.some(affiliation => model[0].affiliations.includes(affiliation))) ?
+                        <FaJediOrder size={"2em"} style={{color:"var(--dark)"}}/> :
+                        <FaEmpire size={"2em"} style={{color: "var(--dark)"}}/>
+                    }
+                </div>
+                {model[0].isFavourite ?
+                <RiHeartFill onClick={() =>toggleFavourite(model[0].id)} className="mr-2 favourite-icon active" size={"2em"} color={"var(--color-warm)"}/> :
+                <RiHeartAddFill onClick={()=> toggleFavourite(model[0].id)} className="mr-2 favourite-icon" size={"2em"} color={"var(--dark"} />
+                }    
+            </div>
             <ProfileDescription 
                 params={params} 
                 model={model} 

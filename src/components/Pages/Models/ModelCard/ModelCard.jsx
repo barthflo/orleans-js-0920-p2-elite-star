@@ -2,16 +2,12 @@ import '../Models.css';
 import {Zoom, Slide} from 'react-reveal';
 import { Link } from 'react-router-dom';
 import {RiHeartAddFill} from 'react-icons/ri';
-import {useContext, useState} from 'react';
-import {CharactersContext, characters} from '../../../../App';
+import {useContext} from 'react';
+import {CharactersContext} from '../../../../App';
 
 
-const ModelCard = ({ name, image , id, index, isFavourite}) => {
+const ModelCard = ({ name, image , id, isFavourite}) => {
     const {toggleFavourite} = useContext(CharactersContext);
-    // const toggleFavourite = () => {
-    //     isFavourite = !isFavourite;
-    //     console.log(isFavourite);
-    // }
     let url = `/profile/${id}`;
     return (
         <div className="modelSection p-md-4">

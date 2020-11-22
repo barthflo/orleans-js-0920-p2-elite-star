@@ -2,12 +2,11 @@ import ModelCard from './ModelCard/ModelCard';
 import './Models.css';
 import ToggleSide from '../ToggleSide/ToggleSide';
 import {ToggleSideContext} from '../ToggleSide/ToggleSide';
-import {useState, useEffect, useContext} from 'react';
+import {useState, useContext} from 'react';
 import {light, dark, CharactersContext } from '../../../App';
 
 const Models =() =>{
     const {characters } = useContext(CharactersContext);
-    // const characters= JSON.parse(localStorage.getItem('characters'));
     
     const [activeTab, setActive] = useState("1");
     const toggleActive =(tab) => {
