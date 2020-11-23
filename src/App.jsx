@@ -12,6 +12,7 @@ import Footer from "./components/Footer/Footer";
 import { Switch, Route } from 'react-router-dom';
 import FavouritesPage from "./components/Pages/Favourites/FavouritesPage";
 import Profile from './components/Pages/Profile/Profile';
+import { components } from 'react-select';
 
 export const dark = [
   "501st Legion",
@@ -63,6 +64,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        
         <Route render={({location})=>(
           <SlideRoutes location={location} duration={1000} timing={"ease-in-out"}>
               <Route exact path="/" component={Home}/>

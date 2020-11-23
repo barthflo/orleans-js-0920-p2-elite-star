@@ -14,7 +14,7 @@ export default function AboutForm() {
     const { isSubmitSuccessful } = formState;
     const onSubmit = (data, e) => {
         localStorage.setItem('aboutForm', JSON.stringify(isSubmitSuccessful));
-        e.target.reset();
+        e.target.reset(data);
     }
 
     return (
