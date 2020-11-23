@@ -1,8 +1,13 @@
 import './About.css';
+
+import AboutForm from '../About/Aboutform/AboutForm';
+
 import Faq from './Faq/Faq';
+
 
 function About() {
     return (
+            
         <main className="about col-12 col-lg-10 offset-lg-1 py-md-5 px-md-4">
             <div className="d-flex flex-column">
                 <h1 className='about-title'>ABOUT US</h1>
@@ -25,8 +30,8 @@ function About() {
                     </div>
                 </div>
             </div>
-            <Faq />
-            
+            <AboutForm />
+            <Faq />   
         </main>
     )
 }
