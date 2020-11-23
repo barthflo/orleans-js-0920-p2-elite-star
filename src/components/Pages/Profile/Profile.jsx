@@ -1,59 +1,71 @@
 import React from 'react'
+import { dark } from '../../../App';
+import './Profile.css';
+import ProfileDescription from './ProfileDescription/ProfileDescription';
+import ProfileForm from './ProfileForm/ProfileForm';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Reviews from './Reviews';
-import saberLight from '../../../assets/saberResistance.png';
-import saberDark from '../../../assets/saberDarkSide.png';
-import {dark} from '../../../App';
 
 function Profile(props) {
     const params = props.match.params;
     const characters = JSON.parse(localStorage.getItem('characters'));
-    const model = [];
-    characters.forEach(character => character.id.toString() === params.id && model.push(character));
-   
-    const age = () => {
-        
-        if (model[0].died && model[0].born) {
-            return (model[0].died - model[0].born) + " years old";
+    const model = characters.filter(character => (character.id.toString() === params.id));
+    const [openForm, setOpenForm] = useState(false);
+    const next = (id) => {
+        if (id === 88) {
+            return '/profile/1';
+        } else if (id === 16 || id === 76) {
+            return `/profile/${id + 2}`;
         } else {
-            return "Not available";
+            return `/profile/${id + 1}`;
         }
-
+    }
+    const prev = (id) => {
+        if (id === 1) {
+            return '/profile/88';
+        } else if (id === 18 || id === 78) {
+            return `/profile/${id - 2}`;
+        } else {
+            return `/profile/${id - 1}`;
+        }
     }
 
     const saberSide = model[0].affiliations.some(affiliation => dark.includes(affiliation));
-   
+
 
     return (
-        <main >
-            <div className="about d-flex justify-content-center align-items-center">
-                <h2>Page Profile</h2>
-                <ul>
-                    <li>Model Name : {model[0].name}</li>
-                    <li>Model Age : {age()}</li>
-                    <li className="text-capitalize">Model Gender: {model[0].gender}</li>
-                    {model[0].height !== undefined && <li className="text-capitalize">Model Height: {model[0].height.toFixed(2)}m</li>}
-                    {model[0].mass !== undefined && <li className="text-capitalize">Model Weight: {model[0].mass}kg</li>}
-                    {model[0].species && <li className="text-capitalize">Model Species: {model[0].species}</li>}
-                    {model[0].eyeColor && <li className="text-capitalize">Model Eyes: {model[0].eyeColor}</li>}
-                    {model[0].hairColor && <li className="text-capitalize">Model Hair: {model[0].hairColor}</li>}
-                    {model[0].skinColor && <li className="text-capitalize">Model Skin: {model[0].skinColor}</li>}
-                    {model[0].cybernetics || model[0].platingColor ? <li className="text-capitalize">Model Speficities:
-                    <ul>
-                            {model[0].cybernetics && <li className="text-capitalize">{model[0].cybernetics}</li>}
-                            {model[0].platingColor && <li className="text-capitalize">Plating Color :{model[0].platingColor}</li>}
-                            {model[0].sensorColor && <li className="text-capitalize">Sensor Color :{model[0].sensorColor}</li>}
-                        </ul>
-                    </li>
-                        : <> </>}
-                    {model[0].homeworld && <li className="text-capitalize">Model From : {model[0].homeworld}</li>}
-                </ul>
-                <figure style={{ width: "400px", height: "400px" }}>
-                    <img className="w-100 h-100" style={{ objectFit: "contain" }} src={model[0].image} alt={model[0].name} />
-                </figure>
-            </div>
+
+        <main className="Profile col-12 col-md-10 offset-md-1 px-0 py-md-5 dark">
+            <h1 style={{ background: "var(--secondary-color" }}>{model[0].name}</h1>
+            <ProfileDescription
+                params={params}
+                model={model}
+                prev={prev}
+                next={next}
+                onClick={value => setOpenForm(value)}
+                openForm={openForm}
+            />
+            <ProfileForm openForm={openForm} model={model} />
+            {window.innerWidth < 768 &&
+                <div className="col-10 offset-1 w-100 d-flex flex-row-reverse justify-content-between p-0">
+                    <Link className=" py-2 text-secondary" to={next(parseInt(params.id))}>Next</Link>
+                    <Link className=" py-2 text-secondary" to={prev(parseInt(params.id))}>Prev</Link>
+                </div>
+            }
+            <div>
                 <h3>Reviews</h3>
-                <img src={saberSide ? saberDark : saberLight} alt="saber"/>
-                <Reviews />
+                {/* <div>
+                    <img src={saberSide ? saberDark : saberLight} alt="saber" />
+                    <p>Elle Carrillo</p>
+                    <p>12/06/2029</p>
+                    <p>Hardworker, listens and remembers every reviews. I recommend this model, it was a pleasure to work with! Finally I found someone in this universe how is able to understand and do what I want.</p>
+                </div> */}
+                <Reviews side={saberSide}/>
+            </div>
+
+
+
         </main>
 
 
