@@ -1,12 +1,13 @@
 import './Results.css';
-import { useLocation } from 'react-router-dom';
+import { useLocation} from 'react-router-dom';
+import {useContext} from 'react';
 import ModelCard  from '../Models/ModelCard/ModelCard';
-import {dark, light, characters} from '../../../App';
+import {dark, light, CharactersContext} from '../../../App';
 
 
 const Results =() =>{
+    const {characters} = useContext(CharactersContext);
     const urlResults = useLocation().search;
-
     const results =[
         new URLSearchParams(urlResults).get('gender'),
         new URLSearchParams(urlResults).get('species'),
@@ -62,12 +63,12 @@ const Results =() =>{
                         .filter(character => (array[0]) ? character.gender === array[0] : character.gender)
                         .filter(character => filterHeight(character, array))
                         .filter(character => filterSide(character, array))
-                        .sort((a,b)=> a.name > b.name?1 : -1)
+                        // .sort((a,b)=> a.name > b.name?1 : -1)
         if(filtered.length > 0){
-            return filtered.map((character, index) => <ModelCard {...character} key={index}/> );
+            return filtered.map((character, index) => <ModelCard {...character} key={index} index={index}/> );
         }else{
             return  (
-                <div className="no-results position-relative d-flex justify-content-center align-items-center" style={{height:"50vh"}}>
+                <div className="no-results position-relative d-flex justify-content-center align-items-center w-100" style={{height:"50vh"}}>
                     
                     <h2 className="text-center">No results found for a {capitalized(array[0])} {capitalized(array[1])} {array[2] && `,size ${array[2]}m`} {array[3] && `, from the ${array[3]} side`} model...</h2>
                     <div className="no-results-bg w-100 h-100 position-absolute"></div>
@@ -78,7 +79,7 @@ const Results =() =>{
     }
     return (
         <main className="Results col-12 col-md-10 offset-md-1 px-0 py-md-5">
-            {!urlResults ? <h1>Your results for all : </h1> : <h1>Your results :</h1> }
+            {!urlResults ? <h1 className="px-2 px-md-0">Your results for all : </h1> : <h1>Your results :</h1> }
             <p className = "d-inline-flex justify-content-between w-100 mb-0">
                 <ul className="list-unstyled d-flex justify-content-between w-100">
                     {results[0] && <li>Gender : {capitalized(results[0])}</li>}
@@ -87,10 +88,13 @@ const Results =() =>{
                     {results[3] && <li>Side : {capitalized(results[3])}</li>}
                 </ul>
             </p>
-            <div className="model">{!urlResults && characters
-                .sort((a,b)=> a.name > b.name?1 : -1)
+            <div className="model">
+                {characters.lenght === 0 ? 
+                "loading..." : 
+                !urlResults && 
+                characters.sort((a,b)=> a.name > b.name?1 : -1)
                 .map((character, index) => 
-                    <ModelCard {...character} key={index} />
+                    <ModelCard {...character} key={index} index={index} />
                 )}
                 {filtering(results)}
             </div>

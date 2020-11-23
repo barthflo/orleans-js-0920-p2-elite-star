@@ -1,13 +1,17 @@
 
 .Nav ul{
     padding:0;
+    position:fixed;
+    bottom:94px;
+    left:0;
+    background-image:url('../../../assets/galaxy.jpg');
 }
 
 .Nav a{
     color: var(--light);
     font-family: var(--font-light);
     font-size:1.1em;
-    font-weight:100;
+    font-weight:50px;
     padding:2px;
 }
 .Nav a:hover{
@@ -16,3 +20,9 @@
     text-decoration: none;
 }
 
+@media screen and (min-width: 768px){
+    .Nav ul {
+        position: unset;
+        background-image: unset;
+    }
+}
