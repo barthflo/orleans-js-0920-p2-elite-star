@@ -23,3 +23,16 @@
     background:var(--light);
     transition: .3s ease-in
 }
+
+.Favourites .btn .counter{
+    font-family:var(--font-light);
+    font-size:.9em;
+    background:var(--color-warm);
+    color: var(--light);
+    height:24px;
+    width:24px;
+    border-radius: 100%;
+    position:absolute;
+    top:-5px;
+    right:-10px;
+}

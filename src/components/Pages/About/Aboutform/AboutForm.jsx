@@ -19,7 +19,7 @@ export default function AboutForm() {
 
     return (
         <div>
-            <h2 className="contactUs container">Contact us</h2>
+            <h2 className="contactUs text-uppercase">Contact us</h2>
             <form onSubmit={handleSubmit(onSubmit)} >
 
                 <div className="form-row">
@@ -79,7 +79,7 @@ export default function AboutForm() {
                         {errors.city && <span><small className="text-danger">Choose your zone</small></span>}
                     </div>
                     
-                        <div className="mb-3">
+                        <div className="mb-3 form-group col-12">
                         <label htmlFor="message">Message</label>
                             <textarea className="form-control " id="message" name="message" type="text" 
                             ref={register({ required: true, minLength: 3, maxLength: 500 })}
