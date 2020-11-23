@@ -11,7 +11,7 @@
     color: var(--light);
     font-family: var(--font-light);
     font-size:1.1em;
-    font-weight:100;
+    font-weight:50px;
     padding:2px;
 }
 .Nav a:hover{
