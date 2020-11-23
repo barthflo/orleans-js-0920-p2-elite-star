@@ -1,0 +1,12 @@
+.toggle-side .page-link{
+    cursor: pointer;
+    color:var(--primary-color);
+    font-family: var(--font-light);
+    font-size:.9em;
+}
+
+.toggle-side .active{
+    background-color:var(--secondary-color);
+    color:var(--prmary-color);
+    transition:.2s ease-in-out;
+}

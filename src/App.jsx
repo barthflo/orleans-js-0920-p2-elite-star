@@ -1,15 +1,14 @@
-import { Component} from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Component} from 'react';
+import { Switch, Route } from 'react-router-dom';
 import SlideRoutes from 'react-slide-routes';
-// import {TransitionGroup, CSSTransition} from 'react-transition-group';
 import Header from './components/Header/Header';
 import Home from "./components/Pages/Home/Home";
 import Models from "./components/Pages/Models/Models";
 import About from "./components/Pages/About/About";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Results from "./components/Pages/Results/Results";
 import Footer from "./components/Footer/Footer"; 
-import { Switch, Route } from 'react-router-dom';
 import FavouritesPage from "./components/Pages/Favourites/FavouritesPage";
 import Profile from './components/Pages/Profile/Profile';
 import { components } from 'react-select';
