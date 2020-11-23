@@ -10,7 +10,6 @@ import {Fade} from 'react-reveal';
 
 
 function FavouritesCard(props) {
-    console.log(props);
     let url = `/profile/${props.id}`;
     const lightside = light.some(affiliation => props.affiliations.includes(affiliation)) && !dark.some(affiliation => props.affiliations.includes(affiliation));
     const [isOpen, setIsOpen] =useState(false);
