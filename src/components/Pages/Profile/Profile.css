@@ -2,6 +2,14 @@
     background: transparent;
     font-size:1.5em !important;
 }
+.Profile .favourite-icon{
+    cursor: pointer;
+    transition:.5s ease-in-out;
+}
+
+.Profile .favourite-icon.active{
+    opacity:1;
+}
 .Profile figure{
     width:100%;
     height:50vh;
@@ -35,7 +43,11 @@
     margin:0;
     font-style: normal;
 }
+
 @media screen and (min-width:768px){
+    .Profile ul {
+        overflow-y: auto;
+    }
     .Profile figure{
         width:80%;
         height:calc(100vh - 265px);
@@ -46,5 +58,11 @@
     }
     .Profile .form-button-container{
         width:unset;
+    }
+    .Profile .favourite-icon{
+        opacity:.8;
+    }
+    .Profile .favourite-icon:hover{
+        opacity:1;
     }
 }

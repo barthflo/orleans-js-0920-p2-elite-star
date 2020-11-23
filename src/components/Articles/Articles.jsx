@@ -40,8 +40,8 @@ function Articles() {
     return (
 
         <div className="col-12 col-md-10 offset-md-1 bg-light text-dark">
-                <div class="row">
-                    <div class="col-sm mb-4">
+                <div className="row">
+                    <div className="col-sm mb-4">
                         <Slide bottom>
                             <h2 className="ArticleTitle">Start Wars News</h2>
                         </Slide>
@@ -62,7 +62,7 @@ function Articles() {
                         <p className="card-text"><small className="text-muted">{Jedi.lastUpdate}</small></p>
                     </div>
                 </div>
-                <div class="CardComponent2 card p-3 ">
+                <div className="CardComponent2 card p-3 ">
                     <div className="cardHeader">
                         <h3 className="text-dark">{Empire.pageTitle}</h3>
                         <p className="text-dark">{Empire.date}</p>
@@ -88,7 +88,7 @@ function Articles() {
                     <div className="card-body">
                         <h5 className="card-title">{Parc.cardTitle}</h5>
                         <p className="card-text text-dark">{Parc.character.slice(0, 700)}...</p>
-                        <p className="card-text"><small class="text-muted">{Parc.lastUpdate}</small></p>
+                        <p className="card-text"><small className="text-muted">{Parc.lastUpdate}</small></p>
                     </div>
                 </div>
             </div>

@@ -12,6 +12,7 @@
     justify-content: center;
     position:relative;
     transition: 0.3s ease-in;
+    transform:scale(1);
 }
 .modelSection a{
     color: unset;
@@ -69,8 +70,27 @@
     z-index:2;
 }
 
-
-
+.modelSection .favourite-icon{
+    right: 24px;
+    transform:scale(0);
+    color: var(--light);
+    opacity:.8;
+    z-index:20;
+    transition:.2s ease-in;
+    cursor:pointer;
+}
+.modelSection:hover .favourite-icon{
+    transform:scale(1);
+}
+.modelSection .favourite-icon:hover{
+    color:var(--secondary-color);
+    transition: .2s ease-in;
+}
+.modelSection .is-favourite{
+    color:var(--secondary-color);
+    opacity:1;
+    transform : scale(1);
+}
 .modelSection:hover .modelName h3{
     writing-mode: unset;
     background:transparent;
@@ -115,6 +135,11 @@
     .modelSection .image-mask{
         display:block;
         background:rgba(0, 0, 0, 0.103);
+    }
+    .modelSection .favourite-icon{
+        transform:scale(1);
+        right:0;
+        bottom:0;
     }
     .modelSection h3, .modelName:hover h3{
         writing-mode: initial;
