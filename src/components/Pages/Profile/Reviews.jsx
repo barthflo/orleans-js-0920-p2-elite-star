@@ -8,7 +8,7 @@ const Reviews = ({ side }) => {
         {
             score: 3,
             userName: "Elle Carrillo",
-            date: "12/06/2029",
+            date: "12/06/2020",
             reviews: "Hardworker, listens and remembers every reviews. I recommend this model, it was a pleasure to work with! Finally I found someone in this universe how is able to understand and do what I want.",
         },
         {
@@ -20,26 +20,50 @@ const Reviews = ({ side }) => {
         {
             score: 4,
             userName: "Lachlan Crane",
-            date: "19/05/1999",
+            date: "19/05/2019",
             reviews: "Amazing! This model is not scared to try anything, during our last photo shoot we had to drop ice all over the body, then set the dress on fire while the model was in space! It was a beautiful master piece and this model knew how to be the cherry on the cake!",
         },
-    ]
-    
-    const displaySaber = (number) =>{
-        for (let i = 0; i < number; i++) {
-           // <img src={side ? saberDark : saberLight} alt="saber" />
-            console.log("test");
+        {
+            score: 2,
+            userName: "Mathilda Fonda",
+            date:"05/05/2005",
+            reviews:"Its work is remarkable and its passion for fashion is reflected in its poses! Always motivated, never bored, I recommand this model!",
+        },
+        {
+            score: 5,
+            userName: "Marco DeLaVita",
+            date:"31/07/2002",
+            reviews: "A beautiful face, a beautiful look, everything is beautiful.",
+        },
+        {
+            score: 4,
+            userName: "Riley Morgan",
+            date:"31/07/2000",
+            reviews: "Nice to work with, always happy and rich in creativity. Nothing is a limit, everything is possible for this model. Very impressive!",
         }
+    ]
+
+   
+
+    const displaySaber = (number) => {
+        let saberArray = [];
+        for (let i = 0; i < number; i++) {
+            saberArray.push(<img src={side ? saberDark : saberLight} alt="saber" />)
+        }
+        return saberArray;
     }
 
+    const xNbr = Math.floor((Math.random() * userReviews.length));
+    const yNbr = Math.floor((Math.random() * userReviews.length)+1);
     return (
-        <div>
-            {userReviews.map((user) => (
-                <div>
+        <div className="sectionReview">
+            <h3>Reviews</h3>
+            {userReviews.slice(xNbr, yNbr).map((user) => (
+                <div className="review">
                     <div>{displaySaber(user.score)}</div>
                     <p>{user.userName}</p>
                     <p>{user.date}</p>
-                    <p>{user.reviews}</p>
+                    <p id="textReview">{user.reviews}</p>
                 </div>
             ))}
         </div>

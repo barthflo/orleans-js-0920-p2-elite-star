@@ -1,16 +1,38 @@
-.reviews{
-    margin: 40px;
-    padding: 24px 0px;
+.sectionReview{
+    margin: 30px;
 }
 
-#score {
-    height: 48px;
+.sectionReview h3{
+    padding: 16px 0;
+    border-bottom: 4px solid var(--secondary-color);
+    color: vra(--primary-color);
 }
 
-.saber{
-    margin-bottom: 24px;
+.review{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 0;
+    
 }
 
-.userReview{
-    max-width: 50%;
+.review p{
+    color: var(--primary-color);
+    font-family:var(--font-light);
+}
+
+.review #textReview{
+    text-align: justify;
+    max-width: 60%;
+}
+
+.review img{
+    width: 56px;
+    margin: 16px 0;
+}
+
+@media screen and (max-width:768px){
+    .review #textReview{
+        max-width: 100%;
+    }
 }

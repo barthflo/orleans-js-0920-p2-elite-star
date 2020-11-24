@@ -1,5 +1,4 @@
 import React from 'react'
-import { dark } from '../../../App';
 import './Profile.css';
 import ProfileDescription from './ProfileDescription/ProfileDescription';
 import ProfileForm from './ProfileForm/ProfileForm';
@@ -70,13 +69,6 @@ function Profile(props) {
                 </div>
             }
             <div>
-                <h3>Reviews</h3>
-                {/* <div>
-                    <img src={saberSide ? saberDark : saberLight} alt="saber" />
-                    <p>Elle Carrillo</p>
-                    <p>12/06/2029</p>
-                    <p>Hardworker, listens and remembers every reviews. I recommend this model, it was a pleasure to work with! Finally I found someone in this universe how is able to understand and do what I want.</p>
-                </div> */}
                 <Reviews side={saberSide}/>
             </div>
 
