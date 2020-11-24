@@ -11,7 +11,6 @@ import Results from "./components/Pages/Results/Results";
 import Footer from "./components/Footer/Footer"; 
 import FavouritesPage from "./components/Pages/Favourites/FavouritesPage";
 import Profile from './components/Pages/Profile/Profile';
-import { components } from 'react-select';
 
 export const dark = [
   "501st Legion",
