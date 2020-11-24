@@ -1,3 +1,6 @@
+.Profile h1{
+    font-size: 2.3em;
+}
 .Profile h2{
     background: transparent;
     font-size:1.5em !important;
@@ -43,7 +46,11 @@
     margin:0;
     font-style: normal;
 }
-
+@media screen and (min-width: 576px){
+    .Profile h1{
+        font-size: 2.5em;
+    }
+}
 @media screen and (min-width:768px){
     .Profile ul {
         overflow-y: auto;

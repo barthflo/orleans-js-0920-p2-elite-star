@@ -57,7 +57,7 @@ function ProfileForm({openForm, model}) {
                             required :true,
                             validate : value => value !== "Choose a subject"
                             })}
-                        class="form-control" 
+                        className="form-control" 
                         id="subject" 
                         name="subject"
                         defaultValue="Choose a subject">
