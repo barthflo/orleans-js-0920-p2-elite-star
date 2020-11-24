@@ -1,10 +1,12 @@
 .Favourites-page{
   min-height:90vh;
 }
+
 .Favourites-page .btn{
     transition: .2s ease-in;
     background-color: var(--primary-color);
 }
+
 .Favourites-page .btn:hover{
     background:var(--secondary-color);
     color:var(--primary-color);
@@ -12,11 +14,13 @@
     transition: .2s ease-in;
     box-shadow: 5px 5px 50px var(--light);
 }
+
 .Favourites-page .btn p{
     font-weight:100;
     font-size:.9em;
     transition: .2s ease-in;
 }
+
 .Favourites-page .btn:hover p{
     font-weight:800;
     transition: .2s ease-in;
