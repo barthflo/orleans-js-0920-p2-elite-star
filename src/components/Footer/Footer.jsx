@@ -34,7 +34,7 @@ function Footer() {
                 <div className="About d-flex flex-column align-items-center align-items-md-start mb-4">
                     <Link to="/about">Talents</Link>
                     <Link to="/about">Agents</Link>
-                    <Link to="/about">Legal Mentions</Link>
+                    <Link to="/about#contact">Contact Us</Link>
                     <Link to= "/about#faq">FAQ</Link>
                     <div className="social-medias mb-4 d-flex justify-content-center">
                         <a href="https://www.facebook.com/Star-Wars-models-289226827755289" target="__blank"><FaFacebookSquare className="mx-2 ml-sm-0" /></a>

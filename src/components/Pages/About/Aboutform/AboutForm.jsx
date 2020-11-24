@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import './AboutForm.css';
+import {Fade} from 'react-reveal';
 
 export default function AboutForm() {
     const [firstName, setFirstName] = useState("");
@@ -18,8 +19,10 @@ export default function AboutForm() {
     }
 
     return (
-        <div>
-            <h2 className="contactUs text-uppercase">Contact us</h2>
+        <section id="contact" className=" about-form col-12 col-md-6 col-lg-7 mb-4">
+            <Fade bottom duration={1000}>
+                <h2 className="contactUs text-uppercase mb-4">Contact us</h2>    
+            </Fade>
             <form onSubmit={handleSubmit(onSubmit)} >
 
                 <div className="form-row">
@@ -28,14 +31,14 @@ export default function AboutForm() {
                         <input name="firstName" type="text" class="form-control" id="FirstName"
                             ref={register({ required: true, minLength: 2 })}
                             onChange={(e) => setFirstName(e.target.value)}
-                            placeholder="Dupond" />
+                            placeholder="Smith" />
                         {errors.firstName && <span><small className="text-danger">First name must be at least 2 characters long</small></span>}
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="inputSecondName">Second Name</label>
                         <input name="secondName" type="text" class="form-control" id="secondName"
                             ref={register({ required: true, minLength: 2 })}
-                            placeholder="Robert"
+                            placeholder="John"
                             onChange={(e) => setSecondName(e.target.value)} />
                         {errors.secondName && <span><small className="text-danger">Senond name must be at least 2 characters long</small></span>}
                     </div>
@@ -52,7 +55,7 @@ export default function AboutForm() {
                                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                 }
                             })} onChange={(e) => setEmail(e.target.value)}
-                            placeholder="dupondRobert@wild.com" />
+                            placeholder="johnsmith@wild.com" />
                         {errors.email && <span><small className="text-danger">Invalid email</small></span>}
                     </div>
                     <div className="form-group col-md-6">
@@ -83,17 +86,17 @@ export default function AboutForm() {
                         <label htmlFor="message">Message</label>
                             <textarea className="form-control " id="message" name="message" type="text" 
                             ref={register({ required: true, minLength: 3, maxLength: 500 })}
-                            placeholder="message"
+                            placeholder="Write here..."
                             onChange={(e) => setMessage(e.target.value)}></textarea>
                             {errors.message && <span><small className="text-danger">Enter you message</small></span>}
                         </div>
                         
                        
                 </div>
-                <button type="submit" className="submit btn btn-warning ">Sign in</button>
+                <button className="submit btn btn-dark text-uppercase">Send message</button>
                 {isSubmitSuccessful && <span className="text-success"><small className="p-3">Your message has been sent successfully !</small></span>}
             </form>
-        </div>
+        </section>
     )
 }
 

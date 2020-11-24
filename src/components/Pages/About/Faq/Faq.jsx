@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Faq.css';
+import {Fade} from 'react-reveal';
 
 
 function Faq() {
@@ -34,19 +35,23 @@ function Faq() {
   };
 
   return (
-    <section id="faq" className="faqs mb-5">
-      <h2>F.A.Q</h2>
+    <section id="faq" className="mb-5 mb-md-0 col-12">
+      <Fade bottom duration={1000}>
+        <h2>F.A.Q</h2>
+      </Fade>
+      <div className="faqs">
       {faqs.map((faq, index,) =>
-        <div className={"px-5 pl-md-0 faq" + (faq.open ? ' open' : '')}
+        <div className={"pl-md-0 faq col-12 col-md-6" + (faq.open ? ' open' : '')}
           key={index}
           onClick={() => toggleFaq(index)}>
           <div className="faq-question">
-            {faq.question}
+            <p>{faq.question}</p>
           </div>
           <div className="faq-answer">
-            {faq.answer}
+            <p>{faq.answer}</p>
           </div>
         </div>)}
+      </div>
     </section>
 
 
