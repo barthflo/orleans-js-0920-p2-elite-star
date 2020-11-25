@@ -1,23 +1,24 @@
 import './AboutText.css';
+import {Fade} from 'react-reveal';
 
 const AboutText = () => {
     return (
         <div>
-            <h1 className='about-title'>ABOUT US</h1>
+            <Fade bottom duration={1000}>
+                <h2 className='about-title'>Our Agencies</h2>
+            </Fade>
             <div className='about-text'>
-            <div><p className='elite'>ELITE STAR AGENCY</p></div>
                 <div className='about-adress1'>
-  
-                    <p className='coruscant'>Coruscant</p>
-                    <p>Keizersgracht 174-11016 DW</p>
-                    <p>Sor-Akai Coruscan</p>
-                    <p>Coruscant - Galactic Empire</p>
+                    <p className='location'>ALDERAAN</p>
+                    <p>Level 7, Anvil House 138</p>
+                    <p>Walkefield Street Floreltiaan, AL</p>
+                    <p>Alderaan - Galactic Republic</p>
                     <p>T: 0679497610</p>
                     <p>F: 0679497611</p>
-                    <p>E: elitestar@dark.rep</p>
+                    <p>E: elitestar@force.al</p>
                 </div>
                 <div className='about-adress2'>
-                    <p className='coruscant'>Coruscant</p>
+                    <p className='location'>CORUSCANT</p>
                     <p>Keizersgracht 174-11016 DW</p>
                     <p>Sor-Akai Coruscan</p>
                     <p>Coruscant - Galactic Empire</p>

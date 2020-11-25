@@ -1,4 +1,35 @@
-
-.submit, button{
+.about-form{
+    z-index:2;
+    padding-top:100px;
+    margin-top:-100px;
+}
+.about-form h2{
+    font-family:var(--font-light);
+    font-weight:100;
+    font-size:1.6em !important;
+    color: var(--primary-color);
+}
+.about-form form{
+    font-family: var(--font-light);
+    font-weight:100;
+}
+.about-form label{
+    color: var(--light-medium);
+    text-transform: uppercase;
+}
+.about-form input, .about-form select, .about-form textarea{
+    font-style:italic;
+}
+.submit{
     margin-bottom: 10px;
+    background: var(--primary-color);
+    color: var(--light);
+    font-family: var(--font-light);
+    transition:.2s ease-in;
+    cursor:pointer;
+}
+.submit:hover{
+    background:var(--secondary-color);
+    color: var(--primary-color);
+    transition:.2s ease-in;
 }
