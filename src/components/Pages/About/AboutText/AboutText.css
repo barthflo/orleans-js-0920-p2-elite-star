@@ -15,47 +15,48 @@
 }
 .location{
     color: black;
-    font-weight: bold;
+    font-weight: 600;
+    font-family: var(--font-light);
+    font-size: 1.4em;
 }
 
 .about-adress1{
-    width: 50vh;
-    border-right: gray 3px solid;
+    border-right: gray 1px solid;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    padding: 20px;
+    padding: 0px 20px;
 }
 
 .about-adress2{
-    width: 50vh;
-    border-left: gray 3px solid;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px;
+    padding: 0px 20px;
 } 
 
-.about .description{
-    width: 80%;
-    padding: 40px 0;
-    margin: 30px;
-}
-
-.description p{
-    text-align: justify;
-}
-
-.desc-title{
-    font-size: 1.3em;
-}
 .about .elite{
     font-size: 1.5em;
 }
 
 @media screen and (max-width: 768px){
-    .about-title{
-        text-align: center;
+    .about-text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-adress1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+    }
+
+    .about-adress1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .description{

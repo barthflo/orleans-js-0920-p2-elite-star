@@ -32,8 +32,8 @@ function Footer() {
                     </div>
                 </div>
                 <div className="About d-flex flex-column align-items-center align-items-md-start mb-4">
-                    <Link to="/about">Talents</Link>
-                    <Link to="/about">Agents</Link>
+                    <Link to="/about#IntroAbout">Team</Link>
+                    <Link to="/about#locationAbout">Agencies</Link>
                     <Link to="/about#contact">Contact Us</Link>
                     <Link to= "/about#faq">FAQ</Link>
                     <div className="social-medias mb-4 d-flex justify-content-center">
