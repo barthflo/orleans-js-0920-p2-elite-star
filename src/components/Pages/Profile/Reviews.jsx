@@ -4,7 +4,6 @@ import saberDark from '../../../assets/saberDarkSide.png';
 import {Fade} from 'react-reveal';
 
 const Reviews = ({ side }) => {
-
     const userReviews = [
         {
             score: 3,
@@ -44,7 +43,6 @@ const Reviews = ({ side }) => {
         }
     ]
 
-
     const displaySaber = (number) => {
         let saberArray = [];
         for (let i = 0; i < number; i++) {
@@ -52,9 +50,10 @@ const Reviews = ({ side }) => {
         }
         return saberArray;
     }
+
     const xNbr = Math.ceil((Math.random() * userReviews.length));
     const yNbr = Math.ceil((Math.random() * userReviews.length)+1);
-    console.log(userReviews.slice(xNbr, yNbr));
+    
     return (
         <div className="sectionReview col-12">
             <Fade bottom duration={1000}>
@@ -81,9 +80,6 @@ const Reviews = ({ side }) => {
             }
         </div>
     )
-
-
 }
-
 
 export default Reviews;
