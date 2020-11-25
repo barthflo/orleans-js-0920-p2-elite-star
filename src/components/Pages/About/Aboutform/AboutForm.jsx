@@ -28,7 +28,7 @@ export default function AboutForm() {
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label htmlFor="inputFirstName">First Name</label>
-                        <input name="firstName" type="text" class="form-control" id="FirstName"
+                        <input name="firstName" type="text" className="form-control" id="FirstName"
                             ref={register({ required: true, minLength: 2 })}
                             onChange={(e) => setFirstName(e.target.value)}
                             placeholder="John" />
@@ -36,7 +36,7 @@ export default function AboutForm() {
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="inputSecondName">Last Name</label>
-                        <input name="secondName" type="text" class="form-control" id="secondName"
+                        <input name="secondName" type="text" className="form-control" id="secondName"
                             ref={register({ required: true, minLength: 2 })}
                             placeholder="Smith"
                             onChange={(e) => setSecondName(e.target.value)} />
@@ -47,7 +47,7 @@ export default function AboutForm() {
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label htmlFor="email">Email</label>
-                        <input name="email" type="email" class="form-control" id="email"
+                        <input name="email" type="email" className="form-control" id="email"
                             message="Invalid email"
                             ref={register({
                                 required: true,
@@ -62,7 +62,7 @@ export default function AboutForm() {
                         <label htmlFor="city">Galactic Zone</label>
                         <select
                             name="city"
-                            class="form-control"
+                            className="form-control"
                             id="city"
                             placeholder="your Galactic Zone"
 

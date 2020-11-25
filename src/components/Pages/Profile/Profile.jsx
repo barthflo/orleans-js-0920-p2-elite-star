@@ -34,18 +34,25 @@ function Profile(props) {
         }
     }
 
-    const saberSide = model[0].affiliations.some(affiliation => dark.includes(affiliation));
-
-
+    const side = () => {
+        if ((light.some(affiliation => model[0].affiliations.includes(affiliation)) && !dark.some(affiliation => model[0].affiliations.includes(affiliation)))){
+            return true;
+        }else if (model[0].id===3){
+            return true;
+        }
+        else{
+            return false;
+        };     
+    };
+    
     return (
-
         <main className="Profile col-12 col-md-10 offset-md-1 px-0 py-md-5 dark">
-            <div style={{background:"var(--secondary-color"}} className="d-flex justify-content-between align-items-center mb-2">
+            <div style={{background:"var(--secondary-color"}} className="d-flex justify-content-between align-items-baseline mb-2 pt-1">
                 <div className="d-flex align-items-baseline">
                     <h1 style={{color:"var(--dark)"}}className="mb-0 pr-3">{model[0].name}</h1>
-                    {(light.some(affiliation => model[0].affiliations.includes(affiliation)) && !dark.some(affiliation => model[0].affiliations.includes(affiliation))) ?
-                        <FaJediOrder size={"2em"} style={{color:"var(--dark)"}}/> :
-                        <FaEmpire size={"2em"} style={{color: "var(--dark)"}}/>
+                    {side() ?
+                        <FaJediOrder size={"1.9em"} style={{color:"var(--dark)"}}/> :
+                        <FaEmpire size={"1.9em"} style={{color: "var(--dark)"}}/>
                     }
                 </div>
                 {model[0].isFavourite ?
@@ -61,22 +68,16 @@ function Profile(props) {
                 onClick={value => setOpenForm(value)} 
                 openForm={openForm} 
             />
-            <ProfileForm openForm={openForm} model={model} />
+            <Reviews side={side()}/>
+            <ProfileForm openForm={openForm} model={model} side={side} />
+    
             {window.innerWidth < 768 &&
                 <div className="col-10 offset-1 w-100 d-flex flex-row-reverse justify-content-between p-0">
-                    <Link className=" py-2 text-secondary" to={next(parseInt(params.id))}>Next</Link>
-                    <Link className=" py-2 text-secondary" to={prev(parseInt(params.id))}>Prev</Link>
+                    <Link className="py-2 text-secondary" to={next(parseInt(params.id))}>Next</Link>
+                    <Link className="py-2 text-secondary" to={prev(parseInt(params.id))}>Prev</Link>
                 </div>
             }
-            <div>
-                <Reviews side={saberSide}/>
-            </div>
-
-
-
         </main>
-
-
     )
 }
 

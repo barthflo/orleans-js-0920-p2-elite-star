@@ -1,9 +1,9 @@
 import './Reviews.css';
 import saberLight from '../../../assets/saberResistance.png';
 import saberDark from '../../../assets/saberDarkSide.png';
+import {Fade} from 'react-reveal';
 
 const Reviews = ({ side }) => {
-
     const userReviews = [
         {
             score: 3,
@@ -43,34 +43,43 @@ const Reviews = ({ side }) => {
         }
     ]
 
-   
-
     const displaySaber = (number) => {
         let saberArray = [];
         for (let i = 0; i < number; i++) {
-            saberArray.push(<img src={side ? saberDark : saberLight} alt="saber" />)
+            saberArray.push(<img src={!side ? saberDark : saberLight} alt="saber" />)
         }
         return saberArray;
     }
 
-    const xNbr = Math.floor((Math.random() * userReviews.length));
-    const yNbr = Math.floor((Math.random() * userReviews.length)+1);
+    const xNbr = Math.ceil((Math.random() * userReviews.length));
+    const yNbr = Math.ceil((Math.random() * userReviews.length)+1);
+
     return (
-        <div className="sectionReview">
-            <h3>Reviews</h3>
-            {userReviews.slice(xNbr, yNbr).map((user) => (
-                <div className="review">
-                    <div>{displaySaber(user.score)}</div>
-                    <p>{user.userName}</p>
+        <div className="sectionReview col-12">
+            <Fade bottom duration={1000}>
+                <h3>Reviews</h3>
+            </Fade>
+            {userReviews.slice(xNbr, yNbr).length !== 0 
+            ?
+            userReviews.slice(xNbr, yNbr).map((user) => (
+                <div key={user.id} className="review">
+                    <div className="d-flex flex-row-reverse align-items-baseline justify-content-between w-100">
+                        <div>{displaySaber(user.score)}</div>
+                        <h4>{user.userName}</h4>
+                    </div>
                     <p>{user.date}</p>
                     <p id="textReview">{user.reviews}</p>
                 </div>
-            ))}
+            ))
+            :
+            <div style={{height:"200px"}}
+                 className="no-review d-flex justify-content-center align-items-center"
+            >
+                <h4>No Reviews. Be the first!</h4>
+            </div>
+            }
         </div>
     )
-
-
 }
-
 
 export default Reviews;
