@@ -34,7 +34,6 @@ function Profile(props) {
         }
     }
 
-    // const saberSide = model[0].affiliations.some(affiliation => dark.includes(affiliation));
     const side = () => {
         if ((light.some(affiliation => model[0].affiliations.includes(affiliation)) && !dark.some(affiliation => model[0].affiliations.includes(affiliation)))){
             return true;
@@ -43,12 +42,10 @@ function Profile(props) {
         }
         else{
             return false;
-        };
-        
+        };     
     };
     
     return (
-
         <main className="Profile col-12 col-md-10 offset-md-1 px-0 py-md-5 dark">
             <div style={{background:"var(--secondary-color"}} className="d-flex justify-content-between align-items-baseline mb-2 pt-1">
                 <div className="d-flex align-items-baseline">
@@ -71,24 +68,16 @@ function Profile(props) {
                 onClick={value => setOpenForm(value)} 
                 openForm={openForm} 
             />
-            {/* <div className="d-flex"> */}
             <Reviews side={side()}/>
             <ProfileForm openForm={openForm} model={model} side={side} />
-            {/* </div> */}
-            
+    
             {window.innerWidth < 768 &&
                 <div className="col-10 offset-1 w-100 d-flex flex-row-reverse justify-content-between p-0">
                     <Link className="py-2 text-secondary" to={next(parseInt(params.id))}>Next</Link>
                     <Link className="py-2 text-secondary" to={prev(parseInt(params.id))}>Prev</Link>
                 </div>
             }
-           
-
-
-
         </main>
-
-
     )
 }
 

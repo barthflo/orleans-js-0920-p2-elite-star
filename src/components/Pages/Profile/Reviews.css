@@ -1,5 +1,4 @@
 .sectionReview{
-    /* margin: 30px; */
     width:100%;
 }
 
@@ -48,7 +47,7 @@
     .review #textReview{
         max-width: 100%;
     }
-    
+
     .review h4{
         width:min-content;
         width: -moz-min-content;

@@ -53,7 +53,7 @@ const Reviews = ({ side }) => {
 
     const xNbr = Math.ceil((Math.random() * userReviews.length));
     const yNbr = Math.ceil((Math.random() * userReviews.length)+1);
-    
+
     return (
         <div className="sectionReview col-12">
             <Fade bottom duration={1000}>
@@ -62,7 +62,7 @@ const Reviews = ({ side }) => {
             {userReviews.slice(xNbr, yNbr).length !== 0 
             ?
             userReviews.slice(xNbr, yNbr).map((user) => (
-                <div className="review">
+                <div key={user.id} className="review">
                     <div className="d-flex flex-row-reverse align-items-baseline justify-content-between w-100">
                         <div>{displaySaber(user.score)}</div>
                         <h4>{user.userName}</h4>
