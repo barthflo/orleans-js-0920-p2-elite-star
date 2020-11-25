@@ -1,6 +1,7 @@
 import './Reviews.css';
 import saberLight from '../../../assets/saberResistance.png';
 import saberDark from '../../../assets/saberDarkSide.png';
+import {Fade} from 'react-reveal';
 
 const Reviews = ({ side }) => {
 
@@ -56,7 +57,9 @@ const Reviews = ({ side }) => {
     console.log(userReviews.slice(xNbr, yNbr));
     return (
         <div className="sectionReview col-12">
-            <h3>Reviews</h3>
+            <Fade bottom duration={1000}>
+                <h3>Reviews</h3>
+            </Fade>
             {userReviews.slice(xNbr, yNbr).length !== 0 
             ?
             userReviews.slice(xNbr, yNbr).map((user) => (

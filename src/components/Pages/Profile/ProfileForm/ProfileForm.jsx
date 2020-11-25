@@ -11,7 +11,7 @@ function ProfileForm({openForm, model}) {
     }
     return (
         <div className="d-flex flex-wrap flex-md-nowrap mt-4 w-100">
-            <Slide left duration={500}>
+            <Slide left duration={1000}>
             <form 
                 id="contact"
                 className="profile-form col-12 px-md-0 mb-5"
