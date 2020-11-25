@@ -10,7 +10,7 @@ const ProfileDescription = ({params, model, prev, next, onClick, openForm}) => {
         }
     }
     return (
-        <section className="description d-flex flex-column align-items-center flex-md-row align-items-md-stretch justify-content-md-start flex-md-row-reverse">
+        <section className="description d-flex flex-column align-items-center flex-md-row align-items-md-stretch justify-content-md-start flex-md-row-reverse mb-5">
                 <figure className=" ml-md-4" >
                     <img className="w-100 h-100"
                          src={model[0].image} 
@@ -91,9 +91,9 @@ const ProfileDescription = ({params, model, prev, next, onClick, openForm}) => {
                     } 
                     
                     <li className="form-button-container">
-                        <button onClick={()=>onClick(!openForm)}className="btn btn-dark btn-md-outline-dark mt-3 w-100" type="button">
+                        <a href="#contact" className="btn btn-dark btn-md-outline-dark mt-3 w-100" type="button">
                             <p className="text-uppercase text-normal">Contact {model[0].name}</p>
-                        </button>  
+                        </a>  
                     </li>
                 </ul>
                 </Fade>

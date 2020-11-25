@@ -9,15 +9,15 @@ function ProfileForm({openForm, model}) {
         localStorage.setItem('profileForm', JSON.stringify(isSubmitSuccessful));
         e.target.reset();
     }
-
     return (
-        <div className="d-flex flex-wrap flex-md-nowrap mt-4">
-            <>{openForm ?
-            <Slide left duration={200}>
+        <div className="d-flex flex-wrap flex-md-nowrap mt-4 w-100">
+            <Slide left duration={500}>
             <form 
-                className="profile-form col-10 offset-1 col-md-6 offset-md-0 col-lg-7"
+                id="contact"
+                className="profile-form col-12 px-md-0 mb-5"
                 onSubmit={handleSubmit(onSubmit)} 
                 >
+                <h3 className="mb-5">Contact {model[0].name}</h3>
                 <div className="form-group">
                     <label htmlFor="name">Name</label>
                     <input 
@@ -95,10 +95,6 @@ function ProfileForm({openForm, model}) {
                 {isSubmitSuccessful && <span className="text-success">Your message had been sent to {model[0].name} </span>}
             </form>
             </Slide>
-            : <> </>
-            }</>
-            <div className="d-flex justify-content-center align-items-center" style={{width:"100%"}}>
-            </div>
         </div>
     )
 }

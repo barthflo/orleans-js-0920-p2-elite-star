@@ -1,3 +1,8 @@
+.profile-form h3{
+    border-bottom: 4px solid var(--secondary-color);
+    color: vra(--primary-color);
+    font-size:2em;
+}
 .profile-form button, .profile-form label{
     border-radius: 5px;
     font-family:var(--font-light);
