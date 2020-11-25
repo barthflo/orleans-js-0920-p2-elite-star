@@ -3,24 +3,24 @@ import './About.css';
 import AboutForm from '../About/Aboutform/AboutForm';
 
 import Faq from './Faq/Faq';
-
+import AboutText from './AboutText/AboutText';
 
 function About() {
     return (
-            
+
         <main className="about col-12 col-lg-10 offset-lg-1 py-md-5 px-md-4">
-            <div className="d-flex flex-column">
+            {/* <div className="d-flex flex-column">
                 <h1 className='about-title'>ABOUT US</h1>
                 <div className='about-text'>
                     <div className='about-adress'>
                         <p className='elite'>ELITE STAR AGENCY</p>
-                        <p className='coruscant'>Coruscant / Alderaan</p>
-                        <p>Keizersgracht 174-11016 DW</p> 
+                        <p className='coruscant'>Coruscant</p>
+                        <p>Keizersgracht 174-11016 DW</p>
                         <p>Sor-Akai Coruscan</p>
                         <p>Coruscant - Galactic Empire</p>
                         <p>T: 0679497610</p>
                         <p>F: 0679497611</p>
-                        <p>E: elitestar@dark.rep</p> 
+                        <p>E: elitestar@dark.rep</p>
                     </div>
                     <div className='description'>
                         <p className='desc-title'>EliteStar was created to meet two objectives :</p>
@@ -29,9 +29,10 @@ function About() {
                         <p>EliteStar agency is a member of the Intergalactic Federation of Modeling Agencies.</p>
                     </div>
                 </div>
-            </div>
+            </div> */}
+            <AboutText />
             <AboutForm />
-            <Faq />   
+            <Faq />
         </main>
     )
 }
