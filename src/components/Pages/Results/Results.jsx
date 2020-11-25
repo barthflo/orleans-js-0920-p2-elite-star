@@ -1,12 +1,13 @@
 import './Results.css';
-import { useLocation } from 'react-router-dom';
+import { useLocation} from 'react-router-dom';
+import {useContext} from 'react';
 import ModelCard  from '../Models/ModelCard/ModelCard';
-import {dark, light, characters} from '../../../App';
+import {dark, light, CharactersContext} from '../../../App';
 
 
 const Results =() =>{
+    const {characters} = useContext(CharactersContext);
     const urlResults = useLocation().search;
-
     const results =[
         new URLSearchParams(urlResults).get('gender'),
         new URLSearchParams(urlResults).get('species'),
@@ -62,9 +63,9 @@ const Results =() =>{
                         .filter(character => (array[0]) ? character.gender === array[0] : character.gender)
                         .filter(character => filterHeight(character, array))
                         .filter(character => filterSide(character, array))
-                        .sort((a,b)=> a.name > b.name?1 : -1)
+                        // .sort((a,b)=> a.name > b.name?1 : -1)
         if(filtered.length > 0){
-            return filtered.map((character, index) => <ModelCard {...character} key={index}/> );
+            return filtered.map((character, index) => <ModelCard {...character} key={index} index={index}/> );
         }else{
             return  (
                 <div className="no-results position-relative d-flex justify-content-center align-items-center w-100" style={{height:"50vh"}}>
@@ -87,10 +88,13 @@ const Results =() =>{
                     {results[3] && <li>Side : {capitalized(results[3])}</li>}
                 </ul>
             </p>
-            <div className="model">{!urlResults && characters
-                .sort((a,b)=> a.name > b.name?1 : -1)
+            <div className="model">
+                {characters.lenght === 0 ? 
+                "loading..." : 
+                !urlResults && 
+                characters.sort((a,b)=> a.name > b.name?1 : -1)
                 .map((character, index) => 
-                    <ModelCard {...character} key={index} />
+                    <ModelCard {...character} key={index} index={index} />
                 )}
                 {filtering(results)}
             </div>

@@ -1,15 +1,14 @@
-import { Component} from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState, useEffect, createContext } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import SlideRoutes from 'react-slide-routes';
-// import {TransitionGroup, CSSTransition} from 'react-transition-group';
 import Header from './components/Header/Header';
 import Home from "./components/Pages/Home/Home";
 import Models from "./components/Pages/Models/Models";
 import About from "./components/Pages/About/About";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Results from "./components/Pages/Results/Results";
 import Footer from "./components/Footer/Footer"; 
-import { Switch, Route } from 'react-router-dom';
 import FavouritesPage from "./components/Pages/Favourites/FavouritesPage";
 import Profile from './components/Pages/Profile/Profile';
 
@@ -27,7 +26,13 @@ export const dark = [
   "Stalgasin hive",
   "House of Dooku",
   "Techno Union",
-  "First Order"
+  "First Order",
+  "Separatist Droid Army",
+  "Imperial High Command",
+  "Sullust Sector Spacefarers Academy",
+  "Judicial Forces",
+  "Imperial Officer Corps",
+  "Battle Station Command"
 ]
 export const light = [
   "Alliance to Restore the Republic", 
@@ -45,28 +50,53 @@ export const light = [
   "Gungan High Council",
   "Gungan Grand Army",
   "Royal House of Naboo",
+  "Lars family",
+  "Galactic Republic"
 ]
-export const characters = JSON.parse(localStorage.getItem('characters'));
 
-class App extends Component {
-  componentDidMount(){
-    this.fetchApiAll();
-  }
-  fetchApiAll(){
+export const CharactersContext = createContext(null);
+
+const App = () => {
+  const [characters, setCharacters] = useState(() => {
+    if(localStorage.getItem('characters')){
+      return JSON.parse(localStorage.getItem('characters'))
+    }else{
+      return [];
+    }
+  });
+  useEffect(() => {
+    if (characters.length === 0){
     fetch("https://rawcdn.githack.com/akabab/starwars-api/0.2.1/api/all.json")
     .then(res => res.json())
-    .then(data => data.filter(d => d.id !== 77))
-    .then(data => localStorage.setItem('characters', JSON.stringify(data)))
+    .then(res => res.filter(data => data.id !== 77))
+    .then(res => res.map((item) => ({...item, isFavourite : false})))
+    .then(res => setCharacters(res))
+    }
+  }, []);
+
+  if (localStorage.getItem('characters') === null || localStorage.getItem('characters').length < 3){
+    localStorage.setItem('characters', JSON.stringify(characters));
   }
-  
-  render(){
-    return (
-      <div className="App">
+  const [favourites, setFavourites] = useState(characters.map(character => character.isFavourite))
+  const toggleFavourite = (id) => {
+    characters.map(character =>
+      (character.id === id) &&
+        (character.isFavourite = !character.isFavourite)
+    )
+    setFavourites(!favourites);
+    setCharacters(characters);
+    localStorage.setItem('characters', JSON.stringify(characters));
+  }
+  return (
+    <div className="App">
+      <CharactersContext.Provider value={{ characters , toggleFavourite }}>
         <Header />
+        
         <Route render={({location})=>(
           <SlideRoutes location={location} duration={1000} timing={"ease-in-out"}>
               <Route exact path="/" component={Home}/>
-              <Route path="/models" component={Models} />
+                <Route path="/models" component={Models} />
+              
               <Route path="/about" component={About} />
               <Route path="/results" component={Results} />
               <Route path="/my-list" component={FavouritesPage} />
@@ -75,10 +105,9 @@ class App extends Component {
         <Switch>
           <Route path="/profile/:id" component={Profile}/>
         </Switch>
-        <Footer />
-      </div>
-    );
-  }
+      </CharactersContext.Provider>
+      <Footer />
+    </div>
+  );
 }
-
 export default App;

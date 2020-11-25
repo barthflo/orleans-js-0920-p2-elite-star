@@ -10,7 +10,7 @@ const ProfileDescription = ({params, model, prev, next, onClick, openForm}) => {
         }
     }
     return (
-        <section className="description d-flex flex-column align-items-center flex-md-row align-items-md-stretch justify-content-md-start flex-md-row-reverse">
+        <section className="description d-flex flex-column align-items-center flex-md-row align-items-md-stretch justify-content-md-start flex-md-row-reverse mb-5">
                 <figure className=" ml-md-4" >
                     <img className="w-100 h-100"
                          src={model[0].image} 
@@ -65,12 +65,6 @@ const ProfileDescription = ({params, model, prev, next, onClick, openForm}) => {
                             <p>{model[0].homeworld}</p>
                         </li>
                     }
-                    {model[0].cybernetics &&
-                        <li className="text-capitalize">
-                            <h2>Specificities</h2>
-                            <p>{model[0].cybernetics}</p>
-                        </li>
-                    } 
                     {model[0].platingColor && 
                         <li className="text-capitalize">
                             <h2>Plating Color</h2>
@@ -83,17 +77,30 @@ const ProfileDescription = ({params, model, prev, next, onClick, openForm}) => {
                             <p>{model[0].sensorColor}</p>
                         </li>
                     }
+                    {model[0].affiliations.length > 0 && 
+                        <li className="text-capitalize">
+                            <h2>Affiliations</h2>
+                            <p>{model[0].affiliations.map(affiliation => affiliation + ' ')}</p>
+                        </li>
+                    }
+                    {model[0].cybernetics &&
+                        <li className="text-capitalize">
+                            <h2>Specificities</h2>
+                            <p>{model[0].cybernetics}</p>
+                        </li>
+                    } 
+                    
                     <li className="form-button-container">
-                        <button onClick={()=>onClick(!openForm)}className="btn btn-dark btn-md-outline-dark mt-3 w-100" type="button">
+                        <a href="#contact" className="btn btn-dark btn-md-outline-dark mt-3 w-100" type="button">
                             <p className="text-uppercase text-normal">Contact {model[0].name}</p>
-                        </button>  
+                        </a>  
                     </li>
                 </ul>
                 </Fade>
                 {window.innerWidth >= 768 &&
                     <div className="d-flex flex-row-reverse">
                         <Link className="px-2 text-secondary" to={next(parseInt(params.id))}>Next</Link>
-                        <Link className="px-2 text-secondary"to={prev(parseInt(params.id))}>Prev</Link>
+                        <Link className="pr-2 text-secondary"to={prev(parseInt(params.id))}>Prev</Link>
                     </div>
                 }
             </section>
