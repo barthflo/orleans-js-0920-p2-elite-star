@@ -32,7 +32,8 @@ function About() {
                     <p>EliteStar agency is a member of the Intergalactic Federation of Modeling Agencies.</p>
                 </div>
             </div>  */}
-            <AboutText />
+            <div><AboutText /></div>
+            
             <div className="d-flex flex-column-reverse flex-md-row">
                 <AboutForm />
                 <div className="col-12 col-md-6 col-lg-5 mb-4">
