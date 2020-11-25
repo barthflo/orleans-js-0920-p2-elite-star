@@ -34,10 +34,12 @@ h1{
 }
 h2{
   background: var(--secondary-color);
+  color:var(--primary-volor);
   font-size:2.5em !important;
 }
 h3, h4, h5, h6{
   font-family: var(--font-heavy);
+  color:var(--primary-color);
 }
 p{
   font-family:var(--font-light);

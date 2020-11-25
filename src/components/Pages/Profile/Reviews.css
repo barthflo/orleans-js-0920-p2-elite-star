@@ -1,19 +1,25 @@
 .sectionReview{
-    margin: 30px;
+    width:100%;
 }
 
 .sectionReview h3{
-    padding: 16px 0;
+    padding: 16px 0 0 0;
     border-bottom: 4px solid var(--secondary-color);
     color: vra(--primary-color);
+    font-size:2em;
+}
+
+.sectionReview .review p:first-of-type{
+    font-style: italic;
+    color:var(--light-medium);
+    font-weight:100;
 }
 
 .review{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 24px 0;
-    
+    padding: 24px 0;  
 }
 
 .review p{
@@ -23,16 +29,27 @@
 
 .review #textReview{
     text-align: justify;
-    max-width: 60%;
+    font-weight:100;
+    font-size:1.1em;
 }
 
 .review img{
-    width: 56px;
+    width: 30px;
     margin: 16px 0;
+}
+
+.no-review h4{
+    font-family:var(--font-light);
+    font-weight:100;
 }
 
 @media screen and (max-width:768px){
     .review #textReview{
         max-width: 100%;
+    }
+
+    .review h4{
+        width:min-content;
+        width: -moz-min-content;
     }
 }

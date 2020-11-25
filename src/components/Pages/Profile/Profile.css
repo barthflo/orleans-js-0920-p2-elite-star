@@ -1,7 +1,12 @@
+.Profile h1{
+    font-size: 2em;
+}
+
 .Profile h2{
     background: transparent;
     font-size:1.5em !important;
 }
+
 .Profile .favourite-icon{
     cursor: pointer;
     transition:.5s ease-in-out;
@@ -10,10 +15,12 @@
 .Profile .favourite-icon.active{
     opacity:1;
 }
+
 .Profile figure{
     width:100%;
     height:50vh;
 }
+
 .Profile img{
     object-fit:cover;
     object-position:top;
@@ -27,41 +34,56 @@
     font-weight:100;
     text-transform:uppercase;
 }
+
 .Profile ul p{
     font-size: 1em !important;
     font-family:var(--font-light);
     font-weight:100;
     font-style:italic;
 }
+
 .Profile a{
     font-family:var(--font-light);
 }
+
 .Profile .form-button-container{
     width:100%;
 }
+
 .Profile .form-button-container p{
     margin:0;
     font-style: normal;
+}
+
+@media screen and (min-width: 576px){
+    .Profile h1{
+        font-size: 2.5em;
+    }
 }
 
 @media screen and (min-width:768px){
     .Profile ul {
         overflow-y: auto;
     }
+
     .Profile figure{
         width:80%;
         height:calc(100vh - 265px);
     }
+
     .Profile .description{
         height:calc(100vh - 250px);
         max-height:calc(100vh - 250px);
     }
+
     .Profile .form-button-container{
         width:unset;
     }
+
     .Profile .favourite-icon{
         opacity:.8;
     }
+    
     .Profile .favourite-icon:hover{
         opacity:1;
     }
