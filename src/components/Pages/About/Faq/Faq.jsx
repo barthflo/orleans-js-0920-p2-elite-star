@@ -39,7 +39,7 @@ function Faq() {
       <Fade bottom duration={1000}>
         <h2>F.A.Q</h2>
       </Fade>
-      <div className="faqs">
+      <div className="faqs mt-3 md-mt-0 pt-md-0">
       {faqs.map((faq, index,) =>
         <div className={"pl-md-0 faq col-12 col-md-6" + (faq.open ? ' open' : '')}
           key={index}
