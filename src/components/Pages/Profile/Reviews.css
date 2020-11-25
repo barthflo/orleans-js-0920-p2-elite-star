@@ -1,0 +1,38 @@
+.sectionReview{
+    margin: 30px;
+}
+
+.sectionReview h3{
+    padding: 16px 0;
+    border-bottom: 4px solid var(--secondary-color);
+    color: vra(--primary-color);
+}
+
+.review{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 0;
+    
+}
+
+.review p{
+    color: var(--primary-color);
+    font-family:var(--font-light);
+}
+
+.review #textReview{
+    text-align: justify;
+    max-width: 60%;
+}
+
+.review img{
+    width: 56px;
+    margin: 16px 0;
+}
+
+@media screen and (max-width:768px){
+    .review #textReview{
+        max-width: 100%;
+    }
+}

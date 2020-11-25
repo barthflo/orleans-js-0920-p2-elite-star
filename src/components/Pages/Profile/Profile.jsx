@@ -1,36 +1,44 @@
+import React from 'react'
 import './Profile.css';
 import ProfileDescription from './ProfileDescription/ProfileDescription';
 import ProfileForm from './ProfileForm/ProfileForm';
+import Reviews from './Reviews';
 import {useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
 import {CharactersContext, light, dark} from '../../../App';
 import {FaJediOrder, FaEmpire} from 'react-icons/fa';
 import {RiHeartFill, RiHeartAddFill} from 'react-icons/ri';
 
+
 function Profile(props) {
     const params = props.match.params;
     const {characters, toggleFavourite} = useContext(CharactersContext);
     const model = characters.filter(character => (character.id.toString() === params.id));
-    const [openForm, setOpenForm]=useState(false);
+    const [openForm, setOpenForm] = useState(false);
     const next = (id) => {
-        if(id=== 88){
+        if (id === 88) {
             return '/profile/1';
-        }else if(id === 16 || id===76){
+        } else if (id === 16 || id === 76) {
             return `/profile/${id + 2}`;
-        }else{
+        } else {
             return `/profile/${id + 1}`;
         }
     }
     const prev = (id) => {
-        if(id=== 1){
+        if (id === 1) {
             return '/profile/88';
-        }else if(id === 18 || id===78){
+        } else if (id === 18 || id === 78) {
             return `/profile/${id - 2}`;
-        }else{
+        } else {
             return `/profile/${id - 1}`;
         }
     }
+
+    const saberSide = model[0].affiliations.some(affiliation => dark.includes(affiliation));
+
+
     return (
+
         <main className="Profile col-12 col-md-10 offset-md-1 px-0 py-md-5 dark">
             <div style={{background:"var(--secondary-color"}} className="d-flex justify-content-between align-items-center mb-2">
                 <div className="d-flex align-items-baseline">
@@ -53,14 +61,22 @@ function Profile(props) {
                 onClick={value => setOpenForm(value)} 
                 openForm={openForm} 
             />
-            <ProfileForm openForm={openForm} model={model}/>
-            {window.innerWidth <768 &&
-            <div className="col-10 offset-1 w-100 d-flex flex-row-reverse justify-content-between p-0">
-                <Link className=" py-2 text-secondary" to={next(parseInt(params.id))}>Next</Link>
-                <Link className=" py-2 text-secondary"to={prev(parseInt(params.id))}>Prev</Link>
-            </div>
+            <ProfileForm openForm={openForm} model={model} />
+            {window.innerWidth < 768 &&
+                <div className="col-10 offset-1 w-100 d-flex flex-row-reverse justify-content-between p-0">
+                    <Link className=" py-2 text-secondary" to={next(parseInt(params.id))}>Next</Link>
+                    <Link className=" py-2 text-secondary" to={prev(parseInt(params.id))}>Prev</Link>
+                </div>
             }
+            <div>
+                <Reviews side={saberSide}/>
+            </div>
+
+
+
         </main>
+
+
     )
 }
 
