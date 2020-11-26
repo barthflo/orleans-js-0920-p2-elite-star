@@ -20,7 +20,7 @@ const AboutText = () => {
                 <div className='about-adress2'>
                     <h3 className='location'>CORUSCANT</h3>
                     <p>Keizersgracht 174-11016 DW</p>
-                    <p>Sor-Akai Coruscan</p>
+                    <p>Sor-Akai Coruscant</p>
                     <p>Coruscant - Galactic Empire</p>
                     <p>T: 0679497610</p>
                     <p>F: 0679497611</p>
