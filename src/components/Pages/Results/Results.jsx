@@ -70,7 +70,7 @@ const Results =() =>{
             return  (
                 <div className="no-results position-relative d-flex justify-content-center align-items-center w-100" style={{height:"50vh"}}>
                     
-                    <h2 className="text-center">No results found for a {capitalized(array[0])} {capitalized(array[1])} {array[2] && `,size ${array[2]}m`} {array[3] && `, from the ${array[3]} side`} model...</h2>
+                    <h2 className="text-center">No results found for a {array[0] && capitalized(array[0])} {array[1] && capitalized(array[1])} {array[2] && `,size ${array[2]}m`} {array[3] && `, from the ${array[3]} side`} model...</h2>
                     <div className="no-results-bg w-100 h-100 position-absolute"></div>
                 </div>
             )
