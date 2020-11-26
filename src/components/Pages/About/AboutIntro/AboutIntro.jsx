@@ -37,7 +37,7 @@ const AboutIntro = () => {
                         </div>
                         <div className="pictureP">
                             <img src={robots} alt="first partner" />
-                            <p>C3-PO and R2D2</p>
+                            <p>C2PO and R2D2</p>
                         </div>
                     </div>
                     <div className="imgPartner">

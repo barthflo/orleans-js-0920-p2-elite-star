@@ -4,14 +4,10 @@ footer{
     background-repeat: no-repeat;
     background-size: auto;
 }
-
-
-
 footer h2, footer p, footer a{
     color:var(--light);
     font-family: var(--font-serif);
     background:none;
-    font-size: 1.1em;
 }
 footer h2{
     font-size:1.8em !important;
