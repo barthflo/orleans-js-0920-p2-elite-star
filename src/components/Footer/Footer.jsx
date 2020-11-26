@@ -4,11 +4,12 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { HashLink as Link } from 'react-router-hash-link';
+
 function Footer() {
     return (
-        <footer className=" w-100 p-1  pb-md-2">
+        <footer className=" w-100 px-5 pb-md-2">
             <div className="d-flex flex-column flex-md-row align-items-center justify-content-md-around align-items-md-baseline">
-                <div className="ml-2 mb-5 d-md-flex align-items-baseline justify-content">
+                <div className="ml-2 mb-5 d-md-flex align-items-baseline">
                     <div className="Alderaan d-flex flex-column align-items-center align-items-md-start my-4 mx-md-5 w-md-50">
                         <h2>ALDERAAN</h2>
                         <a href="mailto:example.com"> elitestar@force.al</a>
