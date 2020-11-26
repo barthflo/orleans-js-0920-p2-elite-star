@@ -14,7 +14,7 @@ const FavouritesPage = () => {
                 <section className="w-100 d-flex flex-column justify-content-center align-items-center" 
                      style={{height:"80vh"}}
                 >
-                    <h3 className="mb-4">You haven't added any favourites yet!</h3>
+                    <h3 className="mb-4 text-center">You haven't added any favourites yet!</h3>
                     <Link to='/models' className="btn btn-dark">
                         <p className="text-uppercase mb-0">Browse The Models</p>
                     </Link>

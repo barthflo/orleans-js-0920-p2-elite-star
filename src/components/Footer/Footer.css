@@ -8,6 +8,7 @@ footer h2, footer p, footer a{
     color:var(--light);
     font-family: var(--font-serif);
     background:none;
+    font-size: 1.1em;
 }
 footer h2{
     font-size:1.8em !important;
@@ -32,7 +33,6 @@ footer .social-medias{
     font-size:1.5em;
     transition:.3s ease-in;
 }
-
 @media screen and (min-width : 768px){
     footer{
         margin-bottom:0;
