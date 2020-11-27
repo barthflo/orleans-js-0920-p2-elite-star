@@ -71,7 +71,7 @@ const App = () => {
     .then(res => res.filter(data => data.id !== 77))
     .then(res => res.map((item) => ({...item, isFavourite : false})))
     .then(res => setCharacters(res))
-    }
+    } // eslint-disable-next-line
   }, []);
 
   if (localStorage.getItem('characters') === null || localStorage.getItem('characters').length < 3){

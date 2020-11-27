@@ -4,11 +4,11 @@ import { useForm } from 'react-hook-form';
 import './AboutForm.css';
 import {Fade} from 'react-reveal';
 
-export default function AboutForm() {
-    const [firstName, setFirstName] = useState("");
-    const [secondName, setSecondName] = useState("");
-    const [email, setEmail] = useState("");
-    const [city, setCity] = useState("");
+export default function AboutForm() { // eslint-disable-next-line
+    const [firstName, setFirstName] = useState(""); // eslint-disable-next-line
+    const [secondName, setSecondName] = useState(""); // eslint-disable-next-line
+    const [email, setEmail] = useState(""); // eslint-disable-next-line
+    const [city, setCity] = useState(""); // eslint-disable-next-line
     const [message, setMessage] = useState("");
 
     const { register, handleSubmit, errors, formState } = useForm();
