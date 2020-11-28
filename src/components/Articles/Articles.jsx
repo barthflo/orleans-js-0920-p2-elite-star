@@ -1,11 +1,13 @@
 import React from 'react';
 import "./Articles.css";
 import {Slide} from 'react-reveal';
+import jedi from '../../assets/star-wars-8-nouvelles-images-4-247x300.jpg';
+import leia from '../../assets/star-wars-8-les-derniers-jedi-images-2-300x179@2x.jpg'
 
 
 function Articles() {
     const Jedi = {
-        image: "http://braindamaged.fr/wp-content/uploads/2017/09/star-wars-8-nouvelles-images-4-247x300.jpg",
+        image: jedi,
         name: "Jedi",
         pageTitle: "Jedi come back",
         cardTitle: "Find out what the French press thinks of Star Wars The Last Jedi, in theaters today.",
@@ -16,7 +18,7 @@ function Articles() {
     }
 
     const Empire = {
-        image: "http://braindamaged.fr/wp-content/uploads/2017/04/star-wars-8-les-derniers-jedi-images-2-300x179@2x.jpg",
+        image: leia,
         name: "Empire",
         pageTitle: "The Empire Strikes Back",
         cardTitle: "The Empire Strikes Back",
